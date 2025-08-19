@@ -326,7 +326,8 @@ namespace IBKRRealTimeMarketDataApp
             while (testImpl.NextOrderId <= 0) { }
 
             new Thread(() => {
-                RetrieveDailyBars(15);
+                // RetrieveDailyBars(15);
+                RetrieveDailyBars(15, -1, "5 secs");
 
                 // RetrieveDailyBars(3, 1, "5 secs", new List<string> { "AAPL" });
                 // RetrieveDailyBars(2);
