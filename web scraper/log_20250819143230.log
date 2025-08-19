@@ -1,0 +1,5 @@
+[2025-08-19 14:32:30.084745] :: args: C:\Users\ibkrtestdev\Documents\GitHub\IBKRTestDev\web scraper\scrape_yahoo_finance_options_chain_prices_.py
+[2025-08-19 14:32:30.085264] :: path: C:\Users\ibkrtestdev\Documents\GitHub\IBKRTestDev\web scraper\scrape_yahoo_finance_options_chain_prices_.py
+[2025-08-19 14:32:30.085402] :: directory: C:\Users\ibkrtestdev\Documents\GitHub\IBKRTestDev\web scraper
+[2025-08-19 14:32:30.085835] :: cwd: C:\Users\ibkrtestdev\Documents\GitHub\IBKRTestDev\web scraper
+[2025-08-19 14:32:33.948333] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1755820800&straddle=true

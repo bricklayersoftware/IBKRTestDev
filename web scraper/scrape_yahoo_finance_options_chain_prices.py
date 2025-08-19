@@ -104,6 +104,7 @@ service = Service(executable_path=exec_path)
 options = webdriver.ChromeOptions()
 options.add_argument("--ignore-certificate-errors")
 options.add_argument('--ignore-ssl-errors')
+options.page_load_strategy = 'none'  # or 'normal' or 'none'
 # options.add_argument("--headless")  # Example: Run Chrome in headless mode
 driver = webdriver.Chrome(service=service, options=options)
 
