@@ -1,0 +1,7 @@
+[2025-08-19 19:04:05.169240] :: args: C:\Users\ibkrtestdev\Documents\GitHub\IBKRTestDev\web scraper\scrape_yahoo_finance_options_chain_prices.py
+[2025-08-19 19:04:05.169614] :: path: C:\Users\ibkrtestdev\Documents\GitHub\IBKRTestDev\web scraper\scrape_yahoo_finance_options_chain_prices.py
+[2025-08-19 19:04:05.169847] :: directory: C:\Users\ibkrtestdev\Documents\GitHub\IBKRTestDev\web scraper
+[2025-08-19 19:04:05.171040] :: cwd: C:\Users\ibkrtestdev\Documents\GitHub\IBKRTestDev\web scraper
+[2025-08-19 19:04:28.515695] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1755820800&straddle=true
+[2025-08-19 19:04:29.957505] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-19 19:04:30.446153] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1755820800&straddle=true
