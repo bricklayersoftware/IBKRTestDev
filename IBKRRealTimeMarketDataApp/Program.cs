@@ -162,7 +162,7 @@ namespace IBKRRealTimeMarketDataApp
                 string symbol = symbols[i];
                 symbol = symbol.Trim().ToUpper();
 
-                Request stockreq = Request.GetStockRequestDailyBar(clientSocket, i, symbol, days, barlength, "OPT", );
+                // Request stockreq = Request.GetStockRequestDailyBar(clientSocket, i, symbol, days, barlength, "OPT", );
 
                 //Dictionary<string, (decimal high, decimal low)> dailybars = Helper.GetQQQDailyBars();
                 //Dictionary<(string, string), OptionsChain> optionschain = OptionsChainHelper.GetOptionsChain();
@@ -326,8 +326,7 @@ namespace IBKRRealTimeMarketDataApp
             while (testImpl.NextOrderId <= 0) { }
 
             new Thread(() => {
-                // RetrieveDailyBars(3, 1, "5 secs", new List<string> { "MSFT" });
-                RetrieveDailyBars(3, -1, "5 secs", new List<string> { "AMZN", "AVGO", "LIN", "META", "NVDA" });
+                RetrieveDailyBars(15);
 
                 // RetrieveDailyBars(3, 1, "5 secs", new List<string> { "AAPL" });
                 // RetrieveDailyBars(2);

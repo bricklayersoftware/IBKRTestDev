@@ -439,13 +439,12 @@ namespace IBKRRealTimeMarketDataApp
 
             IBApi.Contract contract = new IBApi.Contract();
 
-            if (sectype == "STK ")
+            if (sectype == "STK")
             {
-                contract.Symbol = "";
+                contract.Symbol = symbol;
                 contract.SecType = "STK";
                 contract.Currency = "USD";
                 contract.Exchange = "SMART";
-                contract.Symbol = symbol;
             } 
             else
             {

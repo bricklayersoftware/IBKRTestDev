@@ -115,6 +115,8 @@ def init_driver():
   options = webdriver.ChromeOptions()
   options.add_argument("--ignore-certificate-errors")
   options.add_argument('--ignore-ssl-errors')
+  
+  options.binary_location(value = u"C:\\ProgramFiles\\Google\\Chrome\\chrome.exe")
   options.page_load_strategy = 'none'  # or 'normal' or 'none'
   # options.add_argument("--headless")  # Example: Run Chrome in headless mode
   driver = webdriver.Chrome(service=service, options=options)
