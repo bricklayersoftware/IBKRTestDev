@@ -122,6 +122,7 @@ def init_driver():
 def navigate(url):
   log("navigating to: "+url)
   driver.get(url)
+  wait = WebDriverWait(driver, 10)
   log("title: "+driver.title)
   log("current_url: "+driver.current_url)
 
@@ -130,8 +131,9 @@ def extract_expirydates():
   elements = driver.find_elements(By.CLASS_NAME, "yf-12wq9rr")
 
   for elem in elements:
-    log(elem.tag_name + " " + elem.text)
+    log("tag_name: "+elem.tag_name + " text: " + elem.text)
     if ( elem.tag_name == "div" ):
+      wait = WebDriverWait(driver, 10)
       elem.click()
       break
 
