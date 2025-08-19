@@ -20,7 +20,7 @@
         ibkrtestdev
         gFSZz27gFSuxN@7
 
-        sql server
+        sql server  52.188.185.179,1433
         ibkrtestdev
         Michael101!
 
@@ -28,7 +28,7 @@
         to sign up
 
 
-        DropBox
+    DropBox
         ibkrtestdev2@outlook.com
         R%^.6EdSpF9xrn$
 
