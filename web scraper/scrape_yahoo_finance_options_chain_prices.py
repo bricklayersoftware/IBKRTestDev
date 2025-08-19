@@ -102,7 +102,7 @@ log(f"cwd: {os.getcwd()}")
 log_file = open(script_directory + "\\" + "log_"+fnametimestamp()+".log", "a")
 
 exec_path = script_directory+"\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"
-
+log('exec_path: '+exec_path)
 service = None
 options = None
 driver = None
