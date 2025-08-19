@@ -21,13 +21,23 @@ from selenium.webdriver.chrome.options import Options
 import sys
 from datetime import date, timezone
 import datetime as dtt
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 closedate = "20250815"
 
 now = dtt.datetime.now()
 loaddatetime = now.strftime("%Y%m%d%H%M%S")
 
+log_file = None # open(script_directory + "\\" + "log_"+timestamp+".log", "a")
+logmsgs=[]
+
 verbose=True
+
+script_path = os.path.abspath(__file__)
+script_directory = os.path.dirname(script_path)
+
 
 def timestamp():
   dt = dtt.datetime.now()
@@ -39,12 +49,9 @@ def fnametimestamp():
   formatted_with_microseconds = dt.strftime("%Y%m%d%H%M%S")
   return formatted_with_microseconds
 
-
-log_file = None # open(script_directory + "\\" + "log_"+timestamp+".log", "a")
-logmsgs=[]
-
 def log(msg):
   global logmsgs
+  global log_file
   if ( verbose ):
     outstr="["+timestamp() + "] :: " + msg
     logmsgs.append(outstr)
@@ -85,10 +92,6 @@ def is_blank_or_none(s):
     return s is None or (isinstance(s, str) and not s.strip())
 
 log("args: " + ", ".join(sys.argv))
-
-script_path = os.path.abspath(__file__)
-script_directory = os.path.dirname(script_path)
-
 log(f"path: {script_path}")
 log(f"directory: {script_directory}")
 
@@ -100,14 +103,21 @@ log_file = open(script_directory + "\\" + "log_"+fnametimestamp()+".log", "a")
 
 exec_path = script_directory+"\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"
 
-service = Service(executable_path=exec_path)
-options = webdriver.ChromeOptions()
-options.add_argument("--ignore-certificate-errors")
-options.add_argument('--ignore-ssl-errors')
-options.page_load_strategy = 'none'  # or 'normal' or 'none'
-# options.add_argument("--headless")  # Example: Run Chrome in headless mode
-driver = webdriver.Chrome(service=service, options=options)
+service = None
+options = None
+driver = None
 
+def init_driver():
+  global service
+  global options
+  global driver
+  service = Service(executable_path=exec_path)
+  options = webdriver.ChromeOptions()
+  options.add_argument("--ignore-certificate-errors")
+  options.add_argument('--ignore-ssl-errors')
+  options.page_load_strategy = 'none'  # or 'normal' or 'none'
+  # options.add_argument("--headless")  # Example: Run Chrome in headless mode
+  driver = webdriver.Chrome(service=service, options=options)
 
 def navigate(url):
   log("navigating to: "+url)
@@ -224,6 +234,9 @@ def print_record(data):
     f.write(callprice+"\n")
     f.write(putprice+"\n")
 
+init_driver()
+
+wait = WebDriverWait(driver, 10) # Wait up to 10 seconds
 
 symbols = [ "NVDA", "MSFT", "AAPL", "AMZN", "AVGO", "META", "NFLX", "TSLA", "GOOGL", "COST", "GOOG", "PLTR", "CSCO", "TMUS", "AMD", "LIN", "INTU", "TXN", "PEP" ]
 epochdate = "1755820800" # Aug 22, 2025
