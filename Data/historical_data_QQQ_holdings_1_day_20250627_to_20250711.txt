@@ -1,0 +1,311 @@
+Next Valid Id: 8
+Account list: U5065515
+Error. Id: -1, Code: 2104, Msg: Market data farm connection is OK:usfarm
+
+Error. Id: -1, Code: 2106, Msg: HMDS data farm connection is OK:ushmds
+
+Error. Id: -1, Code: 2158, Msg: Sec-def data farm connection is OK:secdefil
+
+RetrieveMarketData
+pulse
+GetQQQDailyBars :: datestr :: [20250708]
+dailybars: 14
+symbols: AAPL, AMZN, AVGO, CSCO, GOOG, GOOGL, META, MSFT, NFLX, NVDA, PLTR, QQQ, TMUS, TSLA
+RetrieveMarketData :: processing symbol AAPL index: 0
+symbol: AAPL high: 211.43 low: 208.45 ilow: 207 ihigh: 212
+symbol: AAPL expiry date:  20250718
+index: 2134900737 symbol: AAPL snapshot ts: 20250711170726
+index: 2131755009 symbol: AAPL strike: 207.5 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132803585 symbol: AAPL strike: 207.5 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131755010 symbol: AAPL strike: 210 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132803586 symbol: AAPL strike: 210 expiry:  20250718 type: C snapshot ts: 20250711170726
+RetrieveMarketData :: processing symbol AMZN index: 1
+symbol: AMZN high: 224.00 low: 218.43 ilow: 217 ihigh: 225
+symbol: AMZN expiry date:  20250718
+index: 2134900738 symbol: AMZN snapshot ts: 20250711170726
+index: 2131755265 symbol: AMZN strike: 217.5 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132803841 symbol: AMZN strike: 217.5 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131755266 symbol: AMZN strike: 220 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132803842 symbol: AMZN strike: 220 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131755267 symbol: AMZN strike: 222.5 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132803843 symbol: AMZN strike: 222.5 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131755268 symbol: AMZN strike: 225 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132803844 symbol: AMZN strike: 225 expiry:  20250718 type: C snapshot ts: 20250711170726
+RetrieveMarketData :: processing symbol AVGO index: 2
+symbol: AVGO high: 276.51 low: 272.55 ilow: 271 ihigh: 277
+symbol: AVGO expiry date:  20250718
+index: 2134900739 symbol: AVGO snapshot ts: 20250711170726
+index: 2131755521 symbol: AVGO strike: 272.5 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132804097 symbol: AVGO strike: 272.5 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131755522 symbol: AVGO strike: 275 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132804098 symbol: AVGO strike: 275 expiry:  20250718 type: C snapshot ts: 20250711170726
+RetrieveMarketData :: processing symbol CSCO index: 3
+symbol: CSCO high: 68.92 low: 68.35 ilow: 67 ihigh: 69
+symbol: CSCO expiry date:  20250718
+index: 2134900740 symbol: CSCO snapshot ts: 20250711170726
+index: 2131755777 symbol: CSCO strike: 67 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132804353 symbol: CSCO strike: 67 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131755778 symbol: CSCO strike: 67.5 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132804354 symbol: CSCO strike: 67.5 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131755779 symbol: CSCO strike: 68 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132804355 symbol: CSCO strike: 68 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131755780 symbol: CSCO strike: 69 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132804356 symbol: CSCO strike: 69 expiry:  20250718 type: C snapshot ts: 20250711170726
+RetrieveMarketData :: processing symbol GOOG index: 4
+symbol: GOOG high: 178.80 low: 173.92 ilow: 172 ihigh: 179
+symbol: GOOG expiry date:  20250718
+index: 2134900741 symbol: GOOG snapshot ts: 20250711170726
+index: 2131756033 symbol: GOOG strike: 172.5 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132804609 symbol: GOOG strike: 172.5 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131756034 symbol: GOOG strike: 175 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132804610 symbol: GOOG strike: 175 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131756035 symbol: GOOG strike: 177.5 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132804611 symbol: GOOG strike: 177.5 expiry:  20250718 type: C snapshot ts: 20250711170726
+RetrieveMarketData :: processing symbol GOOGL index: 5
+symbol: GOOGL high: 177.95 low: 172.81 ilow: 171 ihigh: 178
+symbol: GOOGL expiry date:  20250718
+index: 2134900742 symbol: GOOGL snapshot ts: 20250711170726
+index: 2131756289 symbol: GOOGL strike: 172.5 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132804865 symbol: GOOGL strike: 172.5 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131756290 symbol: GOOGL strike: 175 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132804866 symbol: GOOGL strike: 175 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131756291 symbol: GOOGL strike: 177.5 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132804867 symbol: GOOGL strike: 177.5 expiry:  20250718 type: C snapshot ts: 20250711170726
+RetrieveMarketData :: processing symbol META index: 6
+symbol: META high: 722.91 low: 714.81 ilow: 713 ihigh: 723
+symbol: META expiry date:  20250718
+index: 2134900743 symbol: META snapshot ts: 20250711170726
+HistoricalData. 2134900737 - Time: 20250627, Open: 201.92, High: 203.22, Low: 200, Close: 201.08, Volume: 327057.04, Count: 175456, WAP: 201.675
+HistoricalData. 2134900737 - Time: 20250630, Open: 201.99, High: 207.39, Low: 199.26, Close: 205.17, Volume: 541026.91, Count: 269267, WAP: 202.954
+HistoricalData. 2134900737 - Time: 20250701, Open: 206.72, High: 210.19, Low: 206.14, Close: 207.82, Volume: 516704.13, Count: 281984, WAP: 208.22
+HistoricalData. 2134900737 - Time: 20250702, Open: 208.99, High: 213.34, Low: 208.14, Close: 212.44, Volume: 477097.93, Count: 244406, WAP: 211.723
+HistoricalData. 2134900737 - Time: 20250703, Open: 212.07, High: 214.65, Low: 211.81, Close: 213.55, Volume: 219136.71, Count: 113163, WAP: 213.621
+HistoricalData. 2134900737 - Time: 20250707, Open: 212.72, High: 216.23, Low: 208.8, Close: 209.95, Volume: 305976.25, Count: 166410, WAP: 211.398
+HistoricalData. 2134900737 - Time: 20250708, Open: 210.1, High: 211.43, Low: 208.45, Close: 210.01, Volume: 246164.07, Count: 132108, WAP: 209.889
+HistoricalData. 2134900737 - Time: 20250709, Open: 209.53, High: 211.33, Low: 207.22, Close: 211.14, Volume: 306232.45, Count: 160231, WAP: 209.214
+HistoricalData. 2134900737 - Time: 20250710, Open: 210.44, High: 213.48, Low: 210.03, Close: 212.41, Volume: 283827.34, Count: 150287, WAP: 212.239
+HistoricalData. 2134900737 - Time: 20250711, Open: 210.43, High: 212.13, Low: 209.86, Close: 211.16, Volume: 215548.75, Count: 113627, WAP: 210.973
+HistoricalDataEnd - 2134900737 from 20250701 17:15:26 America/New_York to 20250711 17:15:26 America/New_York
+index: 2131756545 symbol: META strike: 715 expiry:  20250718 type: P snapshot ts: 20250711170726
+index: 2132805121 symbol: META strike: 715 expiry:  20250718 type: C snapshot ts: 20250711170726
+index: 2131756546 symbol: META strike: 717.5 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805122 symbol: META strike: 717.5 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131756547 symbol: META strike: 720 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805123 symbol: META strike: 720 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131756548 symbol: META strike: 722.5 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805124 symbol: META strike: 722.5 expiry:  20250718 type: C snapshot ts: 20250711170727
+RetrieveMarketData :: processing symbol MSFT index: 7
+symbol: MSFT high: 498.20 low: 494.11 ilow: 493 ihigh: 499
+symbol: MSFT expiry date:  20250718
+index: 2134900744 symbol: MSFT snapshot ts: 20250711170727
+index: 2131756801 symbol: MSFT strike: 495 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805377 symbol: MSFT strike: 495 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131756802 symbol: MSFT strike: 497.5 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805378 symbol: MSFT strike: 497.5 expiry:  20250718 type: C snapshot ts: 20250711170727
+RetrieveMarketData :: processing symbol NFLX index: 8
+symbol: NFLX high: 1293.25 low: 1260.00 ilow: 1259 ihigh: 1294
+symbol: NFLX expiry date:  20250718
+index: 2134900745 symbol: NFLX snapshot ts: 20250711170727
+index: 2131757057 symbol: NFLX strike: 1260 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805633 symbol: NFLX strike: 1260 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757058 symbol: NFLX strike: 1265 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805634 symbol: NFLX strike: 1265 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757059 symbol: NFLX strike: 1270 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805635 symbol: NFLX strike: 1270 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757060 symbol: NFLX strike: 1272.5 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805636 symbol: NFLX strike: 1272.5 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757061 symbol: NFLX strike: 1275 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805637 symbol: NFLX strike: 1275 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757062 symbol: NFLX strike: 1277.5 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805638 symbol: NFLX strike: 1277.5 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757063 symbol: NFLX strike: 1280 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805639 symbol: NFLX strike: 1280 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757064 symbol: NFLX strike: 1282.5 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805640 symbol: NFLX strike: 1282.5 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757065 symbol: NFLX strike: 1285 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805641 symbol: NFLX strike: 1285 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757066 symbol: NFLX strike: 1287.5 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805642 symbol: NFLX strike: 1287.5 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757067 symbol: NFLX strike: 1290 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805643 symbol: NFLX strike: 1290 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757068 symbol: NFLX strike: 1292.5 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805644 symbol: NFLX strike: 1292.5 expiry:  20250718 type: C snapshot ts: 20250711170727
+RetrieveMarketData :: processing symbol NVDA index: 9
+symbol: NVDA high: 159.74 low: 158.39 ilow: 157 ihigh: 160
+symbol: NVDA expiry date:  20250718
+index: 2134900746 symbol: NVDA snapshot ts: 20250711170727
+index: 2131757313 symbol: NVDA strike: 157.5 expiry:  20250718 type: P snapshot ts: 20250711170727
+HistoricalData. 2134900738 - Time: 20250627, Open: 219.99, High: 223.3, Low: 216.74, Close: 223.3, Volume: 440863.23, Count: 223837, WAP: 220.363
+HistoricalData. 2134900738 - Time: 20250630, Open: 223.35, High: 223.82, Low: 219.12, Close: 219.39, Volume: 319620.31, Count: 170648, WAP: 220.999
+HistoricalData. 2134900738 - Time: 20250701, Open: 219.5, High: 221.88, Low: 217.93, Close: 220.46, Volume: 236822.12, Count: 131284, WAP: 220.075
+HistoricalData. 2134900738 - Time: 20250702, Open: 219.65, High: 221.6, Low: 219.06, Close: 219.92, Volume: 178460.06, Count: 99250, WAP: 220.257
+HistoricalData. 2134900738 - Time: 20250703, Open: 221.82, High: 224.01, Low: 221.36, Close: 223.41, Volume: 188576.02, Count: 94388, WAP: 222.845
+HistoricalData. 2134900738 - Time: 20250707, Open: 223.07, High: 224.29, Low: 222.37, Close: 223.47, Volume: 225609.34, Count: 125118, WAP: 223.413
+HistoricalData. 2134900738 - Time: 20250708, Open: 223.87, High: 224, Low: 218.43, Close: 219.36, Volume: 293639.35, Count: 160629, WAP: 220.613
+HistoricalData. 2134900738 - Time: 20250709, Open: 221.04, High: 224.29, Low: 220.47, Close: 222.54, Volume: 245765.5, Count: 131862, WAP: 222.499
+HistoricalData. 2134900738 - Time: 20250710, Open: 221.53, High: 222.79, Low: 219.7, Close: 222.26, Volume: 185637.73, Count: 101285, WAP: 221.567
+HistoricalData. 2134900738 - Time: 20250711, Open: 223.58, High: 226.68, Low: 222.37, Close: 225.02, Volume: 352354.26, Count: 200036, WAP: 224.914
+HistoricalDataEnd - 2134900738 from 20250701 17:15:26 America/New_York to 20250711 17:15:26 America/New_York
+HistoricalData. 2134900739 - Time: 20250627, Open: 270.32, High: 271.85, Low: 266.88, Close: 269.35, Volume: 93644.85, Count: 57437, WAP: 269.765
+HistoricalData. 2134900739 - Time: 20250630, Open: 274.63, High: 277.71, Low: 272.13, Close: 275.65, Volume: 112269.2, Count: 64087, WAP: 274.783
+index: 2132805889 symbol: NVDA strike: 157.5 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757314 symbol: NVDA strike: 158 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805890 symbol: NVDA strike: 158 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757315 symbol: NVDA strike: 160 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132805891 symbol: NVDA strike: 160 expiry:  20250718 type: C snapshot ts: 20250711170727
+RetrieveMarketData :: processing symbol PLTR index: 10
+symbol: PLTR high: 139.10 low: 135.79 ilow: 134 ihigh: 140
+symbol: PLTR expiry date:  20250718
+index: 2134900747 symbol: PLTR snapshot ts: 20250711170727
+HistoricalData. 2134900739 - Time: 20250701, Open: 274.31, High: 274.5, Low: 262.65, Close: 264.74, Volume: 140624.13, Count: 81607, WAP: 266.693
+HistoricalData. 2134900739 - Time: 20250702, Open: 263.77, High: 272, Low: 262.73, Close: 269.9, Volume: 85726.16, Count: 48186, WAP: 268.643
+HistoricalData. 2134900739 - Time: 20250703, Open: 270.71, High: 275.8, Low: 270.12, Close: 275.18, Volume: 50192.96, Count: 27913, WAP: 273.902
+HistoricalData. 2134900739 - Time: 20250707, Open: 275.13, High: 277.56, Low: 272.66, Close: 274.18, Volume: 81102.97, Count: 47831, WAP: 275.432
+HistoricalData. 2134900739 - Time: 20250708, Open: 276.51, High: 276.51, Low: 271.15, Close: 271.8, Volume: 74463.72, Count: 45133, WAP: 273.74
+HistoricalData. 2134900739 - Time: 20250709, Open: 273.2, High: 279.45, Low: 272.72, Close: 277.9, Volume: 100071.91, Count: 58680, WAP: 276.918
+HistoricalData. 2134900739 - Time: 20250710, Open: 279.83, High: 281.18, Low: 272.7, Close: 275.4, Volume: 81495.7, Count: 49283, WAP: 275.461
+index: 2131757569 symbol: PLTR strike: 134 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806145 symbol: PLTR strike: 134 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757570 symbol: PLTR strike: 135 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806146 symbol: PLTR strike: 135 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757571 symbol: PLTR strike: 136 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806147 symbol: PLTR strike: 136 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757572 symbol: PLTR strike: 137 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806148 symbol: PLTR strike: 137 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757573 symbol: PLTR strike: 138 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806149 symbol: PLTR strike: 138 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757574 symbol: PLTR strike: 139 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806150 symbol: PLTR strike: 139 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131757575 symbol: PLTR strike: 140 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806151 symbol: PLTR strike: 140 expiry:  20250718 type: C snapshot ts: 20250711170727
+RetrieveMarketData :: processing symbol QQQ index: 11
+symbol: QQQ high: 553.55 low: 551.10 ilow: 550 ihigh: 554
+symbol: QQQ expiry date:  20250714
+index: 2134900748 symbol: QQQ snapshot ts: 20250711170727
+index: 2131757825 symbol: QQQ strike: 550 expiry:  20250714 type: P snapshot ts: 20250711170727
+index: 2132806401 symbol: QQQ strike: 550 expiry:  20250714 type: C snapshot ts: 20250711170727
+index: 2131757826 symbol: QQQ strike: 551 expiry:  20250714 type: P snapshot ts: 20250711170727
+index: 2132806402 symbol: QQQ strike: 551 expiry:  20250714 type: C snapshot ts: 20250711170727
+index: 2131757827 symbol: QQQ strike: 552 expiry:  20250714 type: P snapshot ts: 20250711170727
+index: 2132806403 symbol: QQQ strike: 552 expiry:  20250714 type: C snapshot ts: 20250711170727
+index: 2131757828 symbol: QQQ strike: 552.5 expiry:  20250714 type: P snapshot ts: 20250711170727
+index: 2132806404 symbol: QQQ strike: 552.5 expiry:  20250714 type: C snapshot ts: 20250711170727
+index: 2131757829 symbol: QQQ strike: 553 expiry:  20250714 type: P snapshot ts: 20250711170727
+HistoricalData. 2134900739 - Time: 20250711, Open: 274.14, High: 276.47, Low: 271.89, Close: 274.38, Volume: 77496.98, Count: 47487, WAP: 274.196
+HistoricalDataEnd - 2134900739 from 20250701 17:15:26 America/New_York to 20250711 17:15:26 America/New_York
+HistoricalData. 2134900740 - Time: 20250627, Open: 68.87, High: 69.22, Low: 68.34, Close: 68.65, Volume: 127331.08, Count: 56514, WAP: 68.811
+HistoricalData. 2134900740 - Time: 20250630, Open: 68.84, High: 69.78, Low: 68.75, Close: 69.38, Volume: 117474.09, Count: 53783, WAP: 69.192
+HistoricalData. 2134900740 - Time: 20250701, Open: 69.38, High: 69.55, Low: 68.63, Close: 69.1, Volume: 118480.75, Count: 67070, WAP: 69.029
+HistoricalData. 2134900740 - Time: 20250702, Open: 68.7, High: 68.94, Low: 68.17, Close: 68.59, Volume: 100267.8, Count: 55417, WAP: 68.51
+HistoricalData. 2134900740 - Time: 20250703, Open: 68.18, High: 69.47, Low: 68.18, Close: 69.37, Volume: 81639.99, Count: 40629, WAP: 69.126
+HistoricalData. 2134900740 - Time: 20250707, Open: 69.08, High: 69.3, Low: 68.6, Close: 68.93, Volume: 76093.23, Count: 42161, WAP: 68.933
+HistoricalData. 2134900740 - Time: 20250708, Open: 68.8, High: 68.92, Low: 68.35, Close: 68.59, Volume: 69562.28, Count: 36106, WAP: 68.634
+HistoricalData. 2134900740 - Time: 20250709, Open: 68.56, High: 69.32, Low: 68.31, Close: 69.27, Volume: 92804.6, Count: 45282, WAP: 68.94
+HistoricalData. 2134900740 - Time: 20250710, Open: 69.22, High: 69.39, Low: 68.56, Close: 68.76, Volume: 75564.58, Count: 39567, WAP: 68.878
+HistoricalData. 2134900740 - Time: 20250711, Open: 68.34, High: 68.5, Low: 67.68, Close: 67.95, Volume: 95257.07, Count: 46913, WAP: 68.037
+HistoricalDataEnd - 2134900740 from 20250701 17:15:26 America/New_York to 20250711 17:15:26 America/New_York
+HistoricalData. 2134900741 - Time: 20250627, Open: 174.63, High: 178.84, Low: 172.71, Close: 178.27, Volume: 239170.28, Count: 148176, WAP: 175.436
+HistoricalData. 2134900741 - Time: 20250630, Open: 180.78, High: 181.58, Low: 175.5, Close: 177.39, Volume: 237355.56, Count: 148373, WAP: 177.967
+HistoricalData. 2134900741 - Time: 20250701, Open: 176.82, High: 177.22, Low: 174.66, Close: 176.91, Volume: 137479.36, Count: 88836, WAP: 176.124
+HistoricalData. 2134900741 - Time: 20250702, Open: 176.55, High: 179.94, Low: 176.09, Close: 179.76, Volume: 111121.53, Count: 70769, WAP: 178.569
+index: 2132806405 symbol: QQQ strike: 553 expiry:  20250714 type: C snapshot ts: 20250711170727
+index: 2131757830 symbol: QQQ strike: 554 expiry:  20250714 type: P snapshot ts: 20250711170727
+index: 2132806406 symbol: QQQ strike: 554 expiry:  20250714 type: C snapshot ts: 20250711170727
+RetrieveMarketData :: processing symbol TMUS index: 12
+symbol: TMUS high: 236.59 low: 233.61 ilow: 232 ihigh: 237
+symbol: TMUS expiry date:  20250718
+index: 2134900749 symbol: TMUS snapshot ts: 20250711170727
+index: 2131758081 symbol: TMUS strike: 232.5 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806657 symbol: TMUS strike: 232.5 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131758082 symbol: TMUS strike: 235 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806658 symbol: TMUS strike: 235 expiry:  20250718 type: C snapshot ts: 20250711170727
+RetrieveMarketData :: processing symbol TSLA index: 13
+symbol: TSLA high: 304.05 low: 295.64 ilow: 294 ihigh: 305
+HistoricalData. 2134900741 - Time: 20250703, Open: 179.82, High: 180.77, Low: 178.19, Close: 180.55, Volume: 76780.74, Count: 45121, WAP: 179.746
+HistoricalData. 2134900741 - Time: 20250707, Open: 180.14, High: 180.34, Low: 176.64, Close: 177.56, Volume: 132600.72, Count: 76996, WAP: 178.076
+HistoricalData. 2134900741 - Time: 20250708, Open: 178.75, High: 178.8, Low: 173.92, Close: 175.16, Volume: 151006.81, Count: 93806, WAP: 175.639
+HistoricalData. 2134900741 - Time: 20250709, Open: 176.12, High: 180.28, Low: 173.88, Close: 177.66, Volume: 196401.19, Count: 121885, WAP: 177.645
+HistoricalData. 2134900741 - Time: 20250710, Open: 176.73, High: 179.59, Low: 175.74, Close: 178.7, Volume: 135683.7, Count: 87159, WAP: 177.729
+HistoricalData. 2134900741 - Time: 20250711, Open: 177.79, High: 182.61, Low: 177.54, Close: 181.31, Volume: 145814.23, Count: 90324, WAP: 180.46
+HistoricalDataEnd - 2134900741 from 20250701 17:15:26 America/New_York to 20250711 17:15:26 America/New_York
+HistoricalData. 2134900742 - Time: 20250627, Open: 173.54, High: 178.68, Low: 171.73, Close: 178.53, Volume: 407393.52, Count: 229354, WAP: 175.192
+HistoricalData. 2134900742 - Time: 20250630, Open: 180.7, High: 181.23, Low: 174.58, Close: 176.23, Volume: 353653.48, Count: 215492, WAP: 177.212
+HistoricalData. 2134900742 - Time: 20250701, Open: 175.74, High: 176.09, Low: 173.53, Close: 175.84, Volume: 187115.89, Count: 120010, WAP: 175.032
+HistoricalData. 2134900742 - Time: 20250702, Open: 175.54, High: 178.86, Low: 175.07, Close: 178.64, Volume: 167097.12, Count: 98884, WAP: 177.549
+HistoricalData. 2134900742 - Time: 20250703, Open: 178.73, High: 179.67, Low: 177.05, Close: 179.53, Volume: 131845.86, Count: 76425, WAP: 178.672
+HistoricalData. 2134900742 - Time: 20250707, Open: 179.06, High: 179.3, Low: 175.68, Close: 176.79, Volume: 178477.2, Count: 108957, WAP: 177.037
+HistoricalData. 2134900742 - Time: 20250708, Open: 177.85, High: 177.95, Low: 172.81, Close: 174.36, Volume: 231798.25, Count: 138643, WAP: 174.617
+HistoricalData. 2134900742 - Time: 20250709, Open: 175.25, High: 179.44, Low: 172.77, Close: 176.62, Volume: 284914.83, Count: 159573, WAP: 176.668
+HistoricalData. 2134900742 - Time: 20250710, Open: 175.6, High: 178.43, Low: 174.38, Close: 177.62, Volume: 173876.08, Count: 103673, WAP: 176.547
+symbol: TSLA expiry date:  20250718
+index: 2134900750 symbol: TSLA snapshot ts: 20250711170727
+index: 2131758337 symbol: TSLA strike: 295 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806913 symbol: TSLA strike: 295 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131758338 symbol: TSLA strike: 297.5 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806914 symbol: TSLA strike: 297.5 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131758339 symbol: TSLA strike: 300 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806915 symbol: TSLA strike: 300 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131758340 symbol: TSLA strike: 302.5 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806916 symbol: TSLA strike: 302.5 expiry:  20250718 type: C snapshot ts: 20250711170727
+index: 2131758341 symbol: TSLA strike: 305 expiry:  20250718 type: P snapshot ts: 20250711170727
+index: 2132806917 symbol: TSLA strike: 305 expiry:  20250718 type: C snapshot ts: 20250711170727
+HistoricalData. 2134900742 - Time: 20250711, Open: 176.73, High: 181.43, Low: 176.48, Close: 180.19, Volume: 204298.88, Count: 114349, WAP: 179.434
+HistoricalDataEnd - 2134900742 from 20250701 17:15:26 America/New_York to 20250711 17:15:26 America/New_York
+HistoricalData. 2134900743 - Time: 20250627, Open: 726.51, High: 735.43, Low: 725.86, Close: 733.63, Volume: 62558.19, Count: 38427, WAP: 730.745
+HistoricalData. 2134900743 - Time: 20250630, Open: 744.55, High: 747.9, Low: 734.25, Close: 738.09, Volume: 57636.12, Count: 34007, WAP: 740.821
+HistoricalData. 2134900743 - Time: 20250701, Open: 736.88, High: 737.75, Low: 715.37, Close: 719.22, Volume: 63370.92, Count: 42440, WAP: 723.733
+HistoricalData. 2134900743 - Time: 20250702, Open: 715.33, High: 720.3, Low: 712.8, Close: 713.57, Volume: 42878.79, Count: 26906, WAP: 716.539
+HistoricalData. 2134900743 - Time: 20250703, Open: 726.53, High: 729.03, Low: 714.42, Close: 719.01, Volume: 40869.94, Count: 25554, WAP: 720.829
+HistoricalData. 2134900743 - Time: 20250707, Open: 717.6, High: 727, Low: 713.51, Close: 718.35, Volume: 35650.51, Count: 22028, WAP: 721.855
+HistoricalData. 2134900743 - Time: 20250708, Open: 721.99, High: 722.91, Low: 714.81, Close: 720.67, Volume: 32791.94, Count: 21264, WAP: 719.151
+HistoricalData. 2134900743 - Time: 20250709, Open: 722.72, High: 737.53, Low: 722.71, Close: 732.78, Volume: 60009.59, Count: 39380, WAP: 732.915
+HistoricalData. 2134900743 - Time: 20250710, Open: 731.55, High: 735.8, Low: 719.6, Close: 727.24, Volume: 41961.45, Count: 26883, WAP: 725.662
+HistoricalData. 2134900743 - Time: 20250711, Open: 722.25, High: 725.16, Low: 709.7, Close: 717.51, Volume: 53837.71, Count: 33897, WAP: 716.763
+HistoricalDataEnd - 2134900743 from 20250701 17:15:26 America/New_York to 20250711 17:15:26 America/New_York
+HistoricalData. 2134900744 - Time: 20250627, Open: 497.54, High: 499.3, Low: 493.03, Close: 495.94, Volume: 97154.68, Count: 58154, WAP: 496.908
+HistoricalData. 2134900744 - Time: 20250630, Open: 497.15, High: 500.76, Low: 495.33, Close: 497.41, Volume: 87892.04, Count: 55456, WAP: 497.828
+HistoricalData. 2134900744 - Time: 20250701, Open: 496.49, High: 498.05, Low: 490.98, Close: 492.05, Volume: 83801.05, Count: 57060, WAP: 494.003
+HistoricalData. 2134900744 - Time: 20250702, Open: 489.99, High: 493.5, Low: 488.7, Close: 491.09, Volume: 70935.67, Count: 47703, WAP: 491.075
+HistoricalData. 2134900744 - Time: 20250703, Open: 493.81, High: 500.01, Low: 493.44, Close: 498.84, Volume: 60002.07, Count: 38991, WAP: 497.899
+HistoricalData. 2134900744 - Time: 20250707, Open: 497.54, High: 498.75, Low: 495.22, Close: 497.72, Volume: 56080.86, Count: 35646, WAP: 497.253
+HistoricalData. 2134900744 - Time: 20250708, Open: 497.24, High: 498.2, Low: 494.11, Close: 496.62, Volume: 46172.72, Count: 28999, WAP: 496.092
+HistoricalData. 2134900744 - Time: 20250709, Open: 500.42, High: 506.78, Low: 499.74, Close: 503.51, Volume: 91200.17, Count: 57773, WAP: 502.6
+HistoricalData. 2134900744 - Time: 20250710, Open: 503.05, High: 504.44, Low: 497.75, Close: 501.48, Volume: 66738.91, Count: 43625, WAP: 500.731
+HistoricalData. 2134900744 - Time: 20250711, Open: 498, High: 505.03, Low: 497.78, Close: 503.32, Volume: 62834.5, Count: 38379, WAP: 502.576
+HistoricalDataEnd - 2134900744 from 20250701 17:15:26 America/New_York to 20250711 17:15:26 America/New_York
+HistoricalData. 2134900745 - Time: 20250627, Open: 1306.88, High: 1331.35, Low: 1301, Close: 1323.12, Volume: 11430.6, Count: 7371, WAP: 1319.958
+HistoricalData. 2134900745 - Time: 20250630, Open: 1332.53, High: 1341.15, Low: 1321.21, Close: 1339.13, Volume: 9250.94, Count: 5794, WAP: 1332.866
+HistoricalData. 2134900745 - Time: 20250701, Open: 1338.23, High: 1338.78, Low: 1282.22, Close: 1293.6, Volume: 19188.51, Count: 13572, WAP: 1302.647
+HistoricalData. 2134900745 - Time: 20250702, Open: 1296.96, High: 1299.95, Low: 1271.59, Close: 1284.86, Volume: 11425.17, Count: 7326, WAP: 1283.265
+HistoricalData. 2134900745 - Time: 20250703, Open: 1290.93, High: 1302.26, Low: 1279.76, Close: 1297.18, Volume: 6116.37, Count: 3910, WAP: 1294.248
+HistoricalData. 2134900745 - Time: 20250707, Open: 1295, High: 1295, Low: 1276.02, Close: 1289.62, Volume: 7307.48, Count: 4896, WAP: 1286.743
+HistoricalData. 2134900745 - Time: 20250708, Open: 1291.67, High: 1293.25, Low: 1260, Close: 1275.31, Volume: 10812.65, Count: 7313, WAP: 1273.187
+HistoricalData. 2134900745 - Time: 20250709, Open: 1273.99, High: 1288.29, Low: 1266.24, Close: 1288.28, Volume: 8890.84, Count: 6149, WAP: 1279.46
+HistoricalData. 2134900745 - Time: 20250710, Open: 1285.34, High: 1289.6, Low: 1246.01, Close: 1250.59, Volume: 19074.84, Count: 12501, WAP: 1256.793
+HistoricalData. 2134900745 - Time: 20250711, Open: 1259.79, High: 1261, Low: 1231.3, Close: 1245.11, Volume: 17013.52, Count: 11116, WAP: 1243.119
+HistoricalDataEnd - 2134900745 from 20250701 17:15:26 America/New_York to 20250711 17:15:26 America/New_York
+HistoricalData. 2134900746 - Time: 20250627, Open: 156.04, High: 158.71, Low: 155.25, Close: 157.75, Volume: 1544904.56, Count: 588075, WAP: 157.023
+HistoricalData. 2134900746 - Time: 20250630, Open: 158.41, High: 158.66, Low: 155.97, Close: 157.99, Volume: 1155689.72, Count: 424103, WAP: 157.519
+HistoricalData. 2134900746 - Time: 20250701, Open: 156.26, High: 157.2, Low: 151.49, Close: 153.3, Volume: 1555267.15, Count: 611507, WAP: 153.974
+HistoricalData. 2134900746 - Time: 20250702, Open: 152.97, High: 157.6, Low: 152.95, Close: 157.25, Volume: 1210466.83, Count: 445122, WAP: 156.315
+HistoricalData. 2134900746 - Time: 20250703, Open: 158.37, High: 160.98, Low: 157.77, Close: 159.34, Volume: 978757.55, Count: 352567, WAP: 159.424
+HistoricalData. 2134900746 - Time: 20250707, Open: 158.2, High: 159.31, Low: 157.34, Close: 158.24, Volume: 965829.8, Count: 370706, WAP: 158.329
+HistoricalData. 2134900746 - Time: 20250708, Open: 159.34, High: 160.22, Low: 158.39, Close: 160, Volume: 969263.02, Count: 383083, WAP: 159.38
+HistoricalData. 2134900746 - Time: 20250709, Open: 161.23, High: 164.42, Low: 161.16, Close: 162.88, Volume: 1256761.77, Count: 466458, WAP: 163.155
+HistoricalData. 2134900746 - Time: 20250710, Open: 164.33, High: 164.5, Low: 161.61, Close: 164.1, Volume: 1192587.67, Count: 468349, WAP: 163.278
+HistoricalData. 2134900746 - Time: 20250711, Open: 163.73, High: 167.89, Low: 163.47, Close: 164.92, Volume: 1453822.76, Count: 537149, WAP: 166.104
+HistoricalDataEnd - 2134900746 from 20250701 17:15:26 America/New_York to 20250711 17:15:26 America/New_York
+HistoricalData. 2134900747 - Time: 20250627, Open: 144.87, High: 144.97, Low: 130.54, Close: 130.74, Volume: 1000162.21, Count: 459566, WAP: 137.553
+HistoricalData. 2134900747 - Time: 20250630, Open: 137.83, High: 138.88, Low: 134.8, Close: 136.32, Volume: 681110.23, Count: 286724, WAP: 137.19
+HistoricalData. 2134900747 - Time: 20250701, Open: 135.3, High: 136.32, Low: 128.51, Close: 130.68, Volume: 684171.14, Count: 296308, WAP: 130.809
+HistoricalData. 2134900747 - Time: 20250702, Open: 131.43, High: 133.6, Low: 130.19, Close: 132.12, Volume: 436664.76, Count: 181963, WAP: 132.042
+HistoricalData. 2134900747 - Time: 20250703, Open: 134.34, High: 135.62, Low: 132.51, Close: 134.36, Volume: 291144.39, Count: 119730, WAP: 134.332
+HistoricalData. 2134900747 - Time: 20250707, Open: 134.41, High: 139.29, Low: 132.32, Close: 139.12, Volume: 556937.14, Count: 205128, WAP: 136.994
+HistoricalData. 2134900747 - Time: 20250708, Open: 138.79, High: 139.86, Low: 135.79, Close: 139.71, Volume: 462068.91, Count: 183044, WAP: 137.974
+HistoricalData. 2134900747 - Time: 20250709, Open: 139.66, High: 143.17, Low: 137.39, Close: 143.13, Volume: 534854.64, Count: 203069, WAP: 140.373
+HistoricalData. 2134900747 - Time: 20250710, Open: 143.31, High: 145.16, Low: 139.53, Close: 142.5, Volume: 486792.94, Count: 198943, WAP: 142.094
+HistoricalData. 2134900747 - Time: 20250711, Open: 142.11, High: 144.58, Low: 141.78, Close: 142.1, Volume: 408404.76, Count: 168721, WAP: 143.148
+HistoricalDataEnd - 2134900747 from 20250701 17:15:26 America/New_York to 20250711 17:15:26 America/New_York
+pulse
+HistoricalData. 2134900748 - Time: 20250627, Open: 547.26, High: 549.99, Low: 544.54, Close: 548.09, Volume: 338226.47, Count: 212968, WAP: 547.832
+HistoricalData. 2134900748 - Time: 20250630, Open: 551.26, High: 552.8, Low: 549.01, Close: 551.64, Volume: 271400.57, Count: 176235, WAP: 550.658

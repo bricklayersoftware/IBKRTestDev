@@ -1,0 +1,114 @@
+--- START ---
+Account list: U5065515
+Next Valid Id: 8
+index: 100001 symbol: QQQ
+Error. Id: -1, Code: 2104, Msg: Market data farm connection is OK:usfarm
+
+index: 100002 symbol: AAPL
+index: 100003 symbol: MSFT
+index: 100004 symbol: NVDA
+index: 100005 symbol: AMZN
+index: 100006 symbol: AVGO
+index: 100007 symbol: META
+index: 100008 symbol: NFLX
+index: 100009 symbol: COST
+index: 100010 symbol: TSLA
+index: 100011 symbol: GOOGL
+index: 100012 symbol: GOOG
+index: 100013 symbol: TMUS
+index: 100014 symbol: PLTR
+index: 100015 symbol: CSCO
+index: 100016 symbol: LIN
+index: 100017 symbol: PEP
+index: 100018 symbol: ISRG
+index: 100019 symbol: INTU
+index: 100020 symbol: BKNG
+--- END ---
+Error. Id: -1, Code: 2106, Msg: HMDS data farm connection is OK:ushmds
+
+Error. Id: -1, Code: 2158, Msg: Sec-def data farm connection is OK:secdefil
+
+HistoricalData. 100004 - Time: 20250701, Open: 156.26, High: 157.2, Low: 151.49, Close: 153.3, Volume: 1555267.15, Count: 611507, WAP: 153.974
+HistoricalData. 100004 - Time: 20250702, Open: 152.97, High: 157.6, Low: 152.95, Close: 157.25, Volume: 1210466.83, Count: 445122, WAP: 156.315
+HistoricalData. 100004 - Time: 20250703, Open: 158.37, High: 160.98, Low: 157.77, Close: 159.34, Volume: 978757.55, Count: 352567, WAP: 159.424
+HistoricalData. 100004 - Time: 20250707, Open: 158.2, High: 159.31, Low: 157.34, Close: 158.24, Volume: 965829.8, Count: 370706, WAP: 158.329
+HistoricalData. 100004 - Time: 20250708, Open: 159.34, High: 159.74, Low: 158.39, Close: 159.55, Volume: 512053.4, Count: 201853, WAP: 159.068
+HistoricalDataEnd - 100004 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100002 - Time: 20250701, Open: 206.72, High: 210.19, Low: 206.14, Close: 207.82, Volume: 516704.13, Count: 281984, WAP: 208.22
+HistoricalData. 100002 - Time: 20250702, Open: 208.99, High: 213.34, Low: 208.14, Close: 212.44, Volume: 477097.93, Count: 244406, WAP: 211.723
+HistoricalData. 100002 - Time: 20250703, Open: 212.07, High: 214.65, Low: 211.81, Close: 213.55, Volume: 219136.71, Count: 113163, WAP: 213.621
+HistoricalData. 100002 - Time: 20250707, Open: 212.72, High: 216.23, Low: 208.8, Close: 209.95, Volume: 305976.25, Count: 166410, WAP: 211.398
+HistoricalData. 100002 - Time: 20250708, Open: 210.1, High: 211.43, Low: 208.45, Close: 211, Volume: 137483.47, Count: 73850, WAP: 209.825
+HistoricalDataEnd - 100002 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100003 - Time: 20250701, Open: 496.49, High: 498.05, Low: 490.98, Close: 492.05, Volume: 83801.05, Count: 57060, WAP: 494.003
+HistoricalData. 100003 - Time: 20250702, Open: 489.99, High: 493.5, Low: 488.7, Close: 491.09, Volume: 70935.67, Count: 47703, WAP: 491.075
+HistoricalData. 100003 - Time: 20250703, Open: 493.81, High: 500.01, Low: 493.44, Close: 498.84, Volume: 60002.07, Count: 38991, WAP: 497.899
+HistoricalData. 100003 - Time: 20250707, Open: 497.54, High: 498.75, Low: 495.22, Close: 497.72, Volume: 56080.86, Count: 35646, WAP: 497.253
+HistoricalData. 100003 - Time: 20250708, Open: 497.24, High: 498.2, Low: 494.11, Close: 495.63, Volume: 25233.11, Count: 14676, WAP: 496.086
+HistoricalDataEnd - 100003 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100001 - Time: 20250701, Open: 549.73, High: 550.71, Low: 544.66, Close: 546.99, Volume: 360987.29, Count: 234652, WAP: 547.573
+HistoricalData. 100001 - Time: 20250702, Open: 546.16, High: 551, Low: 546.12, Close: 550.8, Volume: 243340.26, Count: 146009, WAP: 549.656
+HistoricalData. 100001 - Time: 20250703, Open: 553.18, High: 557.2, Low: 553.18, Close: 556.22, Volume: 160510.69, Count: 100407, WAP: 555.66
+HistoricalData. 100001 - Time: 20250707, Open: 553.52, High: 554.34, Low: 549.58, Close: 552.03, Volume: 305172.32, Count: 199418, WAP: 552.194
+HistoricalData. 100001 - Time: 20250708, Open: 553.38, High: 553.55, Low: 551.1, Close: 552.93, Volume: 117123.63, Count: 76960, WAP: 552.483
+HistoricalDataEnd - 100001 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100005 - Time: 20250701, Open: 219.5, High: 221.88, Low: 217.93, Close: 220.46, Volume: 236822.12, Count: 131284, WAP: 220.075
+HistoricalData. 100005 - Time: 20250702, Open: 219.65, High: 221.6, Low: 219.06, Close: 219.92, Volume: 178460.06, Count: 99250, WAP: 220.257
+HistoricalData. 100005 - Time: 20250703, Open: 221.82, High: 224.01, Low: 221.36, Close: 223.41, Volume: 188576.02, Count: 94388, WAP: 222.845
+HistoricalData. 100005 - Time: 20250707, Open: 223.07, High: 224.29, Low: 222.37, Close: 223.47, Volume: 225609.34, Count: 125118, WAP: 223.413
+HistoricalData. 100005 - Time: 20250708, Open: 223.87, High: 224, Low: 218.43, Close: 220.83, Volume: 177540.67, Count: 95594, WAP: 220.967
+HistoricalDataEnd - 100005 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100006 - Time: 20250701, Open: 274.31, High: 274.5, Low: 262.65, Close: 264.74, Volume: 140624.13, Count: 81607, WAP: 266.693
+HistoricalData. 100006 - Time: 20250702, Open: 263.77, High: 272, Low: 262.73, Close: 269.9, Volume: 85726.16, Count: 48186, WAP: 268.643
+HistoricalData. 100006 - Time: 20250703, Open: 270.71, High: 275.8, Low: 270.12, Close: 275.18, Volume: 50192.96, Count: 27913, WAP: 273.902
+HistoricalData. 100006 - Time: 20250707, Open: 275.13, High: 277.56, Low: 272.66, Close: 274.18, Volume: 81102.97, Count: 47831, WAP: 275.432
+HistoricalData. 100006 - Time: 20250708, Open: 276.51, High: 276.51, Low: 272.55, Close: 274.66, Volume: 37463.53, Count: 21613, WAP: 274.344
+HistoricalDataEnd - 100006 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100007 - Time: 20250701, Open: 736.88, High: 737.75, Low: 715.37, Close: 719.22, Volume: 63370.92, Count: 42440, WAP: 723.733
+HistoricalData. 100007 - Time: 20250702, Open: 715.33, High: 720.3, Low: 712.8, Close: 713.57, Volume: 42878.79, Count: 26906, WAP: 716.539
+HistoricalData. 100007 - Time: 20250703, Open: 726.53, High: 729.03, Low: 714.42, Close: 719.01, Volume: 40869.94, Count: 25554, WAP: 720.829
+HistoricalData. 100007 - Time: 20250707, Open: 717.6, High: 727, Low: 713.51, Close: 718.35, Volume: 35650.51, Count: 22028, WAP: 721.855
+HistoricalData. 100007 - Time: 20250708, Open: 721.99, High: 722.91, Low: 714.81, Close: 720.85, Volume: 20511.96, Count: 12723, WAP: 718.811
+HistoricalDataEnd - 100007 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100008 - Time: 20250701, Open: 1338.23, High: 1338.78, Low: 1282.22, Close: 1293.6, Volume: 19188.51, Count: 13572, WAP: 1302.647
+HistoricalData. 100008 - Time: 20250702, Open: 1296.96, High: 1299.95, Low: 1271.59, Close: 1284.86, Volume: 11425.17, Count: 7326, WAP: 1283.265
+HistoricalData. 100008 - Time: 20250703, Open: 1290.93, High: 1302.26, Low: 1279.76, Close: 1297.18, Volume: 6116.37, Count: 3910, WAP: 1294.248
+HistoricalData. 100008 - Time: 20250707, Open: 1295, High: 1295, Low: 1276.02, Close: 1289.62, Volume: 7307.48, Count: 4896, WAP: 1286.743
+HistoricalData. 100008 - Time: 20250708, Open: 1291.67, High: 1293.25, Low: 1260, Close: 1275.87, Volume: 5916.1, Count: 4028, WAP: 1273.706
+HistoricalDataEnd - 100008 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100011 - Time: 20250701, Open: 175.74, High: 176.09, Low: 173.53, Close: 175.84, Volume: 187115.89, Count: 120010, WAP: 175.032
+HistoricalData. 100011 - Time: 20250702, Open: 175.54, High: 178.86, Low: 175.07, Close: 178.64, Volume: 167097.12, Count: 98884, WAP: 177.549
+HistoricalData. 100011 - Time: 20250703, Open: 178.73, High: 179.67, Low: 177.05, Close: 179.53, Volume: 131845.86, Count: 76425, WAP: 178.672
+HistoricalData. 100011 - Time: 20250707, Open: 179.06, High: 179.3, Low: 175.68, Close: 176.79, Volume: 178477.2, Count: 108957, WAP: 177.037
+HistoricalData. 100011 - Time: 20250708, Open: 177.85, High: 177.95, Low: 172.81, Close: 174.41, Volume: 139781.18, Count: 80127, WAP: 175.014
+HistoricalDataEnd - 100011 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100010 - Time: 20250701, Open: 298.46, High: 305.89, Low: 293.21, Close: 300.71, Volume: 874289.81, Count: 405867, WAP: 300.999
+HistoricalData. 100010 - Time: 20250702, Open: 312.63, High: 316.84, Low: 303.82, Close: 315.65, Volume: 764045.3, Count: 345248, WAP: 312.464
+HistoricalData. 100010 - Time: 20250703, Open: 317.99, High: 318.45, Low: 312.76, Close: 315.35, Volume: 388240.33, Count: 173905, WAP: 316.072
+HistoricalData. 100010 - Time: 20250707, Open: 291.36, High: 296.15, Low: 288.77, Close: 293.94, Volume: 827140.71, Count: 384177, WAP: 292.695
+HistoricalData. 100010 - Time: 20250708, Open: 296.97, High: 304.05, Low: 295.64, Close: 302.18, Volume: 381947.58, Count: 165004, WAP: 300.183
+HistoricalDataEnd - 100010 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100012 - Time: 20250701, Open: 176.82, High: 177.22, Low: 174.66, Close: 176.91, Volume: 137479.36, Count: 88836, WAP: 176.124
+HistoricalData. 100012 - Time: 20250702, Open: 176.55, High: 179.94, Low: 176.09, Close: 179.76, Volume: 111121.53, Count: 70769, WAP: 178.569
+HistoricalData. 100012 - Time: 20250703, Open: 179.82, High: 180.77, Low: 178.19, Close: 180.55, Volume: 76780.74, Count: 45121, WAP: 179.746
+HistoricalData. 100012 - Time: 20250707, Open: 180.14, High: 180.34, Low: 176.64, Close: 177.56, Volume: 132600.72, Count: 76996, WAP: 178.076
+HistoricalData. 100012 - Time: 20250708, Open: 178.75, High: 178.8, Low: 173.92, Close: 175.41, Volume: 87664.37, Count: 53066, WAP: 176.132
+HistoricalDataEnd - 100012 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100014 - Time: 20250701, Open: 135.3, High: 136.32, Low: 128.51, Close: 130.68, Volume: 684171.14, Count: 296308, WAP: 130.809
+HistoricalData. 100014 - Time: 20250702, Open: 131.43, High: 133.6, Low: 130.19, Close: 132.12, Volume: 436664.76, Count: 181963, WAP: 132.042
+HistoricalData. 100014 - Time: 20250703, Open: 134.34, High: 135.62, Low: 132.51, Close: 134.36, Volume: 291144.39, Count: 119730, WAP: 134.332
+HistoricalData. 100014 - Time: 20250707, Open: 134.41, High: 139.29, Low: 132.32, Close: 139.12, Volume: 556937.14, Count: 205128, WAP: 136.994
+HistoricalData. 100014 - Time: 20250708, Open: 138.79, High: 139.1, Low: 135.79, Close: 137.31, Volume: 265641.27, Count: 104592, WAP: 137.236
+HistoricalDataEnd - 100014 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100013 - Time: 20250701, Open: 238.41, High: 243.28, Low: 238.07, Close: 241.51, Volume: 21295.49, Count: 15826, WAP: 241.495
+HistoricalData. 100013 - Time: 20250702, Open: 240, High: 241, Low: 236.8, Close: 237.42, Volume: 14742.01, Count: 10835, WAP: 238.209
+HistoricalData. 100013 - Time: 20250703, Open: 236.97, High: 241.35, Low: 236.6, Close: 240.75, Volume: 9360.36, Count: 6501, WAP: 239.597
+HistoricalData. 100013 - Time: 20250707, Open: 240.46, High: 240.46, Low: 236.6, Close: 237.63, Volume: 13495.36, Count: 10013, WAP: 238.288
+HistoricalData. 100013 - Time: 20250708, Open: 236.21, High: 236.59, Low: 233.61, Close: 234.84, Volume: 6221.87, Count: 4277, WAP: 235.033
+HistoricalDataEnd - 100013 from 20250703 12:15:00 America/New_York to 20250708 12:15:00 America/New_York
+HistoricalData. 100015 - Time: 20250701, Open: 69.38, High: 69.55, Low: 68.63, Close: 69.1, Volume: 118480.75, Count: 67070, WAP: 69.029
+HistoricalData. 100015 - Time: 20250702, Open: 68.7, High: 68.94, Low: 68.17, Close: 68.59, Volume: 100267.8, Count: 55417, WAP: 68.51
+HistoricalData. 100015 - Time: 20250703, Open: 68.18, High: 69.47, Low: 68.18, Close: 69.37, Volume: 81639.99, Count: 40629, WAP: 69.126
+HistoricalData. 100015 - Time: 20250707, Open: 69.08, High: 69.3, Low: 68.6, Close: 68.93, Volume: 76093.23, Count: 42161, WAP: 68.933
+HistoricalData. 100015 - Time: 20250708, Open: 68.8, High: 68.92, Low: 68.35, Close: 68.62, Volume: 29228.63, Count: 15651, WAP: 68.638
+HistoricalDataEnd - 100015 from 20250703 12:15:00 America/Ne

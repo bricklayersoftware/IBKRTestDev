@@ -1,0 +1,28 @@
+[2025-08-17 20:58:46.451432] :: args: G:\git_dump\marketdataops\web scraper\__OLD__scrape_yahoo_finance_options_chain_prices_.py
+[2025-08-17 20:58:46.451691] :: path: G:\git_dump\marketdataops\web scraper\__OLD__scrape_yahoo_finance_options_chain_prices_.py
+[2025-08-17 20:58:46.451770] :: directory: G:\git_dump\marketdataops\web scraper
+[2025-08-17 20:58:46.451905] :: cwd: G:\git_dump\marketdataops\web scraper
+[2025-08-17 20:58:47.459491] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1755820800&straddle=true
+[2025-08-17 20:58:52.487986] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 20:58:52.495320] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1755820800&straddle=true
+[2025-08-17 20:58:52.536989] :: div Aug 22, 2025
+[2025-08-17 20:58:52.723041] :: tag_name: div text: Aug 22, 2025
+[2025-08-17 20:58:52.764956] :: tag_name: div text: Aug 29, 2025
+[2025-08-17 20:58:52.790744] :: tag_name: div text: Sep 5, 2025
+[2025-08-17 20:58:52.891865] :: tag_name: div text: Sep 12, 2025
+[2025-08-17 20:58:53.034636] :: tag_name: div text: Sep 19, 2025
+[2025-08-17 20:58:53.077496] :: tag_name: div text: Sep 26, 2025
+[2025-08-17 20:58:53.103891] :: tag_name: div text: Oct 17, 2025
+[2025-08-17 20:58:53.132160] :: tag_name: div text: Nov 21, 2025
+[2025-08-17 20:58:53.155752] :: tag_name: div text: Dec 19, 2025
+[2025-08-17 20:58:53.179073] :: tag_name: div text: Jan 16, 2026
+[2025-08-17 20:58:53.204437] :: tag_name: div text: Feb 20, 2026
+[2025-08-17 20:58:53.246909] :: tag_name: div text: Mar 20, 2026
+[2025-08-17 20:58:53.278130] :: tag_name: div text: May 15, 2026
+[2025-08-17 20:58:53.304950] :: tag_name: div text: Jun 18, 2026
+[2025-08-17 20:58:53.341662] :: tag_name: div text: Sep 18, 2026
+[2025-08-17 20:58:53.382051] :: tag_name: div text: Dec 18, 2026
+[2025-08-17 20:58:53.417001] :: tag_name: div text: Jan 15, 2027
+[2025-08-17 20:58:53.445325] :: tag_name: div text: Jun 17, 2027
+[2025-08-17 20:58:53.487393] :: tag_name: div text: Dec 17, 2027
+[2025-08-17 20:58:53.502759] :: expirydate: Aug 22, 2025

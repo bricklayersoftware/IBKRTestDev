@@ -1,0 +1,18 @@
+
+	IBKR Test Dev -- IBKRRealTimeMarketDataApp
+	##########################################
+
+	+ load in options prices
+	+ review historical request methods:
+ 	  reqMktData
+	  reqHistoricalData
+	  reqRealTimeBars
+	  reqMarketDepth
+    
+	! create a new table for options, don't use existing historical data table
+	! backup all DDLs
+	! backup data
+
+	? investigate how options prices change with underlying stock prices
+	  --> 5 sec time inteval 
+	  --> 10 seconds, etc.

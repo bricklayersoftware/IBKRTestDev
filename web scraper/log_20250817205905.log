@@ -1,0 +1,113 @@
+[2025-08-17 20:59:05.582527] :: args: G:\git_dump\marketdataops\web scraper\__OLD__scrape_yahoo_finance_options_chain_prices_.py
+[2025-08-17 20:59:05.582773] :: path: G:\git_dump\marketdataops\web scraper\__OLD__scrape_yahoo_finance_options_chain_prices_.py
+[2025-08-17 20:59:05.582880] :: directory: G:\git_dump\marketdataops\web scraper
+[2025-08-17 20:59:05.582997] :: cwd: G:\git_dump\marketdataops\web scraper
+[2025-08-17 20:59:06.607169] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1755820800&straddle=true
+[2025-08-17 20:59:12.082969] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 20:59:12.089223] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1755820800&straddle=true
+[2025-08-17 20:59:12.132125] :: div Aug 22, 2025
+[2025-08-17 20:59:12.299230] :: tag_name: div text: Aug 22, 2025
+[2025-08-17 20:59:12.352485] :: tag_name: div text: Aug 29, 2025
+[2025-08-17 20:59:12.391677] :: tag_name: div text: Sep 5, 2025
+[2025-08-17 20:59:12.417669] :: tag_name: div text: Sep 12, 2025
+[2025-08-17 20:59:12.442465] :: tag_name: div text: Sep 19, 2025
+[2025-08-17 20:59:12.469076] :: tag_name: div text: Sep 26, 2025
+[2025-08-17 20:59:12.544938] :: tag_name: div text: Oct 17, 2025
+[2025-08-17 20:59:12.619968] :: tag_name: div text: Nov 21, 2025
+[2025-08-17 20:59:12.658982] :: tag_name: div text: Dec 19, 2025
+[2025-08-17 20:59:12.691013] :: tag_name: div text: Jan 16, 2026
+[2025-08-17 20:59:12.715770] :: tag_name: div text: Feb 20, 2026
+[2025-08-17 20:59:12.771934] :: tag_name: div text: Mar 20, 2026
+[2025-08-17 20:59:12.796382] :: tag_name: div text: May 15, 2026
+[2025-08-17 20:59:12.824589] :: tag_name: div text: Jun 18, 2026
+[2025-08-17 20:59:12.850244] :: tag_name: div text: Sep 18, 2026
+[2025-08-17 20:59:12.879907] :: tag_name: div text: Dec 18, 2026
+[2025-08-17 20:59:12.907037] :: tag_name: div text: Jan 15, 2027
+[2025-08-17 20:59:12.972755] :: tag_name: div text: Jun 17, 2027
+[2025-08-17 20:59:13.068321] :: tag_name: div text: Dec 17, 2027
+[2025-08-17 20:59:13.086369] :: expirydate: Aug 22, 2025
+[2025-08-17 20:59:13.086799] :: epochdate: 1755820800
+[2025-08-17 20:59:18.053960] :: rows: 66
+[2025-08-17 20:59:19.713000] :: expirydate: Aug 29, 2025
+[2025-08-17 20:59:19.713296] :: epochdate: 1756425600
+[2025-08-17 20:59:19.713498] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1756425600&straddle=true
+[2025-08-17 20:59:22.367076] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 20:59:22.373324] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1756425600&straddle=true
+[2025-08-17 20:59:29.315908] :: rows: 55
+[2025-08-17 20:59:30.233140] :: expirydate: Sep 5, 2025
+[2025-08-17 20:59:30.233521] :: epochdate: 1757030400
+[2025-08-17 20:59:30.233640] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1757030400&straddle=true
+[2025-08-17 20:59:51.299608] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 20:59:51.304783] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1757030400&straddle=true
+[2025-08-17 20:59:55.393023] :: rows: 49
+[2025-08-17 20:59:56.373342] :: expirydate: Sep 12, 2025
+[2025-08-17 20:59:56.373690] :: epochdate: 1757635200
+[2025-08-17 20:59:56.373879] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1757635200&straddle=true
+[2025-08-17 20:59:59.244889] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 20:59:59.250382] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1757635200&straddle=true
+[2025-08-17 21:00:03.816173] :: rows: 46
+[2025-08-17 21:00:05.080120] :: expirydate: Sep 19, 2025
+[2025-08-17 21:00:05.080383] :: epochdate: 1758240000
+[2025-08-17 21:00:05.080545] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1758240000&straddle=true
+[2025-08-17 21:00:07.944550] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 21:00:07.950294] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1758240000&straddle=true
+[2025-08-17 21:00:27.940784] :: rows: 229
+[2025-08-17 21:00:32.795203] :: expirydate: Sep 26, 2025
+[2025-08-17 21:00:32.795453] :: epochdate: 1758844800
+[2025-08-17 21:00:32.795655] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1758844800&straddle=true
+[2025-08-17 21:00:53.131834] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 21:00:53.139549] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1758844800&straddle=true
+[2025-08-17 21:00:56.542361] :: rows: 35
+[2025-08-17 21:00:57.718110] :: expirydate: Oct 17, 2025
+[2025-08-17 21:00:57.718535] :: epochdate: 1760659200
+[2025-08-17 21:00:57.718871] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1760659200&straddle=true
+[2025-08-17 21:01:00.618487] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 21:01:00.624181] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1760659200&straddle=true
+[2025-08-17 21:01:07.414372] :: rows: 54
+[2025-08-17 21:01:08.824116] :: expirydate: Nov 21, 2025
+[2025-08-17 21:01:08.824280] :: epochdate: 1763683200
+[2025-08-17 21:01:08.824348] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1763683200&straddle=true
+[2025-08-17 21:01:11.323080] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 21:01:11.329209] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1763683200&straddle=true
+[2025-08-17 21:01:18.438858] :: rows: 55
+[2025-08-17 21:01:19.675111] :: expirydate: Dec 19, 2025
+[2025-08-17 21:01:19.675985] :: epochdate: 1766102400
+[2025-08-17 21:01:19.676612] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1766102400&straddle=true
+[2025-08-17 21:02:01.638714] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 21:02:01.653601] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1766102400&straddle=true
+[2025-08-17 21:03:10.043114] :: rows: 488
+[2025-08-17 21:03:21.801891] :: expirydate: Jan 16, 2026
+[2025-08-17 21:03:21.802142] :: epochdate: 1768521600
+[2025-08-17 21:03:21.802229] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1768521600&straddle=true
+[2025-08-17 21:03:28.619868] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 21:03:28.655099] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1768521600&straddle=true
+[2025-08-17 21:04:24.791241] :: rows: 450
+[2025-08-17 21:04:37.155565] :: expirydate: Feb 20, 2026
+[2025-08-17 21:04:37.155878] :: epochdate: 1771545600
+[2025-08-17 21:04:37.156061] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1771545600&straddle=true
+[2025-08-17 21:05:21.517009] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 21:05:21.520239] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1771545600&straddle=true
+[2025-08-17 21:05:25.016571] :: rows: 46
+[2025-08-17 21:05:26.379166] :: expirydate: Mar 20, 2026
+[2025-08-17 21:05:26.379491] :: epochdate: 1773964800
+[2025-08-17 21:05:26.379687] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1773964800&straddle=true
+[2025-08-17 21:05:49.076191] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 21:05:49.079928] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1773964800&straddle=true
+[2025-08-17 21:05:53.874103] :: rows: 55
+[2025-08-17 21:05:55.241569] :: expirydate: May 15, 2026
+[2025-08-17 21:05:55.241901] :: epochdate: 1778803200
+[2025-08-17 21:05:55.242127] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1778803200&straddle=true
+[2025-08-17 21:06:59.271860] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 21:06:59.276765] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1778803200&straddle=true
+[2025-08-17 21:07:02.733268] :: rows: 53
+[2025-08-17 21:07:03.624432] :: expirydate: Jun 18, 2026
+[2025-08-17 21:07:03.624696] :: epochdate: 1781740800
+[2025-08-17 21:07:03.625035] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1781740800&straddle=true
+[2025-08-17 21:07:36.626059] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 21:07:36.632161] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1781740800&straddle=true
+[2025-08-17 21:08:24.070225] :: rows: 386
+[2025-08-17 21:08:33.575477] :: expirydate: Sep 18, 2026
+[2025-08-17 21:08:33.575742] :: epochdate: 1789689600
+[2025-08-17 21:08:33.575931] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1789689600&straddle=true
+[2025-08-17 21:08:58.086593] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-08-17 21:08:58.089237] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1789689600&straddle=true

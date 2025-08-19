@@ -1,0 +1,16 @@
+SELECT COUNT(RowID) AS [RowCount]
+      ,[Symbol]
+      ,[Date]
+      ,[OptionType]
+      ,[_Strike]
+      ,[Expiry]
+      ,[TimeInterval]
+  FROM [dbo].[HistoricalData]
+        WHERE OptionType = 'P'
+  GROUP BY [Symbol]
+      ,[Date]
+      ,[OptionType]
+      ,[_Strike]
+      ,[Expiry]
+      ,[TimeInterval]
+ORDER BY [TimeInterval] ASC, Symbol ASC, [Date] ASC

@@ -1,0 +1,41 @@
+{
+    "connectionstring": "",
+
+    "symbols": [
+        "QQQ",
+        "AAPL",
+        "MSFT",
+        "NVDA",
+        "AMZN",
+        "AVGO",
+        "META",
+        "NFLX",
+        "COST",
+        "TSLA",
+        "GOOGL",
+        "GOOG",
+        "TMUS",
+        "PLTR",
+        "CSCO",
+        "LIN",
+        "PEP",
+        "ISRG",
+        "INTU",
+        "BKNG"
+    ],
+
+    "HistoricalRequests": [
+        {
+            "name": "last_business_day_snapshot",
+            "Duration": "1D",
+            "TimeInterval": "1 day",
+            "symbols": "ALL",
+            "SecTypes": [ "OPT", "STK" ]
+        }
+    ],
+
+    "RealTimeRequests": [
+
+    ]
+
+}

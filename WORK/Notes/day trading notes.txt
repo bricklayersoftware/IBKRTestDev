@@ -1,0 +1,45 @@
+
+    Day Trading Notes
+    #################
+
+    https://www.investopedia.com/articles/trading/06/daytradingretail.asp
+
+    + filter to detect market flatness: a flat level indicates stable price that stock could 
+      return back to in absence of significant market events
+      
+    ! controls prior to purchase of options
+      buying at the peek? buying at the low?
+
+    ! tracker to find stocks that are moving together ** with phase shifts ** 
+
+    + filter for sudden price movements
+
+    + filter for stocks diverging from QQQ
+
+    + what happens when there is sudden surge in price? buy call, then focus on put
+                                 sudden fall in price?  buy put, then focus on call
+      ... this happens mainly in morning trading
+
+    + put together filter to find sudden price swings
+
+    + put together system to take advantage of morning sell off in QQQ
+
+    + put together system to figure out when new companies will be added to major indices
+    + simple filter to find monotonic stocks: buy put and hold while stock is going down
+                                              buy call and hold while stock is going up
+    
+    + stock movement comparison: tool to see if two stocks are moving in the same direction
+
+    S&P 500 is maintained by S&P Dow Jones Indices
+
+    Nasdaq-100 Index (NDX) is composed of 100 of the largest non-financial companies1 listed 
+    on The Nasdaq Stock Market
+
+
+
+
+
+
+
+
+

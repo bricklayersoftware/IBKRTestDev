@@ -1,0 +1,28 @@
+
+    S&P 500® Investment Grade Corporate Bond Index
+    https://www.sifma.org/resources/research/statistics/us-corporate-bonds-statistics/
+
+
+    Nasdaq Hours
+    https://www.nasdaqtrader.com/content/technicalsupport/nasdaq_sys_hours.pdf
+
+    NMS
+    https://en.wikipedia.org/wiki/National_Market_System
+
+
+    OPRA --> Options Price Reporting Authority 
+    OCC --> means The Options Clearing Corporation
+
+    CUSIP --> Committee on Uniform Security Identification Procedures
+    CUSIP number is a nine-character alphanumeric code that uniquely identifies a financial 
+    instrument in North America
+    --> only used for securities issued in the United States and Canada
+
+
+    ISIN --> International Securities Identification Number
+    is a worldwide standard that uses twelve characters as a unique identifier for any 
+    security issued anywhere in the world
+
+    ADR --> American Depositary Receipt
+    is a negotiable U.S. dollar-denominated certificate issued by a U.S. bank that 
+    represents shares of a foreign company's stock.

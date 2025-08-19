@@ -1,0 +1,51 @@
+
+    Trading Notes
+    #############
+
+    Limit Order Book
+    https://www.google.ca/books/edition/Limit_Order_Books/5JIrDAAAQBAJ?hl=en&gbpv=1&dq=understanding+the+order+book&printsec=frontcover
+    Abergel
+
+
+    SIP 
+    https://intrinio.com/blog/all-about-securities-information-processors-sips
+
+    Level 2 Market Data
+    https://databento.com/microstructure/level-2-market-data
+
+
+    CTA, UTP, or OPRA
+
+    OPRA: Options Price Reporting Authority
+
+    CTA SIP handles Tape A and B securities and provides two feeds:
+        the Consolidated Quotation System (CQS) for quotes and, the NBBO, 
+        and the Consolidated Tape System (CTS) for trades
+        
+    UTP SIP handles Tape C securities and provides two feeds, the UQDF for quotes and 
+    the NBBO and the UTDF for trades
+
+        The market data for U.S. securities is distributed on three networks: 
+            Tape A, B, and C 
+        
+        Trades and quotes of securities listed on Nasdaq and over-the-counter 
+        securities are distributed on Tape C, whereas trades and quotes of all 
+        other listed securities are distributed on Tape A and B
+
+
+    FIX CTCI
+
+
+    VWAP
+    In financial markets, the Volume Weighted Average Price (VWAP) is a technical analysis tool that 
+    calculates the average price of a security over a period, giving more weight to prices with higher 
+    trading volume. It's a popular indicator for intraday trading, helping traders identify potential 
+    trend reversals and support/resistance levels. 
+
+
+    Statistics Notes
+    ################
+    + exchanges and dark pools
+
+
+

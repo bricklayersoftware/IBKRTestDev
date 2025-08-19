@@ -1,0 +1,10 @@
+
+    Tick string. Ticker Id:1004, Type: 45, Value: 1749146400
+    Tick Price. Ticker Id:1004, Field: 4, Price: 528.19, CanAutoExecute: False, PastLimit: False, PreOpen: False
+    Tick Size.
+
+
+
+
+
+    
