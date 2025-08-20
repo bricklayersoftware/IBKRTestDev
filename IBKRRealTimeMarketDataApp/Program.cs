@@ -350,7 +350,7 @@ namespace IBKRRealTimeMarketDataApp
                 RetrieveSingleDay("20250817", "AAPL");
                 RetrieveSingleDay("20250818", "AAPL");
 
-                RetrieveSingleDay("20250820", "AAPL", "5 secs");
+                // RetrieveSingleDay("20250820", "AAPL", "5 secs");
 
                 // RetrieveDailyBars(3, 1, "5 secs", new List<string> { "AAPL" });
                 // RetrieveDailyBars(2);

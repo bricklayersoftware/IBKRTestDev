@@ -97,6 +97,19 @@ namespace IBKRRealTimeMarketDataApp
                     return;
 
                 this.endCallback(this.requestid);
+
+                bool exitnow = true;
+                
+                foreach ( Request req in allrequests )
+                {
+                    if (req.state == RequestState.ACTIVE) {
+                        exitnow = false;
+                        break;
+                    }
+                }
+
+                CommandControl.exitnow = exitnow;
+
             }
         }
 

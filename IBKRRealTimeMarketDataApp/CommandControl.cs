@@ -36,7 +36,22 @@ namespace IBKRRealTimeMarketDataApp
             }
         }
 
-        public static bool exitnow = false;
+        private static bool _exitnow = false;
+
+        public static bool exitnow
+        {
+            get
+            {
+                return _exitnow;
+            }
+
+            set
+            {
+                if ( _exitnow == true )
+                    Environment.Exit(0);
+                _exitnow = value;
+            }
+        }
 
         public static void StartControl()
         {
