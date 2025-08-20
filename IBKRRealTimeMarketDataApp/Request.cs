@@ -33,6 +33,11 @@ namespace IBKRRealTimeMarketDataApp
 {
     public class Request
     {
+        public Request() {
+            _requests.Add(-1, this);
+            this.begintime = DateTime.Now;
+        }
+
         private static int _seed = 0;
         public static int index
         {
@@ -52,11 +57,25 @@ namespace IBKRRealTimeMarketDataApp
 
         public enum RequestState
         {
-            ACTIVE, ERROR, END
+            ACTIVE, ERROR, END, IGNORE
         }
-        
 
-        public int requestid;
+
+        private int _requestid = -1;
+
+        public int requestid
+        {
+            get {
+                return _requestid;
+            }
+
+            set {
+                Request req = _requests[_requestid];
+                _requests.Add(value, req);
+                _requests.Remove(_requestid);
+                this._requestid = value;
+            }
+        }
 
         private RequestState _state;
 
@@ -94,6 +113,8 @@ namespace IBKRRealTimeMarketDataApp
         public DateTime processtime;
         public DateTime endtime;
         public DateTime errortime;
+        public string requestbegindate;
+        public string requestenddate;
 
         public Boolean IsActive
         {
@@ -316,6 +337,7 @@ namespace IBKRRealTimeMarketDataApp
 
             vals.Add(req.timeinterval);
 
+            /*
             if ( ( DateTime.Now.ToString("yyyyMMdd") == dict["Time"] ) && ( DateTime.Now.Hour < 16 ) )
             {
                 dict["isjuvenile"] = "true";
@@ -323,13 +345,20 @@ namespace IBKRRealTimeMarketDataApp
                 log("skipping juvenile record");
                 return;
             }
+            */
 
-            // check if row exists before inserting
-            if (!Helper.RowExists(req.symbol, datestr, timestr, req.timeinterval))
+            if ( datestr != req.requestbegindate )
             {
-                int rowcount = Helper.InsertRecord("HistoricalData", cols, vals);
-                dict["rowcount"] = rowcount.ToString(); // Helper.InsertRecord("HistoricalData", cols, vals);
+                req.state = RequestState.IGNORE;
             }
+
+            int rowcount = -1;
+
+            if (req.state != RequestState.IGNORE) {
+                rowcount = Helper.InsertRecord("HistoricalData", cols, vals);
+            }
+            
+            dict["rowcount"] = rowcount.ToString(); // Helper.InsertRecord("HistoricalData", cols, vals);
 
             //([Symbol] --> req.Symbol
             //, [Date] dict["Time"]
@@ -376,7 +405,96 @@ namespace IBKRRealTimeMarketDataApp
                 return _requests.Values.ToList();
             }
         }
-        
+
+        // date --> "yyyymmdd"
+        public static Request GetStockRequestSingleDay(EClientSocket clientSocket, string reqdate, string symbol, string barsize = "1 day", string sectype = "STK", string expirydate = "", double strike = 0, string right = "C")
+        {
+            Action<string> log = Logger.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+            int stockindex = -1;
+
+            int year = Int32.Parse(reqdate.Substring(0, 4));
+            int month = Int32.Parse(reqdate.Substring(4, 2));
+            int day = Int32.Parse(reqdate.Substring(6, 2));
+
+            DateTime date1 = new DateTime(year, month, day);
+            DateTime enddate= date1.AddDays(0);
+            string enddatestr = enddate.Date.ToString("yyyyMMdd")+" 16:00:00 US/Eastern";
+
+            string daystr = "1 D"; // dayscount.ToString() + " D";
+
+            stockindex = index;
+
+            int _requestid = 0;
+
+            RequestFlags rf = 0;
+
+            if (sectype == "STK")
+                rf = RequestFlags.stockflag;
+            else if (right == "P")
+                rf = RequestFlags.putflag;
+            else if (right == "C")
+                rf = RequestFlags.callflag;
+
+            if (barsize == "1 day")
+                _requestid = (int)(RequestFlags.requestid | rf | RequestFlags.barsize_1day_flag) + stockindex + 1;
+            else if (barsize == "5 secs")
+                _requestid = (int)(RequestFlags.requestid | rf | RequestFlags.barsize_5secs_flag) + stockindex + 1;
+            else if (barsize == "15 secs")
+                _requestid = (int)(RequestFlags.requestid | rf | RequestFlags.barsize_15secs_flag) + stockindex + 1;
+            else if (barsize == "30 secs")
+                _requestid = (int)(RequestFlags.requestid | rf | RequestFlags.barsize_30secs_flag) + stockindex + 1;
+
+            string outstr = "requestid: " + (_requestid) + " start date: " + reqdate + " end date: " + enddatestr + " symbol: " + symbol + " bar size: " + barsize + " days: " + daystr;
+            outstr += " snapshot ts: " + DateTime.Now.ToString("yyyyMMddHHMMss");
+
+            Request req = new Request();
+            req.state = Request.RequestState.ACTIVE;
+            req.msg = outstr;
+            req.requestid = _requestid;
+            req.stockindex = stockindex + 1;
+            req.symbol = symbol;
+            req.sectype = sectype;
+            req.endCallback = clientSocket.cancelHistoricalData;
+            req.requestbegindate = reqdate;
+            req.requestenddate = enddatestr;
+
+            log("requesting symbol [" + req.symbol + "] with index: " + req.stockindex + " msg: " + req.msg);
+
+
+            IBApi.Contract contract = new IBApi.Contract();
+
+            if (sectype == "STK")
+            {
+                contract.Symbol = symbol;
+                contract.SecType = "STK";
+                contract.Currency = "USD";
+                contract.Exchange = "SMART";
+            }
+            else
+            {
+                contract.Symbol = symbol; // "QQQ";
+                contract.SecType = "OPT";
+                contract.Exchange = "SMART";
+                contract.Currency = "USD";
+                contract.LastTradeDateOrContractMonth = expirydate; // DateTime.Today.ToString("yyyyMMdd");
+                contract.Strike = strike;
+                contract.Right = right;
+                contract.Multiplier = "100";
+            }
+
+            // EWrapperImpl.cs --  public virtual void historicalData(int reqId, Bar bar) -- 2b7056397a90732100618619e89c82f5 
+            // EWrapperImpl.cs --  public virtual void historicalDataEnd(int reqId, string startDate, string endDate)
+
+            // https://interactivebrokers.github.io/tws-api/historical_bars.html
+            // https://interactivebrokers.github.io/tws-api/historical_bars.html#hd_duration
+            // https://interactivebrokers.github.io/tws-api/historical_bars.html#hd_what_to_show
+
+            clientSocket.reqHistoricalData(req.requestid, contract, enddatestr, daystr, barsize, "TRADES", 1, 1, false, null);
+
+            return req;
+        }
+
         public static Request GetStockRequestDailyBar(EClientSocket clientSocket, int stockindex, string symbol, int dayscount = 30, string barsize = "1 day", string sectype="STK", string expirydate = "", double strike = 0, string right = "C")
         {
             Action<string> log = Logger.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -420,7 +538,7 @@ namespace IBKRRealTimeMarketDataApp
             else if (barsize == "30 secs")
                 _requestid = (int) ( RequestFlags.requestid | rf | RequestFlags.barsize_30secs_flag ) + stockindex + 1;
 
-            string outstr = "requestid: " + (_requestid) + " symbol: " + symbol + " bar size: " + barsize;
+            string outstr = "requestid: " + (_requestid) + " symbol: " + symbol + " bar size: " + barsize + " days: "+ days;
             outstr += " snapshot ts: " + DateTime.Now.ToString("yyyyMMddHHMMss");
 
             Request req = new Request();
@@ -431,8 +549,6 @@ namespace IBKRRealTimeMarketDataApp
             req.symbol = symbol;
             req.sectype = sectype;
             req.endCallback = clientSocket.cancelHistoricalData;
-
-            _requests.Add(_requestid, req);
 
             log("requesting symbol [" + req.symbol + "] with index: " + req.stockindex + " msg: " + req.msg);
 

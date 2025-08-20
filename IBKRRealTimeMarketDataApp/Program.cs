@@ -95,6 +95,19 @@ namespace IBKRRealTimeMarketDataApp
     {
         public static EClientSocket clientSocket;
 
+        public static void RetrieveSingleDay(string datestr, string symbol, string barlength="1 day")
+        {
+            Action<string> log = Logger.GetLogger(MethodBase.GetCurrentMethod().Name);
+
+            log("BEGIN");
+
+            Request req = Request.GetStockRequestSingleDay(clientSocket, datestr, symbol, barsize: barlength);
+
+            log("END");
+
+            return;
+        }
+
         // populates HistoricalData table with past 30 days of data
         // grab top 19 stocks from FundHoldings, check table count for
         // past 30 days, populate as needed
@@ -310,7 +323,8 @@ namespace IBKRRealTimeMarketDataApp
             clientSocket = testImpl.ClientSocket;
             EReaderSignal readerSignal = testImpl.Signal;
 
-            clientSocket.eConnect("127.0.0.1", 7496, 0);
+            // clientSocket.eConnect("127.0.0.1", 7496, 0);
+            clientSocket.eConnect("52.188.185.179", 7496, 2);
 
             var reader = new EReader(clientSocket, readerSignal);
             reader.Start();
@@ -330,7 +344,13 @@ namespace IBKRRealTimeMarketDataApp
 
             new Thread(() => {
                 // RetrieveDailyBars(15);
-                RetrieveDailyBars(15, -1, "5 secs");
+                // RetrieveDailyBars(15, -1, "5 secs");
+                RetrieveSingleDay("20250815", "AAPL");
+                RetrieveSingleDay("20250816", "AAPL");
+                RetrieveSingleDay("20250817", "AAPL");
+                RetrieveSingleDay("20250818", "AAPL");
+
+                RetrieveSingleDay("20250820", "AAPL", "5 secs");
 
                 // RetrieveDailyBars(3, 1, "5 secs", new List<string> { "AAPL" });
                 // RetrieveDailyBars(2);
