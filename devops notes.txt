@@ -20,7 +20,8 @@
         ibkrtestdev
         gFSZz27gFSuxN@7
 
-        sql server  52.188.185.179,1433
+        sql server  
+        52.188.185.179,1433
         ibkrtestdev
         Michael101!
 

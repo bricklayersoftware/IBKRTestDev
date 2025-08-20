@@ -108,14 +108,17 @@ namespace IBKRRealTimeMarketDataApp
 
             if (symbols == null || symbols.Count == 0)
             {
-                symbols = (List<string>)Helper.GetQQQSymbols(symbolcount).Take(symbolcount).ToList();
+                if (symbolcount < 0)
+                    symbols = (List<string>)Helper.GetQQQSymbols(); //.Take(symbolcount).ToList();
+                else
+                    symbols = (List<string>)Helper.GetQQQSymbols(symbolcount).Take(symbolcount).ToList();
 
                 if (!symbols.Contains("QQQ"))
                     symbols.Add("QQQ");
-            } else
-            {
+            } else {
                 if (symbolcount < 0)
                     symbolcount = symbols.Count;
+
                 symbols = symbols.Take(symbolcount).ToList();
             }
 
