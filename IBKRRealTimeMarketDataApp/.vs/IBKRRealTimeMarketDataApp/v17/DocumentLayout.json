@@ -3,15 +3,8 @@
   "WorkspaceRootPath": "G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|g:\\git_dump\\ibkrtestdev\\ibkrrealtimemarketdataapp\\commandcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|solutionrelative:commandcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|g:\\git_dump\\ibkrtestdev\\ibkrrealtimemarketdataapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8EDE0744-96C2-40B0-A8DC-37DF79370203}|..\\CSharpClient\\client\\CSharpAPI.csproj|g:\\git_dump\\ibkrtestdev\\csharpclient\\client\\ereadermonitorsignal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,17 +18,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAGUBAAAAAAAAAAAUwGABAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAE8BAAAAAAAAAAAuwGABAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T17:39:23.996Z",
               "IsPinned": true,
@@ -43,42 +36,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Request.cs",
               "DocumentMoniker": "G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\Request.cs",
               "RelativeDocumentMoniker": "Request.cs",
               "ToolTip": "G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\Request.cs",
               "RelativeToolTip": "Request.cs",
-              "ViewState": "AgIAAPEAAAAAAAAAAAA+wP4AAABAAAAAAAAAAA==",
+              "ViewState": "AgIAABwBAAAAAAAAAAAwwP4AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-12T15:48:13.057Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CommandControl.cs",
-              "DocumentMoniker": "G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\CommandControl.cs",
-              "RelativeDocumentMoniker": "CommandControl.cs",
-              "ToolTip": "G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\CommandControl.cs",
-              "RelativeToolTip": "CommandControl.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAAwDMAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T23:31:10.737Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EReaderMonitorSignal.cs",
-              "DocumentMoniker": "G:\\git_dump\\IBKRTestDev\\CSharpClient\\client\\EReaderMonitorSignal.cs",
-              "RelativeDocumentMoniker": "..\\CSharpClient\\client\\EReaderMonitorSignal.cs",
-              "ToolTip": "G:\\git_dump\\IBKRTestDev\\CSharpClient\\client\\EReaderMonitorSignal.cs",
-              "RelativeToolTip": "..\\CSharpClient\\client\\EReaderMonitorSignal.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBsAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T23:31:08.399Z",
               "EditorCaption": ""
             }
           ]
