@@ -6,3 +6,9 @@ IBKRRealTimeMarketDataApp/.vs/IBKRRealTimeMarketDataApp/v17/DocumentLayout.backu
 IBKRRealTimeMarketDataApp/.vs/IBKRRealTimeMarketDataApp/v17/DocumentLayout.json
 /IBKRRealTimeMarketDataApp/.vs/IBKRRealTimeMarketDataApp/v17
 IBKRRealTimeMarketDataApp/.vs/IBKRRealTimeMarketDataApp/v17/DocumentLayout.json
+*.exe
+*.bin
+*.chromedriver
+*.dll
+/web scraper
+*.chromedriver
