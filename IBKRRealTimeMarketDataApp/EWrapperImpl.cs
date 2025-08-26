@@ -538,9 +538,13 @@ namespace IBKRRealTimeMarketDataApp
             Console.WriteLine("BondContractDetails end. ReqId: " + requestId);
         }
 
-        //! [historicaldataend]
+        //! [historicaldataend] a3dbc45370718d8d6bf9a9ae1b1b8b58
+        // HistoricalDataEnd - 2135359492 from 20250820 11:27:06 America/New_York to 20250822 11:27:06 America/New_York
         public virtual void historicalDataEnd(int reqId, string startDate, string endDate)
         {
+            Request req = Request.GetRequest(reqId);
+            req.requestbegindatetime = startDate;
+            req.requestenddatetime = endDate;
             Request.EndRequest(reqId, startDate+"|"+endDate);
 
             Console.WriteLine("HistoricalDataEnd - "+reqId+" from "+startDate+" to "+endDate);

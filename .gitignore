@@ -12,3 +12,5 @@ IBKRRealTimeMarketDataApp/.vs/IBKRRealTimeMarketDataApp/v17/DocumentLayout.json
 *.dll
 /web scraper
 *.chromedriver
+/IBKRRealTimeMarketDataApp
+/IBKRRealTimeMarketDataApp/.vs/IBKRRealTimeMarketDataApp/v17

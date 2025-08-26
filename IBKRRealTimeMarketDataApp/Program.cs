@@ -37,60 +37,6 @@ using static System.Windows.Forms.LinkLabel;
 
 namespace IBKRRealTimeMarketDataApp
 {
-    public class MultipleWriter : TextWriter
-    {
-        StreamWriter writer;
-        TextWriter old;
-
-        public MultipleWriter()
-        {
-            Console.WriteLine("MultipleWriter: " + Assembly.GetExecutingAssembly().Location);
-
-            var dtstr = DateTimeOffset.Now.ToString("yyyyMMddHHmmssffff");
-            string fname = "Logs\\log_" + dtstr + ".txt";
-
-            Console.WriteLine(fname);
-
-            bool exists = System.IO.Directory.Exists("Logs");
-
-            if (!exists)
-            {
-                Console.WriteLine("creating directory Logs");
-                var dirinfo = System.IO.Directory.CreateDirectory("Logs");
-                Console.WriteLine("FullName: " + dirinfo.FullName);
-            }
-
-
-            var ostrm = new FileStream(fname, FileMode.OpenOrCreate, FileAccess.Write);
-            Console.WriteLine("full path: " + ostrm.Name);
-
-            old = Console.Out;
-            writer = new StreamWriter(ostrm);
-        }
-
-        public override void Write(char value)
-        {
-            writer.Write(value);
-            old.Write(value);
-        }
-
-        public override void Write(string value)
-        {
-            // RealTimeBars
-
-            writer.Write(value);
-            old.WriteLine(value);
-        }
-
-        public override Encoding Encoding
-        {
-            get
-            {
-                return Encoding.ASCII;
-            }
-        }
-    }
-
     public static class IBKRRealTimeMarketDataApp
     {
         public static EClientSocket clientSocket;
@@ -343,17 +289,17 @@ namespace IBKRRealTimeMarketDataApp
             while (testImpl.NextOrderId <= 0) { }
 
             new Thread(() => {
-                // RetrieveDailyBars(15);
+                RetrieveDailyBars(2);
                 // RetrieveDailyBars(15, -1, "5 secs");
-                RetrieveSingleDay("20250815", "AAPL");
-                RetrieveSingleDay("20250816", "AAPL");
-                RetrieveSingleDay("20250817", "AAPL");
-                RetrieveSingleDay("20250818", "AAPL");
+                //RetrieveSingleDay("20250815", "AAPL");
+                //RetrieveSingleDay("20250816", "AAPL");
+                //RetrieveSingleDay("20250817", "AAPL");
+                //RetrieveSingleDay("20250818", "AAPL");
 
                 // RetrieveSingleDay("20250820", "AAPL", "5 secs");
 
                 // RetrieveDailyBars(3, 1, "5 secs", new List<string> { "AAPL" });
-                // RetrieveDailyBars(2);
+                // RetrieveDailyBars(days:2,barlength:"5 secs");
                 // RetrieveDailyBars(1, 19, "5 secs");           
             }).Start();
 
