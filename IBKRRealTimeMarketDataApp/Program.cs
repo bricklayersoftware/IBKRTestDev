@@ -268,9 +268,21 @@ namespace IBKRRealTimeMarketDataApp
 
             clientSocket = testImpl.ClientSocket;
             EReaderSignal readerSignal = testImpl.Signal;
+            clientSocket.eConnect("127.0.0.1", 7496, 1);
 
             // clientSocket.eConnect("127.0.0.1", 7496, 0);
-            clientSocket.eConnect("52.188.185.179", 7496, 2);
+
+            /*
+            if ( PortChecker.TestPort("52.188.185.179", 7496) )
+                clientSocket.eConnect("52.188.185.179", 7496, 2);
+            else if ( PortChecker.TestPort("127.0.0.1", 7496) )
+                clientSocket.eConnect("127.0.0.1", 7496, 1);
+            else
+            {
+                log("not able to connect to IBKR, exiting");
+                return 0;
+            }
+            */
 
             var reader = new EReader(clientSocket, readerSignal);
             reader.Start();
@@ -299,7 +311,7 @@ namespace IBKRRealTimeMarketDataApp
                 // RetrieveSingleDay("20250820", "AAPL", "5 secs");
 
                 // RetrieveDailyBars(3, 1, "5 secs", new List<string> { "AAPL" });
-                // RetrieveDailyBars(days:2,barlength:"5 secs");
+                RetrieveDailyBars(days:2,barlength:"5 secs");
                 // RetrieveDailyBars(1, 19, "5 secs");           
             }).Start();
 

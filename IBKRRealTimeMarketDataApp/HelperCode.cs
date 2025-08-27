@@ -24,6 +24,70 @@ using Microsoft.Identity.Client;    //required
 
 namespace IBKRRealTimeMarketDataApp
 {
+    using System;
+    using System.Net.Sockets;
+    using System.Threading.Tasks;
+
+    public static class PortChecker
+    {
+        public static async Task<bool> IsPortOpenAsync(string host, int port, int timeoutMilliseconds = 5000)
+        {
+            using (TcpClient client = new TcpClient())
+            {
+                try
+                {
+                    // Attempt to connect to the remote host and port asynchronously
+                    var connectTask = client.ConnectAsync(host, port);
+
+                    // Wait for the connection attempt to complete or timeout
+                    if (await Task.WhenAny(connectTask, Task.Delay(timeoutMilliseconds)) == connectTask)
+                    {
+                        // If the connection task completed within the timeout, check if it was successful
+                        return client.Connected;
+                    }
+                    else
+                    {
+                        // Connection timed out
+                        return false;
+                    }
+                }
+                catch (SocketException)
+                {
+                    // Connection failed (e.g., port closed, host unreachable)
+                    return false;
+                }
+                catch (Exception)
+                {
+                    // Other exceptions during the process
+                    return false;
+                }
+            }
+        }
+
+        public static bool TestPort(string remoteHost, int remotePort)
+        {
+            Action<string> log = Logger.GetLogger(MethodBase.GetCurrentMethod().Name);
+
+            // string remoteHost = "google.com"; // Replace with your remote host or IP address
+            // int remotePort = 443; // Replace with the port you want to check
+
+            log($"Checking if port {remotePort} on {remoteHost} is open...");
+
+            bool isOpen = IsPortOpenAsync(remoteHost, remotePort).Result;
+
+            if (isOpen)
+            {
+                log($"Port {remotePort} on {remoteHost} is open.");
+            }
+            else
+            {
+                log($"Port {remotePort} on {remoteHost} is closed or unreachable.");
+            }
+
+            return isOpen;
+        }
+    }
+
     public class ResultSet
     {
         public List<List<string>> records;

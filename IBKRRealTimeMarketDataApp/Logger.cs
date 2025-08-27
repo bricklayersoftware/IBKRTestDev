@@ -74,11 +74,16 @@ namespace IBKRRealTimeMarketDataApp
             if (line.Length <= 1 || string.IsNullOrWhiteSpace(line) )
                 return;
 
-            Helper.InsertRecord("LoadLog", new List<string> { "LoadDateTime", "MessageID", "Message" }, new List<string> { loaddatetime, MultipleWriter.index.ToString(), line });
+            int rowcount = Helper.InsertRecord("LoadLog", new List<string> { "LoadDateTime", "MessageID", "Message" }, new List<string> { loaddatetime, MultipleWriter.index.ToString(), line });
+
         }
 
         public override void Write(char value)
         {
+            writer.Write(value);
+            old.Write(value);
+
+
             // 0x0A, 0x0D
 
             string line = "";
@@ -93,16 +98,14 @@ namespace IBKRRealTimeMarketDataApp
             else
                 sb.Append(value);
 
-            writer.Write(value);
-            old.Write(value);
         }
 
         public override void Write(string value)
         {
-            Writesql(value);
-
             writer.Write(value);
             old.WriteLine(value);
+
+            Writesql(value);
         }
 
         public override Encoding Encoding
