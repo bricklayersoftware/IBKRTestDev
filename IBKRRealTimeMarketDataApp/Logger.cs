@@ -117,7 +117,6 @@ namespace IBKRRealTimeMarketDataApp
         }
     }
 
-
     public class Logger
     {
         public static string timestamp

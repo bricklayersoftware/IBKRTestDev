@@ -427,6 +427,20 @@ namespace IBKRRealTimeMarketDataApp
             }
         }
 
+        public static void EndSession()
+        {
+            foreach (Request req in Request.allrequests) {
+                
+                if (req == null)
+                    continue;
+
+                if (req.IsActive)
+                    return;
+            }
+
+            CommandControl.exitnow = true;
+        }
+
         // date --> "yyyymmdd"
         public static Request GetStockRequestSingleDay(EClientSocket clientSocket, string reqdate, string symbol, string barsize = "1 day", string sectype = "STK", string expirydate = "", double strike = 0, string right = "C")
         {
