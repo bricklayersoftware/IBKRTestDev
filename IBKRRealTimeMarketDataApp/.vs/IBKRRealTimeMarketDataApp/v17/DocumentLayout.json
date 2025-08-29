@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|solutionrelative:request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|g:\\git_dump\\ibkrtestdev\\ibkrrealtimemarketdataapp\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|g:\\git_dump\\ibkrtestdev\\ibkrrealtimemarketdataapp\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|solutionrelative:request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRRealTimeMarketDataApp.csproj|solutionrelative:logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,17 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADgBAAAAAAAAAAAUwEABAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAUwEMBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T17:39:23.996Z",
               "IsPinned": true,
@@ -40,13 +40,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Request.cs",
               "DocumentMoniker": "G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\Request.cs",
               "RelativeDocumentMoniker": "Request.cs",
               "ToolTip": "G:\\git_dump\\IBKRTestDev\\IBKRRealTimeMarketDataApp\\Request.cs",
               "RelativeToolTip": "Request.cs",
-              "ViewState": "AgIAAB4BAAAAAAAAAAAxwLEBAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAswDoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-12T15:48:13.057Z",
               "IsPinned": true,
@@ -63,8 +63,7 @@
               "ViewState": "AgIAAA4AAAAAAAAAAAAiwI8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-27T20:19:14.552Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             }
           ]
         }
