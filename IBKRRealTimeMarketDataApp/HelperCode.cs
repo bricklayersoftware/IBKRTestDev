@@ -210,7 +210,7 @@ namespace IBKRRealTimeMarketDataApp
             }
         }
 
-        public static string query_HistoricalDataCountCheck = @"SELECT * FROM [testdevrdbms].[dbo].[HistoricalDataCountCheck] WHERE [Error] = 'ERROR'";
+        public static string query_HistoricalDataCountCheck = @"SELECT * FROM [testdevrdbms].[dbo].[HistoricalDataCountCheck] WHERE COALESCE([Error],'') <> '' AND [Date2] >= DATEADD(day, -5, GETDATE())";
 
         // public static string connstr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=testdevrdbms;Persist Security Info=True;User ID=ibkrtestdev;Password=Michael101!;Pooling=False;Multiple Active Result Sets=False;Encrypt=True;Trust Server Certificate=True;Command Timeout=0";
 
