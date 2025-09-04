@@ -299,8 +299,6 @@ namespace IBKRRealTimeMarketDataApp
                         if (table[i, j] != "ERROR")
                             continue;
 
-                        log("row: " + i.ToString());
-
                         // "8/26/2025 12:00:00 AM"
 
                         datestr = datestr.Substring(0, 10);
@@ -309,6 +307,9 @@ namespace IBKRRealTimeMarketDataApp
                         parts[0] = (parts[0].Length == 1 ? "0" : "") + parts[0];
                         datestr = parts[2].Trim() + parts[0] + parts[1];
                         symbol = symbol.Trim();
+
+                        log("missing entry: " + i.ToString() + " date: "+datestr+ " symbol: "+symbol+" timeinterval: "+timeinterval);
+
                         RetrieveSingleDay(datestr, symbol, timeinterval);
                     }
                 }
