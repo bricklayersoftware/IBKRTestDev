@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
+
 
 namespace IBApi
 {
@@ -66,6 +68,8 @@ namespace IBApi
         */
         public void eConnect(string host, int port, int clientId)
         {
+            // Action<string> log = Logger.GetLogger(MethodBase.GetCurrentMethod().Name);
+
             eConnect(host, port, clientId, false);
         }
 

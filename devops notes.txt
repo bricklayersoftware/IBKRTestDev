@@ -21,7 +21,10 @@
         gFSZz27gFSuxN@7
 
         Enter-PSSession -ComputerName 52.188.185.179 -Credential (Get-Credential)
-        
+        -- use vm creds to login, might have to 
+        execute if error/warning not able to connect
+        winrm quickconfig
+
         sql server  
         52.188.185.179,1433
         ibkrtestdev

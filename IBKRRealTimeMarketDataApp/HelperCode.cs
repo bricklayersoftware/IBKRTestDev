@@ -90,8 +90,65 @@ namespace IBKRRealTimeMarketDataApp
 
     public class ResultSet
     {
-        public List<List<string>> records;
-        public List<(string, System.Type)> columns;
+        public class RSColumn
+        {
+            public string fieldname;
+            public System.Type fieldtype;
+        }
+
+        public string[,] GetTable()
+        {
+
+            string[,] table = new string[rowCount, columnCount];
+
+            for (int i = 0; i < columnCount; i++)
+            {
+                for (int j = 0; j < rowCount; j++)
+                {
+                    table[j, i] = records[j][i];
+                }
+            }
+
+            return table;
+        }
+
+        public Dictionary<string, List<string>> GetRecordsByField()
+        {
+            Dictionary<string, List<string>> ret = new Dictionary<string, List<string>>();
+
+            List<string> _records = null; // new List<string>();
+
+            int col = 0;
+            foreach (RSColumn column in columns )
+            {
+                _records = records[col];
+                col++;
+
+                ret.Add(column.fieldname, _records);
+            }
+
+            return ret;
+        }
+
+        public List<List<string>> records; // list of records
+        public List<RSColumn> columns;
+
+        public int columnCount
+        {
+            get { return records[0].Count; }
+        }
+
+        public int rowCount
+        {
+            get { return records.Count; }
+        }
+
+        public string[,] GetTableByFields(List<string> fields)
+        {
+            string[,] ret = null;
+
+            return ret;
+        }
 
         public List<string> GetRowsByField(string fieldname)
         {
@@ -99,7 +156,7 @@ namespace IBKRRealTimeMarketDataApp
 
             foreach (var item in columns)
             {
-                string _fieldname = item.Item1;
+                string _fieldname = item.fieldname;
 
                 if (_fieldname == fieldname)
                     break;
@@ -129,7 +186,7 @@ namespace IBKRRealTimeMarketDataApp
 
             foreach (var item in columns)
             {
-                string _fieldname = item.Item1;
+                string _fieldname = item.fieldname;
 
                 if (_fieldname == fieldname)
                     break;
@@ -153,9 +210,10 @@ namespace IBKRRealTimeMarketDataApp
             }
         }
 
+        public static string query_HistoricalDataCountCheck = @"SELECT * FROM [testdevrdbms].[dbo].[HistoricalDataCountCheck] WHERE [Error] = 'ERROR'";
 
         // public static string connstr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=testdevrdbms;Persist Security Info=True;User ID=ibkrtestdev;Password=Michael101!;Pooling=False;Multiple Active Result Sets=False;Encrypt=True;Trust Server Certificate=True;Command Timeout=0";
-        
+
         public static string connstr = @"Data Source=52.188.185.179,1433;Initial Catalog=testdevrdbms;Persist Security Info=True;User ID=ibkrtestdev;Password=Michael101!;Pooling=False;Multiple Active Result Sets=False;Encrypt=True;Trust Server Certificate=True;Command Timeout=0";
 
         public static string GetTimestamp()
@@ -262,7 +320,7 @@ namespace IBKRRealTimeMarketDataApp
         {
 
             List<List<string>> records = new List<List<string>>();
-            List<(string, System.Type)> columns = new List<(string, System.Type)>();
+            List<ResultSet.RSColumn> columns = new List<ResultSet.RSColumn>();
 
             try
             {
@@ -283,7 +341,7 @@ namespace IBKRRealTimeMarketDataApp
                         {
                             var columnName = reader.GetName(i);
                             var dotNetType = reader.GetFieldType(i);
-                            columns.Add((columnName, dotNetType));
+                            columns.Add(new ResultSet.RSColumn { fieldname = columnName, fieldtype = dotNetType });
                         }
                     }
 

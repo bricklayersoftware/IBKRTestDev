@@ -33,6 +33,8 @@ using System.Drawing;
 using System.Reflection;
 using System.Linq;
 using static System.Windows.Forms.LinkLabel;
+using static IBKRRealTimeMarketDataApp.ResultSet;
+using System.IdentityModel.Protocols.WSTrust;
 
 
 namespace IBKRRealTimeMarketDataApp
@@ -246,6 +248,102 @@ namespace IBKRRealTimeMarketDataApp
             */
         }
 
+        public static void PopulateMissingDays()
+        {
+            Action<string> log = Logger.GetLogger(MethodBase.GetCurrentMethod().Name);
+
+            log("BEGIN");
+
+            ResultSet rs = Helper.ExecuteSQL(Helper.query_HistoricalDataCountCheck);
+            var dict = rs.GetRecordsByField();
+
+            string[,] table = rs.GetTable();
+
+            // cols 5,6,7 where col 12 is error
+            // Symbol, Date, TimeInterval
+            int rowcount = 0;
+            int colcount = 0;
+
+            colcount = table.GetLength(1);
+            rowcount = table.GetLength(0);
+
+            log("missing days: columns: " + table.GetLength(1));
+            log("missing days: rows: " + table.GetLength(0));
+
+            for (int i = 0; i < rowcount; i++)
+            {
+                string symbol = "";
+                string datestr = "";
+                string timeinterval = "";
+
+                for (int j = 0; j < colcount; j++)
+                {
+                    RSColumn column = rs.columns[j];
+
+                    // log("column: " + j.ToString() + " " + column.fieldname);
+
+                    if (j == 5-1)
+                        symbol = table[i, j];
+                    else if (j == 6-1)
+                        datestr = table[i, j];
+                    else if (j == 7-1)
+                        timeinterval = table[i, j];
+
+                    if (timeinterval == "1D")
+                        timeinterval = "1 day";
+                    else if (timeinterval == "5S")
+                        timeinterval = "5 secs";
+
+                    if (j == 12-1)
+                    {
+                        if (table[i, j] != "ERROR")
+                            continue;
+
+                        log("row: " + i.ToString());
+
+                        // "8/26/2025 12:00:00 AM"
+
+                        datestr = datestr.Substring(0, 10);
+                        string[] parts = datestr.Split('/');
+                        parts[1] = (parts[1].Length == 1 ? "0" : "") + parts[1];
+                        parts[0] = (parts[0].Length == 1 ? "0" : "") + parts[0];
+                        datestr = parts[2].Trim() + parts[0] + parts[1];
+                        symbol = symbol.Trim();
+                        RetrieveSingleDay(datestr, symbol, timeinterval);
+                    }
+                }
+            }
+
+            log("END");
+
+        }
+
+        public static void TestIBKR()
+        {
+            EWrapperImpl testImpl = new EWrapperImpl();
+
+            EClientSocket clientSocket = testImpl.ClientSocket;
+            EReaderSignal readerSignal = testImpl.Signal;
+            //! [connect]
+            clientSocket.eConnect("52.188.185.179", 7496, 0);
+            //! [connect]
+            //! [ereader]
+            //Create a reader to consume messages from the TWS. The EReader will consume the incoming messages and put them in a queue
+            var reader = new EReader(clientSocket, readerSignal);
+            reader.Start();
+            //Once the messages are in the queue, an additional thread can be created to fetch them
+            new Thread(() => { while (clientSocket.IsConnected()) { readerSignal.waitForSignal(); reader.processMsgs(); } }) { IsBackground = true }.Start();
+            //! [ereader]
+            /*************************************************************************************************************************************************/
+            /* One (although primitive) way of knowing if we can proceed is by monitoring the order's nextValidId reception which comes down automatically after connecting. */
+            /*************************************************************************************************************************************************/
+            while (testImpl.NextOrderId <= 0) { }
+            //testIBMethods(clientSocket, testImpl.NextOrderId);            
+            Console.WriteLine("Disconnecting...");
+            clientSocket.eDisconnect();
+            return;
+        }
+
         public static int Main(string[] args)
         {
             Action<string> log = Logger.GetLogger(MethodBase.GetCurrentMethod().Name);
@@ -269,15 +367,9 @@ namespace IBKRRealTimeMarketDataApp
             clientSocket = testImpl.ClientSocket;
             EReaderSignal readerSignal = testImpl.Signal;
 
-            if ( PortChecker.TestPort("52.188.185.179", 7496) )
-                clientSocket.eConnect("52.188.185.179", 7496, 2);
-            else if ( PortChecker.TestPort("127.0.0.1", 7496) )
-                clientSocket.eConnect("127.0.0.1", 7496, 1);
-            else
-            {
-                log("not able to connect to IBKR, exiting");
-                return 0;
-            }
+            // TestIBKR();
+            clientSocket.eConnect("52.188.185.179", 7496, 2);             
+            // clientSocket.eConnect("127.0.0.1", 7496, 0);
 
             var reader = new EReader(clientSocket, readerSignal);
             reader.Start();
@@ -296,6 +388,9 @@ namespace IBKRRealTimeMarketDataApp
             while (testImpl.NextOrderId <= 0) { }
 
             new Thread(() => {
+                PopulateMissingDays();
+
+                /*
                 RetrieveDailyBars(2);
                 // RetrieveDailyBars(15, -1, "5 secs");
                 //RetrieveSingleDay("20250815", "AAPL");
@@ -306,8 +401,10 @@ namespace IBKRRealTimeMarketDataApp
                 // RetrieveSingleDay("20250820", "AAPL", "5 secs");
 
                 // RetrieveDailyBars(3, 1, "5 secs", new List<string> { "AAPL" });
-                RetrieveDailyBars(days:2,barlength:"5 secs");
+                RetrieveDailyBars(days:2, barlength:"5 secs");
                 // RetrieveDailyBars(1, 19, "5 secs");           
+                */
+
             }).Start();
 
 

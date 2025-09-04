@@ -98,6 +98,7 @@ namespace IBKRRealTimeMarketDataApp
 
                 this.endCallback(this.requestid);
 
+                /*
                 bool exitnow = true;
                 
                 foreach ( Request req in allrequests )
@@ -109,7 +110,7 @@ namespace IBKRRealTimeMarketDataApp
                 }
 
                 CommandControl.exitnow = exitnow;
-
+                */
             }
         }
 

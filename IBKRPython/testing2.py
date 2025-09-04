@@ -1,3 +1,6 @@
+# pip install --upgrade ib-insync
+# pip install --upgrade ib-insync asyncio
+
 from ib_insync import *
 import pandas as pd
 from datetime import datetime
@@ -8,7 +11,7 @@ print(now)
 
 # Connect to IB TWS or Gateway
 ib = IB()
-ib.connect('127.0.0.1', 7496, clientId=31415)
+ib.connect('52.188.185.179', 7496, clientId=1)
 
 # Define the contract
 contract = Stock('QQQ', 'SMART', 'USD')

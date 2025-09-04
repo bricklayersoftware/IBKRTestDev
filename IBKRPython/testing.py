@@ -47,7 +47,7 @@ class MyWrapper(EWrapper):
 
 wrap = MyWrapper()        
 app = EClient(wrap)
-app.connect("127.0.0.1", 7496, clientId=123)
+app.connect("127.0.0.1", 7496, clientId=0)
 
 #I just use this in jupyter so I can interact with df
 import threading
