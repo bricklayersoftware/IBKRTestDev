@@ -259,8 +259,6 @@ namespace IBKRRealTimeMarketDataApp
 
             string[,] table = rs.GetTable();
 
-            // cols 5,6,7 where col 12 is error
-            // Symbol, Date, TimeInterval
             int rowcount = 0;
             int colcount = 0;
 
