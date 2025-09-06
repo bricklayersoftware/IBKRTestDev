@@ -280,11 +280,11 @@ namespace IBKRRealTimeMarketDataApp
 
                     // log("column: " + j.ToString() + " " + column.fieldname);
 
-                    if (j == 5-1)
+                    if (column.fieldname == "Symbol")
                         symbol = table[i, j];
-                    else if (j == 6-1)
+                    else if (column.fieldname == "Date")
                         datestr = table[i, j];
-                    else if (j == 7-1)
+                    else if (column.fieldname == "TimeInterval")
                         timeinterval = table[i, j];
 
                     if (timeinterval == "1D")
@@ -292,13 +292,9 @@ namespace IBKRRealTimeMarketDataApp
                     else if (timeinterval == "5S")
                         timeinterval = "5 secs";
 
-                    if (j == 12-1)
+                    // "8/26/2025 12:00:00 AM"
+                    if ( ! (String.IsNullOrWhiteSpace(symbol) || String.IsNullOrWhiteSpace(datestr) || String.IsNullOrWhiteSpace(timeinterval)) )
                     {
-                        if (table[i, j] != "ERROR")
-                            continue;
-
-                        // "8/26/2025 12:00:00 AM"
-
                         datestr = datestr.Substring(0, 10);
                         string[] parts = datestr.Split('/');
                         parts[1] = (parts[1].Length == 1 ? "0" : "") + parts[1];
@@ -306,15 +302,19 @@ namespace IBKRRealTimeMarketDataApp
                         datestr = parts[2].Trim() + parts[0] + parts[1];
                         symbol = symbol.Trim();
 
-                        log("missing entry: " + i.ToString() + " date: "+datestr+ " symbol: "+symbol+" timeinterval: "+timeinterval);
+                        log("missing entry: " + i.ToString() + " date: " + datestr + " symbol: " + symbol + " timeinterval: " + timeinterval);
 
                         RetrieveSingleDay(datestr, symbol, timeinterval);
+
+                        datestr = null;
+                        symbol = null;
+                        timeinterval = null;
                     }
+
                 }
             }
 
             log("END");
-
         }
 
         public static void TestIBKR()
