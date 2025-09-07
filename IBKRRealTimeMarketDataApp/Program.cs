@@ -347,78 +347,90 @@ namespace IBKRRealTimeMarketDataApp
         {
             Action<string> log = Logger.GetLogger(MethodBase.GetCurrentMethod().Name);
 
-            dynamic jsonconfig = null;
-
-            using (StreamReader r = new StreamReader("runtimeconfig.json"))
+            try
             {
-                string jsonstr = r.ReadToEnd();
-                jsonconfig = JsonSerializer.Deserialize<dynamic>(jsonstr);
-                Dictionary<string, object> myDictionary = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonstr);
-
-            }
-
-            // System.Diagnostics.Debugger.Launch();
-
-            Console.SetOut(new MultipleWriter());
-
-            EWrapperImpl testImpl = new EWrapperImpl();
-
-            clientSocket = testImpl.ClientSocket;
-            EReaderSignal readerSignal = testImpl.Signal;
-
-            // TestIBKR();
-            clientSocket.eConnect("52.188.185.179", 7496, 2);             
-            // clientSocket.eConnect("127.0.0.1", 7496, 0);
-
-            var reader = new EReader(clientSocket, readerSignal);
-            reader.Start();
-
-            new Thread(() => {
-                while (clientSocket.IsConnected())
-                {
-                    readerSignal.waitForSignal();
-                    reader.processMsgs();
-                }
-            })
-            {
-                IsBackground = true
-            }.Start();
-
-            while (testImpl.NextOrderId <= 0) { }
-
-            new Thread(() => {
-                PopulateMissingDays();
 
                 /*
-                RetrieveDailyBars(2);
-                // RetrieveDailyBars(15, -1, "5 secs");
-                //RetrieveSingleDay("20250815", "AAPL");
-                //RetrieveSingleDay("20250816", "AAPL");
-                //RetrieveSingleDay("20250817", "AAPL");
-                //RetrieveSingleDay("20250818", "AAPL");
+                dynamic jsonconfig = null;
 
-                // RetrieveSingleDay("20250820", "AAPL", "5 secs");
+                using (StreamReader r = new StreamReader("runtimeconfig.json"))
+                {
+                    string jsonstr = r.ReadToEnd();
+                    jsonconfig = JsonSerializer.Deserialize<dynamic>(jsonstr);
+                    Dictionary<string, object> myDictionary = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonstr);
 
-                // RetrieveDailyBars(3, 1, "5 secs", new List<string> { "AAPL" });
-                RetrieveDailyBars(days:2, barlength:"5 secs");
-                // RetrieveDailyBars(1, 19, "5 secs");           
+                }
                 */
 
-            }).Start();
+                // System.Diagnostics.Debugger.Launch();
+
+                Console.SetOut(new MultipleWriter());
+
+                EWrapperImpl testImpl = new EWrapperImpl();
+
+                clientSocket = testImpl.ClientSocket;
+                EReaderSignal readerSignal = testImpl.Signal;
+
+                // TestIBKR();
+                clientSocket.eConnect("52.188.185.179", 1234, 2);
+                // clientSocket.eConnect("127.0.0.1", 7496, 0);
+
+                var reader = new EReader(clientSocket, readerSignal);
+                reader.Start();
+
+                new Thread(() =>
+                {
+                    while (clientSocket.IsConnected())
+                    {
+                        readerSignal.waitForSignal();
+                        reader.processMsgs();
+                    }
+                })
+                {
+                    IsBackground = true
+                }.Start();
+
+                while (testImpl.NextOrderId <= 0) { }
+
+                new Thread(() =>
+                {
+                    PopulateMissingDays();
+
+                    /*
+                    RetrieveDailyBars(2);
+                    // RetrieveDailyBars(15, -1, "5 secs");
+                    //RetrieveSingleDay("20250815", "AAPL");
+                    //RetrieveSingleDay("20250816", "AAPL");
+                    //RetrieveSingleDay("20250817", "AAPL");
+                    //RetrieveSingleDay("20250818", "AAPL");
+
+                    // RetrieveSingleDay("20250820", "AAPL", "5 secs");
+
+                    // RetrieveDailyBars(3, 1, "5 secs", new List<string> { "AAPL" });
+                    RetrieveDailyBars(days:2, barlength:"5 secs");
+                    // RetrieveDailyBars(1, 19, "5 secs");           
+                    */
+
+                }).Start();
 
 
-            new Thread(() =>
+                new Thread(() =>
+                {
+                    CommandControl.StartControl();
+                }).Start();
+
+                // loop if there is a single active request (i.e., terminate
+                // when all requests are either in error or have ended)
+                while (!CommandControl.exitnow)
+                {
+                    Thread.Sleep(1000);
+
+                    log("pulse " + Helper.timestamp);
+                }
+            }
+            catch (Exception ex)
             {
-                CommandControl.StartControl();
-            }).Start();
-
-            // loop if there is a single active request (i.e., terminate
-            // when all requests are either in error or have ended)
-            while ( ! CommandControl.exitnow )
-            {
-                Thread.Sleep(1000);
-
-                log("pulse " + Helper.timestamp);         
+                log(ex.FlattenException());
             }
 
             return 0;

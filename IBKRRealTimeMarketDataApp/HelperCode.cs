@@ -26,6 +26,7 @@ namespace IBKRRealTimeMarketDataApp
 {
     using System;
     using System.Net.Sockets;
+    using System.Security.Cryptography;
     using System.Threading.Tasks;
 
     public static class PortChecker
@@ -90,16 +91,33 @@ namespace IBKRRealTimeMarketDataApp
 
     public class ResultSet
     {
+        private SqlDataReader _reader;
+
+        public SqlDataReader reader
+        {
+            get { return _reader; }
+
+            set
+            {
+                _reader = value;
+
+                this.columns = reader.GetColumns();
+            }
+        }
+
         public class RSColumn
         {
             public string fieldname;
             public System.Type fieldtype;
         }
 
-        public string[,] GetTable()
+        // 1st dimension is rows, 2nd is columns
+        public string[,] GetTable(Boolean refresh = false)
         {
+            if (!refresh & (table != null))
+                return table;
 
-            string[,] table = new string[rowCount, columnCount];
+            table = new string[rowCount, columnCount];
 
             for (int i = 0; i < columnCount; i++)
             {
@@ -130,7 +148,8 @@ namespace IBKRRealTimeMarketDataApp
             return ret;
         }
 
-        public List<List<string>> records; // list of records
+        public string[,] table;
+        public List<List<string>> records; // list of records (tuples), records[i] retrieves row i
         public List<RSColumn> columns;
 
         public int columnCount
@@ -202,6 +221,18 @@ namespace IBKRRealTimeMarketDataApp
 
     public static class Helper
     {
+        public static string FlattenException(this Exception exception)
+        {
+            var stringBuilder = new StringBuilder();
+            while (exception != null)
+            {
+                stringBuilder.AppendLine($"Message: {exception.Message}");
+                stringBuilder.AppendLine($"Stack Trace: {exception.StackTrace}");
+                exception = exception.InnerException;
+            }
+            return stringBuilder.ToString();
+        }
+
         public static string timestamp
         {
             get
@@ -279,7 +310,13 @@ namespace IBKRRealTimeMarketDataApp
                 throw ex;
             }
         }
-        public static int ExecuteSP(string spname)
+        
+        public static void LogMessage(string message)
+        {
+            int ret = ExecuteSP("LogMessage", new Dictionary<string, string> { ["Message"] = message, ["loadID"] = MultipleWriter.loadid.ToString() });
+        }
+
+        public static int ExecuteSP(string spname, Dictionary<string, string> optparams = null)
         {
             using (var conn = new SqlConnection(connstr))
             using (var command = new SqlCommand(spname, conn)
@@ -287,10 +324,105 @@ namespace IBKRRealTimeMarketDataApp
                 CommandType = CommandType.StoredProcedure
             })
             {
+                if (optparams != null)
+                {
+                    foreach (KeyValuePair<string, string> pair in optparams)
+                    {
+                        command.Parameters.AddWithValue("@" + pair.Key, pair.Value);
+                    }
+                }
+
                 conn.Open();
                 return command.ExecuteNonQuery();
             }
 
+        }
+
+        public static List<string> GetRow(this SqlDataReader reader)
+        {
+            List<string> row = new List<string>();
+
+            List<ResultSet.RSColumn> columns = reader.GetColumns();
+
+            foreach ( ResultSet.RSColumn col in columns)
+            {
+                string record = reader[col.fieldname].ToString();
+                row.Add(record);
+            }
+
+            return row;
+        }
+
+        public static List<ResultSet.RSColumn> GetColumns(this SqlDataReader reader)
+        {
+            List<ResultSet.RSColumn> ret = new List<ResultSet.RSColumn>();
+
+            List<string> columnNames = new List<string>();
+            
+            for (int i = 0; i < reader.FieldCount; i++)
+            {
+                ResultSet.RSColumn column = new ResultSet.RSColumn ();
+
+                column.fieldname = reader.GetName(i);
+                column.fieldtype = reader.GetFieldType(i);
+
+                ret.Add(column);
+            }
+
+            return ret;
+        }
+
+        public static ResultSet GetResultSet(this SqlDataReader reader)
+        {
+            ResultSet rs = new ResultSet { reader = reader };
+            rs.records = new List<List<string>>();
+
+            while (reader.Read())
+            {
+                List<string> row = reader.GetRow();
+
+                rs.records.Add(row);
+            }
+
+            return rs;
+        }
+
+        public static ResultSet ExecuteSPWithRows(string spname, Dictionary<string, string> optparams = null)
+        {
+            /*
+             *  SqlParameter pvNewId = new SqlParameter();
+                pvNewId.ParameterName = "@NewId";
+                pvNewId.DbType = DbType.Int32;
+                pvNewId.Direction = ParameterDirection.Output;
+                pvCommand.Parameters.Add(pvNewId);
+             */
+
+            using (SqlConnection connection = new SqlConnection(connstr))
+            using (SqlCommand command = new SqlCommand(spname, connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                if (optparams != null)
+                {
+                    foreach (KeyValuePair<string, string> pair in optparams)
+                    {
+                        command.Parameters.AddWithValue("@"+pair.Key, pair.Value);
+                    }
+                }
+
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        return reader.GetResultSet();
+                    }
+                }
+            }
+
+            return null;
         }
 
         public static bool RowExists(string symbol, string date, string time="", string timeinterval="1D") // (string table, List<string> columns, Dictionary<string, string> filter)
@@ -304,6 +436,7 @@ namespace IBKRRealTimeMarketDataApp
             int t = Int32.Parse(rs.GetRowsByFieldIndex(0)[0]);
             return t != 0;
         }
+        
         public static int InsertRecord(string table, List<string> cols, List<string> values)
         {
             SqlConnection conn = new SqlConnection(connstr);

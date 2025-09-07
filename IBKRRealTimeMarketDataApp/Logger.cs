@@ -29,7 +29,22 @@ namespace IBKRRealTimeMarketDataApp
 {
     public class MultipleWriter : TextWriter
     {
+        public static int loadid = -1;
         public static string loaddatetime = Helper.timestamp;
+
+        private static void InitNewLoad()
+        {
+            ResultSet rs = Helper.ExecuteSPWithRows("InitNewLoad", new Dictionary<string, string> {  ["Comments"]="", ["LoadID"]="" });
+
+            loadid = Int32.Parse(rs.GetRowByField("LoadID", 0));
+            loaddatetime = rs.GetRowByField("LoadDateTime", 0);
+        }
+
+        static MultipleWriter()
+        {
+            InitNewLoad();
+        }
+
         public static int _index = 1;
         public static int index
         {
@@ -74,7 +89,9 @@ namespace IBKRRealTimeMarketDataApp
             if (line.Length <= 1 || string.IsNullOrWhiteSpace(line) )
                 return;
 
-            int rowcount = Helper.InsertRecord("LoadLog", new List<string> { "LoadDateTime", "MessageID", "Message" }, new List<string> { loaddatetime, MultipleWriter.index.ToString(), line });
+            Helper.LogMessage(line);
+
+            // int rowcount = Helper.InsertRecord("LoadLog", new List<string> { "LoadDateTime", "MessageID", "Message" }, new List<string> { loaddatetime, MultipleWriter.index.ToString(), line });
 
         }
 
