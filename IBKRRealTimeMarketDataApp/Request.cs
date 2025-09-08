@@ -28,6 +28,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 using System.Drawing;
 using System.Reflection;
 using System.Security.Cryptography;
+using Azure.Core;
+using static System.Windows.Forms.AxHost;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace IBKRRealTimeMarketDataApp
 {
@@ -123,9 +126,9 @@ namespace IBKRRealTimeMarketDataApp
         public string right; // C or P
         public decimal strike;
         public string expiry;
-        public string requestbegindate;
-        public string requestenddate;
-        public int dayscount;
+        public string requestbegindate; // trading day start
+        public string requestenddate;   // trading day end
+        public int dayscount; // number of days
 
         public string requestbegindatetime;
         public string requestenddatetime;
@@ -457,8 +460,6 @@ namespace IBKRRealTimeMarketDataApp
             DateTime enddate= date1.AddDays(0);
             string enddatestr = enddate.Date.ToString("yyyyMMdd")+" 16:00:00 US/Eastern";
 
-            string daystr = "1 D"; // dayscount.ToString() + " D";
-
             stockindex = index;
 
             int _requestid = 0;
@@ -497,7 +498,6 @@ namespace IBKRRealTimeMarketDataApp
 
             log("requesting symbol [" + req.symbol + "] with index: " + req.stockindex + " msg: " + req.msg);
 
-
             IBApi.Contract contract = new IBApi.Contract();
 
             if (sectype == "STK")
@@ -526,7 +526,7 @@ namespace IBKRRealTimeMarketDataApp
             // https://interactivebrokers.github.io/tws-api/historical_bars.html#hd_duration
             // https://interactivebrokers.github.io/tws-api/historical_bars.html#hd_what_to_show
 
-            clientSocket.reqHistoricalData(req.requestid, contract, enddatestr, daystr, barsize, "TRADES", 1, 1, false, null);
+            clientSocket.reqHistoricalData(req.requestid, contract, enddatestr, "1 D", barsize, "TRADES", 1, 1, false, null);
 
             return req;
         }
@@ -673,6 +673,48 @@ namespace IBKRRealTimeMarketDataApp
             return (ret[0], ret[1]);
         }
 
+        public void LogRequest(bool update=true)
+        {
+            /*
+             public string msg;
+            public string symbol;
+            public int stockindex;
+            public int optionindex;
+            public string sectype; // OPT or STK
+            public string right; // C or P
+            public decimal strike;
+            public string expiry;
+            public string requestbegindate;
+            public string requestenddate;
+            public int dayscount;
+
+            public string requestbegindatetime;
+            public string requestenddatetime;
+
+            public DateTime begintime;
+            public DateTime processtime;
+            public DateTime endtime;
+            public DateTime errortime;
+             */
+
+            Helper.ExecuteSP("InitLoadDetails", new Dictionary<string, string>
+            {
+                ["RequestID"] = this.requestid.ToString(),
+                ["Symbol"] = this.symbol,
+                ["LoadID"] = MultipleWriter.loadid.ToString(),
+                ["SecType"] = this.sectype != "STK" ? "OPT" : this.sectype,
+                ["Right"] = this.right,
+                ["_Expiry"] = this.expiry,
+                ["_Strike"] = this.strike.ToString(),
+                ["_Date"] = this.reqdate,
+                ["TimeInterval"] = barsize,
+                // [_BeginTS] = "",
+                // [_EndTS]
+                // [_BeginReqTS]
+                // [_EndReqTS]
+            });
+
+        }
     }
 
 
