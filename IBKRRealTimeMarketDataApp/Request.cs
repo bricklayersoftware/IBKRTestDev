@@ -76,6 +76,8 @@ namespace IBKRRealTimeMarketDataApp
             this.begintime = DateTime.Now;
             this.state = Request.RequestState.ACTIVE;
             allrequests.Add(this);
+
+            this.LogRequest();
         }
 
         private static int _seed = 0;
@@ -178,6 +180,15 @@ namespace IBKRRealTimeMarketDataApp
         }
         public string requestenddate;   // trading day end
         public RequestFlags _barsize;
+        
+        public bool IsDailyBar
+        {
+            get
+            {
+                return this._barsize == RequestFlags.barsize_1day_flag;
+            }
+        }
+
         public string barsize
         {
             get
@@ -321,6 +332,7 @@ namespace IBKRRealTimeMarketDataApp
                 ret.Add("15 secs", RequestFlags.barsize_15secs_flag);
                 ret.Add("30 secs", RequestFlags.barsize_30secs_flag);
                 ret.Add("1 min", RequestFlags.barsize_1min_flag);
+                ret.Add("1 day", RequestFlags.barsize_1day_flag);
                 ret.Add("STK", RequestFlags.stockflag);
                 ret.Add("P", RequestFlags.putflag);
                 ret.Add("C", RequestFlags.callflag);
@@ -431,7 +443,7 @@ namespace IBKRRealTimeMarketDataApp
             string datestr = "";
             string timestr = "";
 
-            if (req.barsize == "1D") 
+            if (req.IsDailyBar) 
             {
                 datestr = dict["Time"];
                 timestr = "";
@@ -552,7 +564,7 @@ namespace IBKRRealTimeMarketDataApp
         public void ExecuteStockRequestSingleDay()
         {
             // EWrapperImpl.cs --  public virtual void historicalData(int reqId, Bar bar) -- 2b7056397a90732100618619e89c82f5 
-            // EWrapperImpl.cs --  public virtual void historicalDataEnd(int reqId, string startDate, string endDate)
+            // EWrapperImpl.cs --  public virtual void historicalDataEnd(int reqId, string startDate, string endDate) -- a3dbc45370718d8d6bf9a9ae1b1b8b58
 
             // https://interactivebrokers.github.io/tws-api/historical_bars.html
             // https://interactivebrokers.github.io/tws-api/historical_bars.html#hd_duration

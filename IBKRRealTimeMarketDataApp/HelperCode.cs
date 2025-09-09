@@ -303,11 +303,13 @@ namespace IBKRRealTimeMarketDataApp
                     // "8/26/2025 12:00:00 AM"
                     if (!(String.IsNullOrWhiteSpace(symbol) || String.IsNullOrWhiteSpace(datestr) || String.IsNullOrWhiteSpace(timeinterval)))
                     {
-                        datestr = datestr.Substring(0, 10);
-                        string[] parts = datestr.Split('/');
-                        parts[1] = (parts[1].Length == 1 ? "0" : "") + parts[1];
-                        parts[0] = (parts[0].Length == 1 ? "0" : "") + parts[0];
-                        datestr = parts[2].Trim() + parts[0] + parts[1];
+                        string[] parts = datestr.Split(' ');
+                        datestr = parts[0];
+                        parts = datestr.Split('/');
+
+                        parts[1] = (parts[1].Length == 1 ? "0" : "") + parts[1]; // day
+                        parts[0] = (parts[0].Length == 1 ? "0" : "") + parts[0]; // month
+                        datestr = parts[2].Trim() + parts[0].Trim() + parts[1].Trim(); // yyyyMMdd
                         symbol = symbol.Trim();
 
                         Request req = Request.GetStockRequestSingleDay(datestr, symbol, barsize: "1 day");
@@ -584,11 +586,6 @@ namespace IBKRRealTimeMarketDataApp
             {
                 throw ex;
             }
-
-        }
-
-        public static void InsertHistoricalData(Dictionary<string, string> dict)
-        {
 
         }
 
