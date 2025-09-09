@@ -45,13 +45,10 @@ namespace IBKRRealTimeMarketDataApp
 
         public static void RetrieveSingleDay(string datestr, string symbol, string barlength="1 day")
         {
-            Action<string> log = Logger.GetLogger(MethodBase.GetCurrentMethod().Name);
+            // Action<string> log = Logger.GetLogger(MethodBase.GetCurrentMethod().Name);
 
-            log("BEGIN");
-
-            Request req = Request.GetStockRequestSingleDay(clientSocket, datestr, symbol, barsize: barlength);
-
-            log("END");
+            Request req = Request.GetStockRequestSingleDay(datestr, symbol, barlength);
+            req.ExecuteStockRequestSingleDay();
 
             return;
         }
@@ -90,7 +87,7 @@ namespace IBKRRealTimeMarketDataApp
                 string symbol = symbols[i];
                 symbol = symbol.Trim().ToUpper();
 
-                Request stockreq = Request.GetStockRequestDailyBar(clientSocket, i, symbol, days, barlength);
+                // Request stockreq = Request.GetStockRequestDailyBar(clientSocket, i, symbol, days, barlength);
             }
 
             log("END");
@@ -248,75 +245,6 @@ namespace IBKRRealTimeMarketDataApp
             */
         }
 
-        public static void PopulateMissingDays()
-        {
-            Action<string> log = Logger.GetLogger(MethodBase.GetCurrentMethod().Name);
-
-            log("BEGIN");
-
-            ResultSet rs = Helper.ExecuteSQL(Helper.query_HistoricalDataCountCheck);
-            var dict = rs.GetRecordsByField();
-
-            string[,] table = rs.GetTable();
-
-            int rowcount = 0;
-            int colcount = 0;
-
-            colcount = table.GetLength(1);
-            rowcount = table.GetLength(0);
-
-            log("missing days: columns: " + table.GetLength(1));
-            log("missing days: rows: " + table.GetLength(0));
-
-            for (int i = 0; i < rowcount; i++)
-            {
-                string symbol = "";
-                string datestr = "";
-                string timeinterval = "";
-
-                for (int j = 0; j < colcount; j++)
-                {
-                    RSColumn column = rs.columns[j];
-
-                    // log("column: " + j.ToString() + " " + column.fieldname);
-
-                    if (column.fieldname == "Symbol")
-                        symbol = table[i, j];
-                    else if (column.fieldname == "Date")
-                        datestr = table[i, j];
-                    else if (column.fieldname == "TimeInterval")
-                        timeinterval = table[i, j];
-
-                    if (timeinterval == "1D")
-                        timeinterval = "1 day";
-                    else if (timeinterval == "5S")
-                        timeinterval = "5 secs";
-
-                    // "8/26/2025 12:00:00 AM"
-                    if ( ! (String.IsNullOrWhiteSpace(symbol) || String.IsNullOrWhiteSpace(datestr) || String.IsNullOrWhiteSpace(timeinterval)) )
-                    {
-                        datestr = datestr.Substring(0, 10);
-                        string[] parts = datestr.Split('/');
-                        parts[1] = (parts[1].Length == 1 ? "0" : "") + parts[1];
-                        parts[0] = (parts[0].Length == 1 ? "0" : "") + parts[0];
-                        datestr = parts[2].Trim() + parts[0] + parts[1];
-                        symbol = symbol.Trim();
-
-                        log("missing entry: " + i.ToString() + " date: " + datestr + " symbol: " + symbol + " timeinterval: " + timeinterval);
-
-                        RetrieveSingleDay(datestr, symbol, timeinterval);
-
-                        datestr = null;
-                        symbol = null;
-                        timeinterval = null;
-                    }
-
-                }
-            }
-
-            log("END");
-        }
-
         public static void TestIBKR()
         {
             EWrapperImpl testImpl = new EWrapperImpl();
@@ -394,22 +322,12 @@ namespace IBKRRealTimeMarketDataApp
 
                 new Thread(() =>
                 {
-                    PopulateMissingDays();
+                    List<Request> requests = Helper.PopulateMissingDays();
 
-                    /*
-                    RetrieveDailyBars(2);
-                    // RetrieveDailyBars(15, -1, "5 secs");
-                    //RetrieveSingleDay("20250815", "AAPL");
-                    //RetrieveSingleDay("20250816", "AAPL");
-                    //RetrieveSingleDay("20250817", "AAPL");
-                    //RetrieveSingleDay("20250818", "AAPL");
-
-                    // RetrieveSingleDay("20250820", "AAPL", "5 secs");
-
-                    // RetrieveDailyBars(3, 1, "5 secs", new List<string> { "AAPL" });
-                    RetrieveDailyBars(days:2, barlength:"5 secs");
-                    // RetrieveDailyBars(1, 19, "5 secs");           
-                    */
+                    foreach ( Request req in requests )
+                    {
+                        req.ExecuteStockRequestSingleDay();
+                    }
 
                 }).Start();
 

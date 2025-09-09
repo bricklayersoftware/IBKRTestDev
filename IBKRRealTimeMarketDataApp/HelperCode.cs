@@ -221,6 +221,16 @@ namespace IBKRRealTimeMarketDataApp
 
     public static class Helper
     {
+        public static DateTime ToDate(this string datestr)
+        {
+            int year = Int32.Parse(datestr.Substring(0, 4));
+            int month = Int32.Parse(datestr.Substring(4, 2));
+            int day = Int32.Parse(datestr.Substring(6, 2));
+
+            return new DateTime(year, month, day);
+        }
+
+
         public static string FlattenException(this Exception exception)
         {
             var stringBuilder = new StringBuilder();
@@ -247,6 +257,73 @@ namespace IBKRRealTimeMarketDataApp
             WHERE COALESCE([Error],'') <> '' AND [Date2] >= DATEADD(day, -5, GETDATE())
             ORDER BY [Symbol2] ASC, [Date2] ASC, [TimeInterval2] ASC
             ";
+
+
+        public static List<Request> PopulateMissingDays()
+        {
+            Action<string> log = Logger.GetLogger(MethodBase.GetCurrentMethod().Name);
+
+            List<Request> requests = new List<Request>();
+
+            ResultSet rs = Helper.ExecuteSQL(Helper.query_HistoricalDataCountCheck);
+            var dict = rs.GetRecordsByField();
+
+            string[,] table = rs.GetTable();
+
+            int rowcount = 0;
+            int colcount = 0;
+
+            colcount = table.GetLength(1);
+            rowcount = table.GetLength(0);
+
+            log("missing days: columns: " + table.GetLength(1) + " rows: "+ table.GetLength(0));
+
+            for (int i = 0; i < rowcount; i++)
+            {
+                string symbol = "";
+                string datestr = "";
+                string timeinterval = "";
+
+                for (int j = 0; j < colcount; j++)
+                {
+                    ResultSet.RSColumn column = rs.columns[j];
+
+                    if (column.fieldname == "Symbol")
+                        symbol = table[i, j];
+                    else if (column.fieldname == "Date")
+                        datestr = table[i, j];
+                    else if (column.fieldname == "TimeInterval")
+                        timeinterval = table[i, j];
+
+                    if (timeinterval == "1D")
+                        timeinterval = "1 day";
+                    else if (timeinterval == "5S")
+                        timeinterval = "5 secs";
+
+                    // "8/26/2025 12:00:00 AM"
+                    if (!(String.IsNullOrWhiteSpace(symbol) || String.IsNullOrWhiteSpace(datestr) || String.IsNullOrWhiteSpace(timeinterval)))
+                    {
+                        datestr = datestr.Substring(0, 10);
+                        string[] parts = datestr.Split('/');
+                        parts[1] = (parts[1].Length == 1 ? "0" : "") + parts[1];
+                        parts[0] = (parts[0].Length == 1 ? "0" : "") + parts[0];
+                        datestr = parts[2].Trim() + parts[0] + parts[1];
+                        symbol = symbol.Trim();
+
+                        Request req = Request.GetStockRequestSingleDay(datestr, symbol, barsize: "1 day");
+
+                        requests.Add(req);
+
+                        datestr = null;
+                        symbol = null;
+                        timeinterval = null;
+                    }
+
+                }
+            }
+
+            return requests;
+        }
 
         // public static string connstr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=testdevrdbms;Persist Security Info=True;User ID=ibkrtestdev;Password=Michael101!;Pooling=False;Multiple Active Result Sets=False;Encrypt=True;Trust Server Certificate=True;Command Timeout=0";
 

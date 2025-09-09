@@ -545,7 +545,7 @@ namespace IBKRRealTimeMarketDataApp
             Request req = Request.GetRequest(reqId);
             req.requestbegindatetime = startDate;
             req.requestenddatetime = endDate;
-            Request.EndRequest(reqId, startDate+"|"+endDate);
+            Request.EndRequest(reqId);
 
             Console.WriteLine("HistoricalDataEnd - "+reqId+" from "+startDate+" to "+endDate);
         }
