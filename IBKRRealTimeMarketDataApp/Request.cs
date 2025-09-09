@@ -32,6 +32,7 @@ using Azure.Core;
 using static System.Windows.Forms.AxHost;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using static IBKRRealTimeMarketDataApp.Request;
+using System.IdentityModel.Claims;
 
 namespace IBKRRealTimeMarketDataApp
 {
@@ -39,16 +40,37 @@ namespace IBKRRealTimeMarketDataApp
     {
         public static string ToCustomString(this Request.RequestFlags rf)
         {
+            switch (rf)
+            {
+                case RequestFlags.stockflag:
+                    return "STK";
+                case RequestFlags.putflag:
+                    return "P";
+                case RequestFlags.callflag:
+                    return "R";
+            }
+
             var myKey = Request.BarSizes.FirstOrDefault(x => x.Value == rf).Key;
 
             return myKey;
         }
 
+        public static Request.RequestFlags ToRequestFlag(this string value)
+        {
+
+            return RequestFlags.stockflag;
+        }
     }
 
     public class Request
     {
-        public static EClientSocket clientSocket = IBKRRealTimeMarketDataApp.clientSocket;
+        public static EClientSocket clientSocket
+        {
+            get
+            {
+                return IBKRRealTimeMarketDataApp.clientSocket;
+            }
+        }
 
         public Request() {
             this.begintime = DateTime.Now;
@@ -132,19 +154,13 @@ namespace IBKRRealTimeMarketDataApp
                 else if (right == "C")
                     rf = RequestFlags.callflag;
 
-                if (barsize == "1 day")
-                    _requestid = (int)(RequestFlags.requestid | rf | RequestFlags.barsize_1day_flag) + this.stockindex + 1;
-                else if (barsize == "5 secs")
-                    _requestid = (int)(RequestFlags.requestid | rf | RequestFlags.barsize_5secs_flag) + this.stockindex + 1;
-                else if (barsize == "15 secs")
-                    _requestid = (int)(RequestFlags.requestid | rf | RequestFlags.barsize_15secs_flag) + this.stockindex + 1;
-                else if (barsize == "30 secs")
-                    _requestid = (int)(RequestFlags.requestid | rf | RequestFlags.barsize_30secs_flag) + this.stockindex + 1;
+                _requestid = (int)(RequestFlags.requestid | rf | _barsize) + this.stockindex + 1;
 
                 return _requestid;
             }
 
         }
+
         public string symbol;
         public int stockindex;
         public int optionindex; // an option request on top of stock index
@@ -171,8 +187,6 @@ namespace IBKRRealTimeMarketDataApp
 
             set
             {
-                _barsize = RequestFlags.barsize_flag;
-
                 if (!BarSizes.ContainsKey(value))
                     return;
 
@@ -287,6 +301,14 @@ namespace IBKRRealTimeMarketDataApp
             barsize_flag        = 0b0000_0000_0000_1111_0000_0000_0000_0000
         }
 
+        public static Dictionary<string, RequestFlags> RequestFlagDict
+        {
+            get
+            {
+                return Request.BarSizes;
+            }
+        }
+
         public static Dictionary<string, RequestFlags> BarSizes
         {
             get
@@ -299,8 +321,11 @@ namespace IBKRRealTimeMarketDataApp
                 ret.Add("15 secs", RequestFlags.barsize_15secs_flag);
                 ret.Add("30 secs", RequestFlags.barsize_30secs_flag);
                 ret.Add("1 min", RequestFlags.barsize_1min_flag);
+                ret.Add("STK", RequestFlags.stockflag);
+                ret.Add("P", RequestFlags.putflag);
+                ret.Add("C", RequestFlags.callflag);
 
-                /*
+                /* TO DO
                 1 min   
                 2 mins  
                 3 mins  

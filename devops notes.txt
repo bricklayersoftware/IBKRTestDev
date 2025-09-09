@@ -9,10 +9,7 @@
         aVlCM@outlook.com
         As1df1gh!        
 
-    web based SFTP/FTP
-    https://demo.filestash.app/files/testdump/IBKRTestDevApp/
 
-    netcat
     
     Azure
         https://account.windowsazure.com
