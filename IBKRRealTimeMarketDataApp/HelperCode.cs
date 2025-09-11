@@ -251,13 +251,6 @@ namespace IBKRRealTimeMarketDataApp
             }
         }
 
-        public static string query_HistoricalDataCountCheck = @"
-            SELECT [Symbol2] AS [Symbol], [Date2] AS [Date], [TimeInterval2] AS [TimeInterval]
-            FROM [testdevrdbms].[dbo].[HistoricalDataCountCheck] 
-            WHERE COALESCE([Error],'') <> '' AND [Date2] >= DATEADD(day, -5, GETDATE())
-            ORDER BY [Symbol2] ASC, [Date2] ASC, [TimeInterval2] ASC
-            ";
-
 
         public static List<Request> PopulateMissingDays()
         {
@@ -265,7 +258,7 @@ namespace IBKRRealTimeMarketDataApp
 
             List<Request> requests = new List<Request>();
 
-            ResultSet rs = Helper.ExecuteSQL(Helper.query_HistoricalDataCountCheck);
+            ResultSet rs = Helper.ExecuteSPWithRows("GetMissingTradingDays");
             var dict = rs.GetRecordsByField();
 
             string[,] table = rs.GetTable();
@@ -299,30 +292,30 @@ namespace IBKRRealTimeMarketDataApp
                         timeinterval = "1 day";
                     else if (timeinterval == "5S")
                         timeinterval = "5 secs";
-
-                    // "8/26/2025 12:00:00 AM"
-                    if (!(String.IsNullOrWhiteSpace(symbol) || String.IsNullOrWhiteSpace(datestr) || String.IsNullOrWhiteSpace(timeinterval)))
-                    {
-                        string[] parts = datestr.Split(' ');
-                        datestr = parts[0];
-                        parts = datestr.Split('/');
-
-                        parts[1] = (parts[1].Length == 1 ? "0" : "") + parts[1]; // day
-                        parts[0] = (parts[0].Length == 1 ? "0" : "") + parts[0]; // month
-                        datestr = parts[2].Trim() + parts[0].Trim() + parts[1].Trim(); // yyyyMMdd
-                        symbol = symbol.Trim();
-
-                        Request req = Request.GetStockRequestSingleDay(datestr, symbol, barsize: "1 day");
-
-                        requests.Add(req);
-
-                        datestr = null;
-                        symbol = null;
-                        timeinterval = null;
-                    }
-
                 }
+
+                if (String.IsNullOrWhiteSpace(symbol) || String.IsNullOrWhiteSpace(datestr) || String.IsNullOrWhiteSpace(timeinterval))
+                {
+                    log("error with row " + i.ToString());
+                }
+
+                log("missing trading day request: row: " + i.ToString() + " symbol: " + symbol + " date: " + datestr + " timeinterval: " + timeinterval);
+
+                string[] parts = datestr.Split(' ');
+                datestr = parts[0];
+                parts = datestr.Split('/');
+
+                parts[1] = (parts[1].Length == 1 ? "0" : "") + parts[1]; // day
+                parts[0] = (parts[0].Length == 1 ? "0" : "") + parts[0]; // month
+                datestr = parts[2].Trim() + parts[0].Trim() + parts[1].Trim(); // yyyyMMdd
+                symbol = symbol.Trim();
+
+                Request req = Request.GetStockRequestSingleDay(datestr, symbol, barsize: timeinterval);
+
+                requests.Add(req);
             }
+
+            log("total requests: "+requests.Count.ToString());
 
             return requests;
         }

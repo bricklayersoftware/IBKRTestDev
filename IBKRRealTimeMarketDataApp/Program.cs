@@ -332,10 +332,7 @@ namespace IBKRRealTimeMarketDataApp
                 }).Start();
 
 
-                new Thread(() =>
-                {
-                    CommandControl.StartControl();
-                }).Start();
+                new Thread(() => { CommandControl.StartControl(); }).Start();
 
                 // loop if there is a single active request (i.e., terminate
                 // when all requests are either in error or have ended)

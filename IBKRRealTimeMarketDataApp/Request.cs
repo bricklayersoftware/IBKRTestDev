@@ -76,8 +76,6 @@ namespace IBKRRealTimeMarketDataApp
             this.begintime = DateTime.Now;
             this.state = Request.RequestState.ACTIVE;
             allrequests.Add(this);
-
-            this.LogRequest();
         }
 
         private static int _seed = 0;
@@ -163,6 +161,7 @@ namespace IBKRRealTimeMarketDataApp
 
         }
 
+        public int logrequestrowid = -1;
         public string symbol;
         public int stockindex;
         public int optionindex; // an option request on top of stock index
@@ -219,8 +218,8 @@ namespace IBKRRealTimeMarketDataApp
             }
         }
 
-        public string requestbegindatetime; // as reported by IBKR when request ends
-        public string requestenddatetime;
+        public string ibkrrequestbegindatetime; // as reported by IBKR when request ends
+        public string ibkrrequestenddatetime;
 
         public IBApi.Contract contract
         {
@@ -268,23 +267,40 @@ namespace IBKRRealTimeMarketDataApp
         
         public Dictionary<string, string> ToDict()
         {
+            /*
+            @Symbol
+            @SecType VARCHAR(MAX) = 'STK',
+	        @Right VARCHAR(MAX) = NULL,
+            @Expiry VARCHAR(MAX) = NULL,
+            @Strike VARCHAR(MAX) = NULL,
+            @RequestDate VARCHAR(MAX) = NULL,
+	        @TimeInterval VARCHAR(MAX) = NULL,
+	        @RequestID VARCHAR(MAX) = NULL,
+	        @BeginTS VARCHAR(MAX) = NULL,
+	        @EndTS VARCHAR(MAX) = NULL,
+	        @BeginReqTS VARCHAR(MAX) = NULL,
+	        @EndReqTS VARCHAR(MAX) = NULL,
+	        @LoadID INT = -1
+            */
+
             Dictionary<string, string> dict = new Dictionary<string, string>
             {
                   ["LoadID"]=MultipleWriter.loadid.ToString()
-                , ["Symbol"]=this.symbol.ToString()
+                , ["Symbol"]=this.symbol?.ToString()
                 , ["SecType"]=this.sectype != "STK" ? "OPT" : this.sectype
-                , ["_Strike"]=this.strike.ToString()
-                , ["_Expiry"]=this.expiry.ToString()
-                , ["Right"]=this.right.ToString()
-                , ["_Date"]=this.requestdate.ToString()
-                , ["TimeInterval"]=this.barsize.ToString()
+                , ["Strike"]=this.strike.ToString()
+                , ["Expiry"]=this.expiry?.ToString()
+                , ["Right"]=this.right?.ToString()
+                , ["RequestDate"] =this.requestdate?.ToString()
+                , ["TimeInterval"]=this.barsize?.ToString()
                 , ["RequestID"]=this.requestid.ToString()
-                , ["_BeginTS"]=this.requestbegindate.ToString()
-                , ["_EndTS"]=this.requestenddate.ToString()
-                , ["_BeginReqTS"]=this.requestbegindatetime.ToString()
-                , ["_EndReqTS"]=this.requestenddatetime.ToString()
-                , ["_ProcessBeginTS"]=this.begintime.ToString()
-                , ["_ProcessEndReqTS"]=this.endtime.ToString()
+                , ["BeginTS"]=this.requestbegindate?.ToString()
+                , ["EndTS"]=this.requestenddate?.ToString()
+                , ["BeginReqTS"]=this.ibkrrequestbegindatetime?.ToString() // IBKR
+                , ["EndReqTS"]=this.ibkrrequestenddatetime?.ToString()
+                , ["ProcessBeginTS"]=this.begintime.ToString()
+                , ["ProcessEndReqTS"]=this.endtime.ToString()
+                , ["RowID"] = this.logrequestrowid.ToString() 
             };
 
             return dict;
@@ -501,7 +517,9 @@ namespace IBKRRealTimeMarketDataApp
                 req.state = RequestState.IGNORE;
             }
 
-            int rowcount = Helper.InsertRecord("HistoricalData", cols, vals); ;            
+            int rowcount = Helper.InsertRecord("HistoricalData", cols, vals);
+
+            req.LogRequest(true);
         }
 
         private static Dictionary<int, Request> _requests
@@ -547,7 +565,7 @@ namespace IBKRRealTimeMarketDataApp
 
         public static Request GetStockRequestSingleDay(string reqdate, string symbol, string barsize = "1 day", string sectype = "STK", string expirydate = "", double strike = 0, string right = "C")
         {
-            // Action<string> log = Logger.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().Name);
+            Action<string> log = Logger.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
             Request req = new Request();
             req.requestdate = reqdate;
@@ -557,6 +575,16 @@ namespace IBKRRealTimeMarketDataApp
             req.endCallback = clientSocket.cancelHistoricalData;
             req.requestenddate = reqdate.ToDate().AddDays(0).ToString("yyyyMMdd") + " 16:00:00 US/Eastern";
             req.barsize = barsize;
+            if ( req.sectype == "STK" )
+            {
+                req.expiry = "";
+                req.right = "";
+                req.strike = -1;
+            }
+
+            log("requesting: symbol: " + symbol + " date: " + reqdate + " timeinterval: " + barsize + " reqid: "+ req.requestid);
+
+            req.LogRequest();
 
             return req;
         }
@@ -683,12 +711,21 @@ namespace IBKRRealTimeMarketDataApp
             return (ret[0], ret[1]);
         }
 
-        public void LogRequest(bool update=true)
+        public void LogRequest(bool update=false)
         {
-            if ( update )
-                Helper.ExecuteSP("SetLoadDetails", this.ToDict());
-            else
-                Helper.ExecuteSP("InitLoadDetails", this.ToDict());
+            // Action<string> log = Logger.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+            // log("executing LogRequest for reqid: " + this.requestid + " symbol: " + this.symbol + " date: " + this.requestdate + " timeinterval: " + this.barsize);
+
+            if (update)
+            {
+                int rows = Helper.ExecuteSP("SetLoadDetails", this.ToDict());
+                return;
+            }
+
+            ResultSet rs = Helper.ExecuteSPWithRows("InitLoadDetails", this.ToDict());
+
+            logrequestrowid = Int32.Parse(rs.GetRowByField("RowID", 0));
         }
     }
 
