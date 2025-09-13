@@ -14,11 +14,13 @@ logging.info("This is an informational message.")
 HOST = '127.0.0.1'  # Standard loopback interface address (localhost)
 PORT = 44444        # Port to listen on (non-privileged ports are > 1023)
 
+conn = None
+
 # Shared resources
 shared_data = []  # Data to be sent/received
 data_lock = threading.Lock() # Lock to protect shared_data
 
-def handle_client(conn, addr):
+def receive_thread():
     """Handles a single client connection."""
     print(f"Connected by {addr}")
     while True:
@@ -32,10 +34,10 @@ def handle_client(conn, addr):
 
             # Simulate some processing and add to shared data
             with data_lock:
-                shared_data.append(f"Processed: {message}")
+                shared_data.append(message)
             
             # Send a response back to the client
-            response = f"Server received: {message}"
+            response = f"Server received: {len(message)}"
             conn.sendall(response.encode())
 
         except ConnectionResetError:
@@ -47,10 +49,12 @@ def handle_client(conn, addr):
     print(f"Client {addr} disconnected.")
     conn.close()
 
-def send_to_clients(connections):
-    """Periodically sends data from shared_data to all connected clients."""
+def send_thread():
+    global conn
+    
     while True:
-        time.sleep(5)  # Send every 5 seconds
+        time.sleep(1)  
+
         with data_lock:
             if shared_data:
                 message_to_send = " ".join(shared_data)
@@ -60,14 +64,15 @@ def send_to_clients(connections):
 
         if message_to_send:
             print(f"Sending to all clients: {message_to_send}")
-            for conn in connections:
-                try:
-                    conn.sendall(message_to_send.encode())
-                except Exception as e:
-                    print(f"Error sending to a client: {e}")
+            try:
+                conn.sendall(message_to_send.encode())
+            except Exception as e:
+                print(f"Error sending to a client: {e}")
+
 
 def main():
-    """Main function to set up the server and threads."""
+    global conn
+
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((HOST, PORT))
     server_socket.listen()
@@ -76,14 +81,13 @@ def main():
     connected_clients = []
     
     # Start a separate thread for sending data to clients
-    sender_thread = threading.Thread(target=send_to_clients, args=(connected_clients,))
+    sender_thread = threading.Thread(target=send_thread, args=(conn,))
     sender_thread.daemon = True # Allows the main program to exit even if this thread is running
     sender_thread.start()
 
     while True:
         conn, addr = server_socket.accept()
-        connected_clients.append(conn)
-        client_thread = threading.Thread(target=handle_client, args=(conn, addr))
+        client_thread = threading.Thread(target=receive_thread, args=(conn, addr))
         client_thread.daemon = True
         client_thread.start()
 

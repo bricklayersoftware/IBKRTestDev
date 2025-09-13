@@ -81,29 +81,13 @@ def writer_thread():
             stop_input_thread.set()
             break
         
-while True:
-
-    input_thread = threading.Thread(target=read_stdin_thread)
-    input_thread.start()
-
-
-    print("starting up: "+timestamp)
-    time.sleep(1)  # Pause execution for 1 second
-
-    with input_lock:
-        while input_queue:
-            received_input = input_queue.pop(0)
-            logging.info(f"Main thread processed input: '{received_input}'")
-
 
 def main():
-    """Main function to set up the server and threads."""
+    
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((HOST, PORT))
     server_socket.listen()
     print(f"Server listening on {HOST}:{PORT}")
-
-    connected_clients = []
     
     # Start a separate thread for sending data to clients
     sender_thread = threading.Thread(target=send_to_clients, args=(connected_clients,))
@@ -112,7 +96,6 @@ def main():
 
     while True:
         conn, addr = server_socket.accept()
-        connected_clients.append(conn)
         client_thread = threading.Thread(target=handle_client, args=(conn, addr))
         client_thread.daemon = True
         client_thread.start()
