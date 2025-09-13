@@ -24,11 +24,14 @@ def launch_reader():
         with conn:
             logging.info(f"Connected by {addr}")
             while True:
-                data = conn.recv(1024)  # Receive data in chunks of 1024 bytes
-                if not data:
+                received_bytes = conn.recv(1024)  # Receive data in chunks of 1024 bytes -- will block until data is available
+                if not received_bytes:
+                    logging.info('empty buffer -- exiting')
                     break
-                logging.info(f"Received from client: {data.decode()}")
-                conn.sendall(data)  # Echo back the received data
+                logging.info(f"Received from client: {received_bytes.decode('utf-8')}")
+                message_string = "Hello, world! This is a UTF-8 string."
+                encoded_message = message_string.encode('utf-8')
+                (data)  # Echo back the received data
 
     # Create a datetime object (e.g., current time)
 
