@@ -22,9 +22,15 @@ client_port = None
 shared_data = []  # Data to be sent/received
 data_lock = threading.Lock() # Lock to protect shared_data
 
+def timestamp():
+    # Format the datetime object into a string
+    now = datetime.now()
+    ts = now.strftime("%Y-%m-%d %H:%M:%S")
+    return ts
+
 def receive_thread():
 
-    logging.info(f"receive_thread")
+    logging.info(f"receive_thread: "+timestamp())
 
     while True:
         try:
@@ -45,9 +51,6 @@ def receive_thread():
             # Send a response back to the client
             conn.sendall(response.encode('utf-8')) # text string: response.encode('utf-8'))
 
-        except ConnectionResetError:
-            logging.info(f"client disconnected unexpectedly.")
-            break
         except Exception as e:
             logging.info(f"Error handling client: {e}")
             break
@@ -58,20 +61,17 @@ def receive_thread():
 def send_thread():
     global conn
     
+    logging.info(f"send_thread: "+timestamp())
+
     while True:
         time.sleep(1)  
 
-        with data_lock:
-            if shared_data:
-                message_to_send = " ".join(shared_data)
-                shared_data.clear() # Clear after sending
-            else:
-                message_to_send = None
+        message_to_send = "hello, word! "+timestamp()
 
         if message_to_send:
             print(f"Sending to all clients: {message_to_send}")
             try:
-                conn.sendall(message_to_send.encode())
+                conn.sendall(message_to_send.encode('utf-8'))
             except Exception as e:
                 logging.info(f"Error sending to a client: {e}")
 
@@ -87,19 +87,17 @@ def main():
     server_socket.listen()
 
     logging.info(f"listening on {HOST}:{PORT}")
-
-    connected_clients = []
     
-    sender_thread = threading.Thread(target=send_thread, args=(conn,))
+    sender_thread = threading.Thread(target=send_thread)
     sender_thread.daemon = True # Allows the main program to exit even if this thread is running
     sender_thread.start()
 
     conn, client_addr = server_socket.accept() # wait for client to connect
     client_ip, client_port = client_addr
 
-    logging.info(f"connection from {client_ip}:{client_port}")
+    logging.info(f"client IP:port {client_ip}:{client_port}")
 
-    client_thread = threading.Thread(target=receive_thread, args=(conn,))
+    client_thread = threading.Thread(target=receive_thread)
     client_thread.daemon = True
     client_thread.start()
 
