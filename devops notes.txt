@@ -1,4 +1,10 @@
 
+        Gojira is the original Japanese name for the creature, and Godzilla is its widely recognized English-language name
+        Gojira is the combination of Gorira and Kujira (Gorilla and Whale)
+
+    Atlassian -- JIRA, Confluence
+    https://ibkrtestdev.atlassian.net/
+
     Azure Git
         aVlCM@outlook.com
         bricklayersoftware
@@ -9,8 +15,6 @@
         aVlCM@outlook.com
         As1df1gh!        
 
-
-    
     Azure
         https://account.windowsazure.com
 
@@ -35,6 +39,7 @@
         used 4724090964029340 
         to sign up
 
+        putty.exe -ssh ibkrtestdevssh@52.188.185.179 -pw Michael101!
 
     DropBox
         ibkrtestdev2@outlook.com

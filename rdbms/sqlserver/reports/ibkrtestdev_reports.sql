@@ -1,9 +1,3 @@
-/*
-SELECT lr.* FROM [testdevrdbms].[dbo].[LoadLogRequest] lr
-WHERE lr.LoadID = ( SELECT MAX(LoadID) FROM [testdevrdbms].[dbo].[LoadLogEntry] le )
-      AND [Symbol] = 'PLTR'
-ORDER BY [Symbol] ASC, [Date] ASC, [TimeInterval] ASC
-*/
 
 /*
 TRUNCATE TABLE [testdevrdbms].[dbo].[HistoricalData]
@@ -12,13 +6,6 @@ TRUNCATE TABLE [testdevrdbms].[dbo].[LoadLogEntry]
 TRUNCATE TABLE [testdevrdbms].[dbo].[LoadLogRequest]
 */
 
-SELECT [RowID]
-      ,[LoadID]
-      ,[MessageID]
-      ,[Message]
-      ,[Event]
-      ,[RequestID]
-FROM [testdevrdbms].[dbo].[LatestLoadLog]
 
 SELECT  [CountRowID]
     ,[Symbol]
@@ -36,6 +23,8 @@ SELECT  [SumCountRowID]
     ,[TimeInterval]
 FROM [testdevrdbms].[dbo].[HistoricalDataProfile2]
 
+USE testdevrdbms;
+GO
 
 IF EXISTS(SELECT name FROM tempdb.sys.objects WHERE CHARINDEX('#missingdays',name)>0)  
     DROP TABLE #missingdays;
