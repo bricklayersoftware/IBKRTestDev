@@ -228,7 +228,14 @@ namespace IBKRRealTimeMarketDataApp
         }
         public string requestenddate;   // trading day end
         public RequestFlags _barsize;
-        
+        public Boolean IsRealTime
+        {
+            get
+            {
+                return String.IsNullOrEmpty(this.requestdate) || String.IsNullOrWhiteSpace(this.requestdate);
+            }
+        }
+
         public bool IsDailyBar
         {
             get
@@ -598,9 +605,11 @@ namespace IBKRRealTimeMarketDataApp
             req.requestdate = reqdate;
             req.symbol = symbol;
             req.sectype = sectype;
-            req.endCallback = clientSocket.cancelHistoricalData;
+            req.endCallback = req.IsRealTime ? clientSocket.cancelRealTimeBars : clientSocket.cancelHistoricalData;
+
             req.requestenddate = reqdate.ToDate().AddDays(0).ToString("yyyyMMdd") + " 16:00:00 US/Eastern";
             req.barsize = barsize;
+
             if ( req.sectype == "STK" )
             {
                 req.expiry = "";
@@ -614,7 +623,7 @@ namespace IBKRRealTimeMarketDataApp
                 req.right = right;
             }
 
-                log("requesting: symbol: " + symbol + " date: " + reqdate + " timeinterval: " + barsize + " reqid: " + req.requestid);
+            log("requesting: symbol: " + symbol + " date: " + reqdate + " timeinterval: " + barsize + " reqid: " + req.requestid);
 
             req.LogRequest();
 

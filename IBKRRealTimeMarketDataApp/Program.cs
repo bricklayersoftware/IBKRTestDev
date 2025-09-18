@@ -35,6 +35,8 @@ using System.Linq;
 using static System.Windows.Forms.LinkLabel;
 using static IBKRRealTimeMarketDataApp.ResultSet;
 using System.IdentityModel.Protocols.WSTrust;
+using System.IdentityModel.Claims;
+using System.Threading.Tasks;
 
 
 namespace IBKRRealTimeMarketDataApp
@@ -260,8 +262,8 @@ namespace IBKRRealTimeMarketDataApp
                 EReaderSignal readerSignal = testImpl.Signal;
 
                 // TestIBKR();
-                clientSocket.eConnect("52.188.185.179", 1234, 2);
-                // clientSocket.eConnect("127.0.0.1", 7496, 0);
+                // clientSocket.eConnect("52.188.185.179", 1234, 2);
+                clientSocket.eConnect("127.0.0.1", 7496, 0);
 
                 var reader = new EReader(clientSocket, readerSignal);
                 reader.Start();
@@ -282,6 +284,51 @@ namespace IBKRRealTimeMarketDataApp
 
                 new Thread(() =>
                 {
+                    Request req = Helper.GetOptionRequest("20250917", "QQQ", Request.RequestFlags.barsize_5secs_flag, "20250918", 585, "C");
+
+                    IBApi.Contract contract = new IBApi.Contract();
+
+                    contract.Symbol = "QQQ"; // "QQQ";
+                    contract.SecType = "OPT";
+                    contract.Exchange = "SMART";
+                    contract.Currency = "USD";
+                    contract.LastTradeDateOrContractMonth = "20250918"; // DateTime.Today.ToString("yyyyMMdd");
+                    contract.Strike = 596.00;
+                    contract.Right = "C";
+                    contract.Multiplier = "100";
+
+                    // reqMktData
+
+                    // https://interactivebrokers.github.io/tws-api/realtime_bars.html
+                    // https://interactivebrokers.github.io/tws-api/classIBApi_1_1EClient.html#a644a8d918f3108a3817e8672b9782e67
+                    // Currently, only 5 seconds bars are provided.
+                    clientSocket.reqRealTimeBars(3001, contract, 5, "MIDPOINT", true, null);
+                    clientSocket.reqRealTimeBars(3002, contract, 5, "TRADES", true, null);
+                    clientSocket.reqRealTimeBars(3003, contract, 5, "BID", true, null);
+                    clientSocket.reqRealTimeBars(3004, contract, 5, "ASK", true, null);
+                    //             client.cancelRealTimeBars(3001);
+
+                    // RealTimeBars.
+                    // RealTimeBars. 3001 - Time: 1758205270, Open: 1.98, High: 2, Low: 1.95, Close: 1.955, Volume: -1, Count: -1, WAP: -1
+
+                    /*
+                    RealTimeBars. 3001 - Time: 1758205325, Open: 1.86, High: 1.915, Low: 1.86, Close: 1.9, Volume: -1, Count: -1, WAP: -1
+                    RealTimeBars. 3002 - Time: 1758205325, Open: 1.89, High: 1.92, Low: 1.89, Close: 1.91, Volume: 8, Count: 7, WAP: 1.905
+                    RealTimeBars. 3003 - Time: 1758205325, Open: 1.85, High: 1.91, Low: 1.85, Close: 1.89, Volume: -1, Count: -1, WAP: -1
+                    RealTimeBars. 3004 - Time: 1758205325, Open: 1.87, High: 1.92, Low: 1.87, Close: 1.91, Volume: -1, Count: -1, WAP: -1
+                    */
+
+
+                    // TRADES
+                    // MIDPOINT
+                    // BID
+                    // ASK
+                    // cancelRealTimeBars
+                }).Start();
+
+                /*
+                new Thread(() =>
+                {
                     Request req = null;
                     req = Helper.GetOptionRequest("20250917", "QQQ", Request.RequestFlags.barsize_5secs_flag, "20250917", 585, "C");
                     req.ExecuteStockRequestSingleDay();
@@ -292,6 +339,7 @@ namespace IBKRRealTimeMarketDataApp
                     //Request req = Helper.GetOptionRequest("20250917", "QQQ", Request.RequestFlags.barsize_5secs_flag, "20250917", 585, "C");
                     //Request req = Helper.GetOptionRequest("20250917", "QQQ", Request.RequestFlags.barsize_5secs_flag, "20250917", 585, "P");
                 }).Start();
+                */
 
                 /*
                 new Thread(() =>
