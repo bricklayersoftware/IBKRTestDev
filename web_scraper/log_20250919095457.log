@@ -1,0 +1,8 @@
+[2025-09-19 09:54:57.979784] :: args: G:\git_dump\IBKRTestDev\web_scraper\scrape_yahoo_finance_options_chain_prices.py
+[2025-09-19 09:54:57.980088] :: path: G:\git_dump\IBKRTestDev\web_scraper\scrape_yahoo_finance_options_chain_prices.py
+[2025-09-19 09:54:57.980270] :: directory: G:\git_dump\IBKRTestDev\web_scraper
+[2025-09-19 09:54:57.980443] :: cwd: G:\git_dump\IBKRTestDev\web_scraper
+[2025-09-19 09:54:57.986824] :: exec_path: G:\git_dump\IBKRTestDev\web_scraper\chromedriver-win64\chromedriver-win64\chromedriver.exe
+[2025-09-19 09:54:57.987151] :: testing chrome_binary_path: C:\Program Files\Google\Chrome\chrome.exe
+[2025-09-19 09:54:58.010859] :: testing chrome_binary_path: C:\Program Files\Google\Chrome\Application
+[2025-09-19 09:54:58.011162] :: chrome_binary_path exists

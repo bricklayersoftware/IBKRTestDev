@@ -39,7 +39,7 @@ script_path = os.path.abspath(__file__)
 script_directory = os.path.dirname(script_path)
 
 chrome_binary_path = ""
-chrome_binary_paths = [ "C:\\Program Files\\Google\\Chrome\\chrome.exe", "C:\\Program Files\\Google\\Chrome\\Application" ]
+chrome_binary_paths = [ "C:\\Program Files\\Google\\Chrome\\chrome.exe", "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" ]
 
 def timestamp():
   dt = dtt.datetime.now()
@@ -105,12 +105,18 @@ log_file = open(script_directory + "\\" + "log_"+fnametimestamp()+".log", "a")
 
 exec_path = script_directory+"\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"
 log('exec_path: '+exec_path)
-log('chrome_binary_path: '+chrome_binary_path)
 
-if os.path.exists(chrome_binary_path):
-  log('chrome_binary_path exists')
-else:
-  log('chrome_binary_path does not exist')
+path_exists=False
+for chrome_binary_path in chrome_binary_paths:
+  log('testing chrome_binary_path: '+chrome_binary_path)
+
+  if os.path.exists(chrome_binary_path):
+    log('chrome_binary_path exists')
+    path_exists=True
+    break
+
+if ( not path_exists ):
+  log('could not find a working chrome_binary_path -- exiting')
   sys.exit()
 
 service = None
@@ -126,7 +132,7 @@ def init_driver():
   options.add_argument("--ignore-certificate-errors")
   options.add_argument('--ignore-ssl-errors')
   
-  options.binary_location(value = u"C:\\Program Files\\Google\\Chrome\\chrome.exe")
+  options.binary_location = chrome_binary_path # options.binary_location(value = u"C:\\Program Files\\Google\\Chrome\\chrome.exe")
   options.page_load_strategy = 'none'  # or 'normal' or 'none'
   # options.add_argument("--headless")  # Example: Run Chrome in headless mode
   driver = webdriver.Chrome(service=service, options=options)

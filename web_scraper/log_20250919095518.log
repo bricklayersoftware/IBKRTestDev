@@ -1,0 +1,65 @@
+[2025-09-19 09:55:18.366976] :: args: G:\git_dump\IBKRTestDev\web_scraper\scrape_yahoo_finance_options_chain_prices.py
+[2025-09-19 09:55:18.367207] :: path: G:\git_dump\IBKRTestDev\web_scraper\scrape_yahoo_finance_options_chain_prices.py
+[2025-09-19 09:55:18.367241] :: directory: G:\git_dump\IBKRTestDev\web_scraper
+[2025-09-19 09:55:18.367318] :: cwd: G:\git_dump\IBKRTestDev\web_scraper
+[2025-09-19 09:55:18.373188] :: exec_path: G:\git_dump\IBKRTestDev\web_scraper\chromedriver-win64\chromedriver-win64\chromedriver.exe
+[2025-09-19 09:55:18.373401] :: testing chrome_binary_path: C:\Program Files\Google\Chrome\chrome.exe
+[2025-09-19 09:55:18.398079] :: testing chrome_binary_path: C:\Program Files\Google\Chrome\Application\chrome.exe
+[2025-09-19 09:55:18.399242] :: chrome_binary_path exists
+[2025-09-19 09:55:19.559146] :: navigating to: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:20.117672] :: title: NVIDIA Corporation (NVDA) Options Chain - Yahoo Finance
+[2025-09-19 09:55:20.122928] :: current_url: https://ca.finance.yahoo.com/quote/NVDA/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:20.150333] :: navigating to: https://ca.finance.yahoo.com/quote/MSFT/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:21.104707] :: title: Microsoft Corporation (MSFT) Options Chain - Yahoo Finance
+[2025-09-19 09:55:21.107467] :: current_url: https://ca.finance.yahoo.com/quote/MSFT/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:21.116263] :: navigating to: https://ca.finance.yahoo.com/quote/AAPL/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:21.606494] :: title: Apple Inc. (AAPL) Options Chain - Yahoo Finance
+[2025-09-19 09:55:21.608265] :: current_url: https://ca.finance.yahoo.com/quote/AAPL/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:21.614416] :: navigating to: https://ca.finance.yahoo.com/quote/AMZN/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:22.153174] :: title: Amazon.com, Inc. (AMZN) Options Chain - Yahoo Finance
+[2025-09-19 09:55:22.154864] :: current_url: https://ca.finance.yahoo.com/quote/AMZN/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:22.160722] :: navigating to: https://ca.finance.yahoo.com/quote/AVGO/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:22.616027] :: title: Broadcom Inc. (AVGO) Options Chain - Yahoo Finance
+[2025-09-19 09:55:22.618749] :: current_url: https://ca.finance.yahoo.com/quote/AVGO/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:22.628094] :: navigating to: https://ca.finance.yahoo.com/quote/META/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:23.282401] :: title: Meta Platforms, Inc. (META) Options Chain - Yahoo Finance
+[2025-09-19 09:55:23.284193] :: current_url: https://ca.finance.yahoo.com/quote/META/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:23.290466] :: navigating to: https://ca.finance.yahoo.com/quote/NFLX/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:24.868973] :: title: Netflix, Inc. (NFLX) Options Chain - Yahoo Finance
+[2025-09-19 09:55:24.871189] :: current_url: https://ca.finance.yahoo.com/quote/NFLX/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:24.879426] :: navigating to: https://ca.finance.yahoo.com/quote/TSLA/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:25.386585] :: title: Tesla, Inc. (TSLA) Options Chain - Yahoo Finance
+[2025-09-19 09:55:25.389192] :: current_url: https://ca.finance.yahoo.com/quote/TSLA/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:25.398800] :: navigating to: https://ca.finance.yahoo.com/quote/GOOGL/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:26.342339] :: title: Alphabet Inc. (GOOGL) Options Chain - Yahoo Finance
+[2025-09-19 09:55:26.344532] :: current_url: https://ca.finance.yahoo.com/quote/GOOGL/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:26.351091] :: navigating to: https://ca.finance.yahoo.com/quote/COST/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:26.959192] :: title: Costco Wholesale Corporation (COST) Options Chain - Yahoo Finance
+[2025-09-19 09:55:26.960967] :: current_url: https://ca.finance.yahoo.com/quote/COST/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:26.968183] :: navigating to: https://ca.finance.yahoo.com/quote/GOOG/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:27.491646] :: title: Alphabet Inc. (GOOG) Options Chain - Yahoo Finance
+[2025-09-19 09:55:27.493306] :: current_url: https://ca.finance.yahoo.com/quote/GOOG/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:27.500670] :: navigating to: https://ca.finance.yahoo.com/quote/PLTR/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:28.181743] :: title: Palantir Technologies Inc. (PLTR) Options Chain - Yahoo Finance
+[2025-09-19 09:55:28.183530] :: current_url: https://ca.finance.yahoo.com/quote/PLTR/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:28.189407] :: navigating to: https://ca.finance.yahoo.com/quote/CSCO/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:28.649699] :: title: Cisco Systems, Inc. (CSCO) Options Chain - Yahoo Finance
+[2025-09-19 09:55:28.652068] :: current_url: https://ca.finance.yahoo.com/quote/CSCO/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:28.659065] :: navigating to: https://ca.finance.yahoo.com/quote/TMUS/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:29.201432] :: title: T-Mobile US, Inc. (TMUS) Options Chain - Yahoo Finance
+[2025-09-19 09:55:29.203500] :: current_url: https://ca.finance.yahoo.com/quote/TMUS/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:29.209555] :: navigating to: https://ca.finance.yahoo.com/quote/AMD/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:29.874218] :: title: Advanced Micro Devices, Inc. (AMD) Options Chain - Yahoo Finance
+[2025-09-19 09:55:29.875998] :: current_url: https://ca.finance.yahoo.com/quote/AMD/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:29.882527] :: navigating to: https://ca.finance.yahoo.com/quote/LIN/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:30.625860] :: title: Linde plc (LIN) Options Chain - Yahoo Finance
+[2025-09-19 09:55:30.627791] :: current_url: https://ca.finance.yahoo.com/quote/LIN/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:30.635916] :: navigating to: https://ca.finance.yahoo.com/quote/INTU/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:31.133923] :: title: Intuit Inc. (INTU) Options Chain - Yahoo Finance
+[2025-09-19 09:55:31.136032] :: current_url: https://ca.finance.yahoo.com/quote/INTU/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:31.142799] :: navigating to: https://ca.finance.yahoo.com/quote/TXN/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:31.625569] :: title: Texas Instruments Incorporated (TXN) Options Chain - Yahoo Finance
+[2025-09-19 09:55:31.627295] :: current_url: https://ca.finance.yahoo.com/quote/TXN/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:31.633442] :: navigating to: https://ca.finance.yahoo.com/quote/PEP/options/?date=1755820800&straddle=true
+[2025-09-19 09:55:32.497996] :: title: PepsiCo, Inc. (PEP) Options Chain - Yahoo Finance
+[2025-09-19 09:55:32.499667] :: current_url: https://ca.finance.yahoo.com/quote/PEP/options/?date=1755820800&straddle=true
