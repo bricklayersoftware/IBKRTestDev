@@ -86,19 +86,6 @@ namespace IBKRHistoricalMarketDataApp
 
             try
             {
-
-                /*
-                dynamic jsonconfig = null;
-
-                using (StreamReader r = new StreamReader("runtimeconfig.json"))
-                {
-                    string jsonstr = r.ReadToEnd();
-                    jsonconfig = JsonSerializer.Deserialize<dynamic>(jsonstr);
-                    Dictionary<string, object> myDictionary = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonstr);
-
-                }
-                */
-
                 // System.Diagnostics.Debugger.Launch();
 
                 Console.SetOut(new MultipleWriter());
@@ -109,8 +96,8 @@ namespace IBKRHistoricalMarketDataApp
                 EReaderSignal readerSignal = testImpl.Signal;
 
                 // TestIBKR();
-                clientSocket.eConnect("52.188.185.179", 1234, 2);
-                // clientSocket.eConnect("127.0.0.1", 7496, 0);
+                //clientSocket.eConnect("52.188.185.179", 1234, 2);
+                clientSocket.eConnect("127.0.0.1", 7496, 0);
 
                 var reader = new EReader(clientSocket, readerSignal);
                 reader.Start();
@@ -129,20 +116,7 @@ namespace IBKRHistoricalMarketDataApp
 
                 while (testImpl.NextOrderId <= 0) { }
 
-                new Thread(() =>
-                {
-                    Request req = null;
-                    req = Helper.GetOptionRequest("20250917", "QQQ", Request.RequestFlags.barsize_5secs_flag, "20250917", 585, "C");
-                    req.ExecuteStockRequestSingleDay();
-
-                    req = Helper.GetOptionRequest("20250917", "QQQ", Request.RequestFlags.barsize_5secs_flag, "20250917", 585, "P");
-                    req.ExecuteStockRequestSingleDay();
-
-                    //Request req = Helper.GetOptionRequest("20250917", "QQQ", Request.RequestFlags.barsize_5secs_flag, "20250917", 585, "C");
-                    //Request req = Helper.GetOptionRequest("20250917", "QQQ", Request.RequestFlags.barsize_5secs_flag, "20250917", 585, "P");
-                }).Start();
-
-                /*
+                
                 new Thread(() =>
                 {
                     List<Request> requests = Helper.PopulateMissingDays();
@@ -153,12 +127,10 @@ namespace IBKRHistoricalMarketDataApp
                     }
 
                 }).Start();
-                */
+                
 
                 new Thread(() => { CommandControl.StartControl(); }).Start();
 
-                // loop if there is a single active request (i.e., terminate
-                // when all requests are either in error or have ended)
                 while (!CommandControl.exitnow)
                 {
                     Thread.Sleep(1000);

@@ -620,6 +620,11 @@ namespace IBKRHistoricalMarketDataApp
 
             return req;
         }
+        
+        public static Request GetOptionRequest(string reqdate, string symbol, Request.RequestFlags rf, string expirydate, double strike, string right)
+        {
+            return Request.GetStockRequestSingleDay(reqdate, symbol, Request.GetRequestString(rf), "OPT", expirydate, strike, right);
+        }
 
         public void ExecuteStockRequestSingleDay()
         {

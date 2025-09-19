@@ -90,136 +90,6 @@ namespace IBKRHistoricalMarketDataApp
         }
     }
 
-    public class ResultSet
-    {
-        private SqlDataReader _reader;
-
-        public SqlDataReader reader
-        {
-            get { return _reader; }
-
-            set
-            {
-                _reader = value;
-
-                this.columns = reader.GetColumns();
-            }
-        }
-
-        public class RSColumn
-        {
-            public string fieldname;
-            public System.Type fieldtype;
-        }
-
-        // 1st dimension is rows, 2nd is columns
-        public string[,] GetTable(Boolean refresh = false)
-        {
-            if (!refresh & (table != null))
-                return table;
-
-            table = new string[rowCount, columnCount];
-
-            for (int i = 0; i < columnCount; i++)
-            {
-                for (int j = 0; j < rowCount; j++)
-                {
-                    table[j, i] = records[j][i];
-                }
-            }
-
-            return table;
-        }
-
-        public Dictionary<string, List<string>> GetRecordsByField()
-        {
-            Dictionary<string, List<string>> ret = new Dictionary<string, List<string>>();
-
-            List<string> _records = null; // new List<string>();
-
-            int col = 0;
-            foreach (RSColumn column in columns )
-            {
-                _records = records[col];
-                col++;
-
-                ret.Add(column.fieldname, _records);
-            }
-
-            return ret;
-        }
-
-        public string[,] table;
-        public List<List<string>> records; // list of records (tuples), records[i] retrieves row i
-        public List<RSColumn> columns;
-
-        public int columnCount
-        {
-            get { return records[0].Count; }
-        }
-
-        public int rowCount
-        {
-            get { return records.Count; }
-        }
-
-        public string[,] GetTableByFields(List<string> fields)
-        {
-            string[,] ret = null;
-
-            return ret;
-        }
-
-        public List<string> GetRowsByField(string fieldname)
-        {
-            int colindex = 0;
-
-            foreach (var item in columns)
-            {
-                string _fieldname = item.fieldname;
-
-                if (_fieldname == fieldname)
-                    break;
-
-                colindex++;
-            }
-
-            return GetRowsByFieldIndex(colindex);
-        }
-
-        public List<string> GetRowsByFieldIndex(int colindex)
-        {
-
-            List<string> rowset = new List<string>();
-
-            foreach (List<string> items in records)
-            {
-                rowset.Add(items[colindex]);
-            }
-
-            return rowset;
-        }
-
-        public string GetRowByField(string fieldname, int row)
-        {
-            int colindex = 0;
-
-            foreach (var item in columns)
-            {
-                string _fieldname = item.fieldname;
-
-                if (_fieldname == fieldname)
-                    break;
-
-                colindex++;
-            }
-
-            List<string> rowset = records[row];
-            
-            return rowset[colindex];
-        }
-    }
-
     public static class Helper
     {
         public static DateTime ToDate(this string datestr)
@@ -230,7 +100,6 @@ namespace IBKRHistoricalMarketDataApp
 
             return new DateTime(year, month, day);
         }
-
 
         public static string FlattenException(this Exception exception)
         {
@@ -252,11 +121,25 @@ namespace IBKRHistoricalMarketDataApp
             }
         }
 
-
-        public static Request GetOptionRequest(string reqdate, string symbol, Request.RequestFlags rf, string expirydate, double strike, string right)
+        public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
         {
-            return Request.GetStockRequestSingleDay(reqdate, symbol, Request.GetRequestString(rf), "OPT", expirydate, strike, right);
+            // Unix timestamp is seconds past epoch
+            DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            dateTime = dateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+            return dateTime;
         }
+        public static string GetTimestamp()
+        {
+            // Get the offset from current time in UTC time
+            DateTimeOffset dto = new DateTimeOffset(DateTime.UtcNow);
+            // Get the unix timestamp in seconds
+            string unixTime = dto.ToUnixTimeSeconds().ToString();
+            // Get the unix timestamp in seconds, and add the milliseconds
+            string unixTimeMilliSeconds = dto.ToUnixTimeMilliseconds().ToString();
+
+            return unixTime;
+        }
+
 
         public static List<Request> PopulateMissingDays()
         {
@@ -326,29 +209,9 @@ namespace IBKRHistoricalMarketDataApp
             return requests;
         }
 
-        // public static string connstr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=testdevrdbms;Persist Security Info=True;User ID=ibkrtestdev;Password=Michael101!;Pooling=False;Multiple Active Result Sets=False;Encrypt=True;Trust Server Certificate=True;Command Timeout=0";
-
         public static string connstr = @"Data Source=52.188.185.179,1433;Initial Catalog=testdevrdbms;Persist Security Info=True;User ID=ibkrtestdev;Password=Michael101!;Pooling=False;Multiple Active Result Sets=False;Encrypt=True;Trust Server Certificate=True;Command Timeout=0";
 
-        public static string GetTimestamp()
-        {
-            // Get the offset from current time in UTC time
-            DateTimeOffset dto = new DateTimeOffset(DateTime.UtcNow);
-            // Get the unix timestamp in seconds
-            string unixTime = dto.ToUnixTimeSeconds().ToString();
-            // Get the unix timestamp in seconds, and add the milliseconds
-            string unixTimeMilliSeconds = dto.ToUnixTimeMilliseconds().ToString();
 
-            return unixTime;
-        }
-
-        public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
-        {
-            // Unix timestamp is seconds past epoch
-            DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            dateTime = dateTime.AddSeconds(unixTimeStamp).ToLocalTime();
-            return dateTime;
-        }
 
         public static List<string> GetSymbols()
         {
