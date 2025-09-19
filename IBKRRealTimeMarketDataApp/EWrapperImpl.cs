@@ -493,12 +493,27 @@ namespace IBKRRealTimeMarketDataApp
         }
         //! [positionend]
 
-        //! [realtimebar]
+        //! [realtimebar] 9d63d5185cbebedd0abb27c076403fd1
         public virtual void realtimeBar(int reqId, long time, double open, double high, double low, double close, decimal volume, decimal WAP, int count)
         {
             Console.WriteLine("RealTimeBars. " + reqId + " - Time: " + Util.LongMaxString(time) + ", Open: " + Util.DoubleMaxString(open) + ", High: " + Util.DoubleMaxString(high) + 
                 ", Low: " + Util.DoubleMaxString(low) + ", Close: " + Util.DoubleMaxString(close) + ", Volume: " + Util.DecimalMaxString(volume) + ", Count: " + Util.IntMaxString(count) + 
                 ", WAP: " + Util.DecimalMaxString(WAP));
+
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+
+            dict.Add("Source", "realtimeBar");
+            dict.Add("Time", time.ToString());
+            dict.Add("Open", open.ToString());
+            dict.Add("High", high.ToString());
+            dict.Add("Low", low.ToString());
+            dict.Add("Close", close.ToString());
+            dict.Add("Volume", volume.ToString());
+            dict.Add("Count", count.ToString());
+            dict.Add("WAP", WAP.ToString());
+
+            Request.ProcessRequest(reqId, dict);
+
         }
         //! [realtimebar]
 

@@ -248,6 +248,11 @@ namespace IBKRRealTimeMarketDataApp
         {
             get
             {
+                if (IsDailyBar)
+                {
+                    return RequestFlags.barsize_5secs_flag.ToCustomString();
+                }
+
                 return _barsize.ToCustomString();
             }
 
@@ -359,7 +364,7 @@ namespace IBKRRealTimeMarketDataApp
             // 0b0111_1111_0000_0000_0000_0000_0000_0000    24-31: stock index
 
 
-            requestid =           0b0111_1111_0000_0000_0000_0000_0000_0000,
+            requestid =           0b0111_0000_0000_0000_0000_0000_0000_0000,
 
             putflag   =           0b0000_0000_0001_0000_0000_0000_0000_0000,
             callflag  =           0b0000_0000_0010_0000_0000_0000_0000_0000,
@@ -373,7 +378,12 @@ namespace IBKRRealTimeMarketDataApp
             barsize_1min_flag   = 0b0000_0000_0000_0110_0000_0000_0000_0000,
             barsize_1day_flag   = 0b0000_0000_0000_0111_0000_0000_0000_0000,
 
-            barsize_flag        = 0b0000_0000_0000_1111_0000_0000_0000_0000
+            realtime_bid_flag      = 0b0111_0001_0000_0000_0000_0000_0000_0000,
+            realtime_ask_flag      = 0b0111_0010_0000_0000_0000_0000_0000_0000,
+            realtime_midpoint_flag = 0b0111_0011_0000_0000_0000_0000_0000_0000,
+            realtime_trades_flag   = 0b0111_0100_0000_0000_0000_0000_0000_0000,
+
+            barsize_flag           = 0b0000_0000_0000_1111_0000_0000_0000_0000
         }
 
         public static Dictionary<string, RequestFlags> BarSizes
@@ -392,7 +402,10 @@ namespace IBKRRealTimeMarketDataApp
                 ret.Add("STK", RequestFlags.stockflag);
                 ret.Add("P", RequestFlags.putflag);
                 ret.Add("C", RequestFlags.callflag);
-
+                ret.Add("BID", RequestFlags.realtime_bid_flag);
+                ret.Add("ASK", RequestFlags.realtime_ask_flag);
+                ret.Add("MIDPOINT", RequestFlags.realtime_midpoint_flag);
+                ret.Add("TRADES", RequestFlags.realtime_trades_flag);
                 /* TO DO
                 1 min   
                 2 mins  
@@ -478,9 +491,6 @@ namespace IBKRRealTimeMarketDataApp
             req.processtime = DateTime.Now;
             req.payload.Add(dict);
 
-            if (dict["Source"] != "historicalData")
-                return;
-
             List<string> cols = new List<string> { "[LoadDateTime]", "[Symbol]", "[Date]", "[Time]", "[_Open]", "[_High]",
                     "[_Low]", "[_Close]", "[_Volume]", "[_Count]", "[_WAP]", "[OptionType]", "[_Strike]",
                     "[Expiry]", "[TimeInterval]" };
@@ -546,12 +556,12 @@ namespace IBKRRealTimeMarketDataApp
             }
             */
 
-            if ( datestr != req.requestbegindate )
-            {
-                req.state = RequestState.IGNORE;
-            }
+            //if ( datestr != req.requestbegindate )
+            //{
+            //    req.state = RequestState.IGNORE;
+           // }
 
-            int rowcount = Helper.InsertRecord("LoadLogResponse", cols, vals);
+            // int rowcount = Helper.InsertRecord("LoadLogResponse", cols, vals);
 
             req.LogRequest(true);
         }
@@ -632,6 +642,16 @@ namespace IBKRRealTimeMarketDataApp
 
         public void ExecuteStockRequestSingleDay()
         {
+            if (this.IsRealTime)
+            {
+
+                // RealTimeBars. 9d63d5185cbebedd0abb27c076403fd1
+                // public virtual void realtimeBar(int reqId, long time, double open, double high, double low, double close, decimal volume, decimal WAP, int count)
+
+                clientSocket.reqRealTimeBars(this.requestid, this.contract, 5, RequestFlags.realtime_trades_flag.ToCustomString(), true, null);
+                return;
+            }
+
             // EWrapperImpl.cs --  public virtual void historicalData(int reqId, Bar bar) -- 2b7056397a90732100618619e89c82f5 
             // EWrapperImpl.cs --  public virtual void historicalDataEnd(int reqId, string startDate, string endDate) -- a3dbc45370718d8d6bf9a9ae1b1b8b58
 
@@ -640,68 +660,6 @@ namespace IBKRRealTimeMarketDataApp
             // https://interactivebrokers.github.io/tws-api/historical_bars.html#hd_what_to_show
 
             clientSocket.reqHistoricalData(this.requestid, this.contract, this.requestenddate, "1 D", this.barsize, "TRADES", 1, 1, false, null);
-        }
-
-        public static Request GetStockRequestDailyBar(EClientSocket clientSocket, string symbol, int dayscount = 30, string barsize = "1 day", string sectype="STK", string expirydate = "", double strike = 0, string right = "C")
-        {
-            Action<string> log = Logger.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-            string days = "30 D"; // dayscount.ToString() + " D";
-
-            if (dayscount > 0)
-            {
-                days = dayscount.ToString() + " D";
-            }
-
-            /*
-             
-             1 secs	5 secs	10 secs	15 secs	30 secs
-                1 min	2 mins	3 mins	5 mins	10 mins	15 mins	20 mins	30 mins
-                1 hour	2 hours	3 hours	4 hours	8 hours
-                1 day
-                1 week
-                1 month
-                */
-
-            RequestFlags rf = 0;
-
-            Request req = new Request();
-            req.state = Request.RequestState.ACTIVE;
-            req.symbol = symbol;
-            req.sectype = sectype;
-            req.endCallback = clientSocket.cancelHistoricalData;
-
-            IBApi.Contract contract = new IBApi.Contract();
-
-            if (sectype == "STK")
-            {
-                contract.Symbol = symbol;
-                contract.SecType = "STK";
-                contract.Currency = "USD";
-                contract.Exchange = "SMART";
-            } 
-            else
-            {
-                contract.Symbol = symbol; // "QQQ";
-                contract.SecType = "OPT";
-                contract.Exchange = "SMART";
-                contract.Currency = "USD";
-                contract.LastTradeDateOrContractMonth = expirydate; // DateTime.Today.ToString("yyyyMMdd");
-                contract.Strike = strike;
-                contract.Right = right;
-                contract.Multiplier = "100";
-            }
-
-            // EWrapperImpl.cs --  public virtual void historicalData(int reqId, Bar bar) -- 2b7056397a90732100618619e89c82f5 
-            // EWrapperImpl.cs --  public virtual void historicalDataEnd(int reqId, string startDate, string endDate) -- a3dbc45370718d8d6bf9a9ae1b1b8b58
-
-            // https://interactivebrokers.github.io/tws-api/historical_bars.html
-            // https://interactivebrokers.github.io/tws-api/historical_bars.html#hd_duration
-            // https://interactivebrokers.github.io/tws-api/historical_bars.html#hd_what_to_show
-
-            clientSocket.reqHistoricalData(req.requestid, contract, "", days, barsize, "TRADES", 1, 1, false, null);
-
-            return req;
         }
 
         public void LogRequest(bool update=false)
