@@ -22,7 +22,7 @@ using System.Net.Sockets;
 using System.Linq;
 using Microsoft.Identity.Client;    //required
 
-namespace IBKRRealTimeMarketDataApp
+namespace IBKRHistoricalMarketDataApp
 {
     using System;
     using System.Net.Sockets;

@@ -24,7 +24,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Linq;
 
-namespace IBKRRealTimeMarketDataApp
+namespace IBKRHistoricalMarketDataApp
 {
     public static class CommandControl
     {

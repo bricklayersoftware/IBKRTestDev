@@ -25,7 +25,7 @@ using System.Reflection;
 using System.Linq;
 using static System.Windows.Forms.LinkLabel;
 
-namespace IBKRRealTimeMarketDataApp
+namespace IBKRHistoricalMarketDataApp
 {
     public class MultipleWriter : TextWriter
     {

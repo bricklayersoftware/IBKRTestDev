@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using IBApi;
 
-namespace IBKRRealTimeMarketDataApp
+namespace IBKRHistoricalMarketDataApp
 {
     /*
      * Contracts can be defined in multiple ways. The TWS/IB Gateway will always perform a query on the available contracts

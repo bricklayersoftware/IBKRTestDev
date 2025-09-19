@@ -21,7 +21,7 @@ using System.Net;      //required
 using System.Net.Sockets;
 using System.Linq;    //required
 
-namespace IBKRRealTimeMarketDataApp
+namespace IBKRHistoricalMarketDataApp
 {
     public class OptionsChain
     {

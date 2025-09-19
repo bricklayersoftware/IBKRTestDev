@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using IBApi;
 
-namespace IBKRRealTimeMarketDataApp
+namespace IBKRHistoricalMarketDataApp
 {
     public class EWrapperImpl : EWrapper 
     {

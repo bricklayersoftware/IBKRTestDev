@@ -31,10 +31,10 @@ using System.Security.Cryptography;
 using Azure.Core;
 using static System.Windows.Forms.AxHost;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using static IBKRRealTimeMarketDataApp.Request;
+using static IBKRHistoricalMarketDataApp.Request;
 using System.IdentityModel.Claims;
 
-namespace IBKRRealTimeMarketDataApp
+namespace IBKRHistoricalMarketDataApp
 {
     public static class RequestHelper
     {
@@ -100,7 +100,7 @@ namespace IBKRRealTimeMarketDataApp
         {
             get
             {
-                return IBKRRealTimeMarketDataApp.clientSocket;
+                return IBKRHistoricalMarketDataApp.clientSocket;
             }
         }
 

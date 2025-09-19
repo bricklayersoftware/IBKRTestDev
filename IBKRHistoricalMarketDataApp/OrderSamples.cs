@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using IBApi;
 
-namespace IBKRRealTimeMarketDataApp
+namespace IBKRHistoricalMarketDataApp
 {
     /// <summary>
     /// Make sure to test using only your paper trading account when applicable. A good way of finding out if an order type/exchange combination

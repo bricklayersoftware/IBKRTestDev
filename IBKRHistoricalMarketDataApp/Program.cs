@@ -1,4 +1,4 @@
-/*   IBKRRealTimeMarketDataApp
+/*   IBKRHistoricalMarketDataApp
  *   
  *   execute and process requests by persisting responses in rdbms
  *   rolling 30 day, 1 day bars --> do initial
@@ -33,13 +33,13 @@ using System.Drawing;
 using System.Reflection;
 using System.Linq;
 using static System.Windows.Forms.LinkLabel;
-using static IBKRRealTimeMarketDataApp.ResultSet;
+using static IBKRHistoricalMarketDataApp.ResultSet;
 using System.IdentityModel.Protocols.WSTrust;
 
 
-namespace IBKRRealTimeMarketDataApp
+namespace IBKRHistoricalMarketDataApp
 {
-    public static class IBKRRealTimeMarketDataApp
+    public static class IBKRHistoricalMarketDataApp
     {
         public static EClientSocket clientSocket;
 
@@ -53,157 +53,6 @@ namespace IBKRRealTimeMarketDataApp
             return;
         }
 
-        // populates HistoricalData table with past 30 days of data
-        // grab top 19 stocks from FundHoldings, check table count for
-        // past 30 days, populate as needed
-        // for daily bar on equities, TimeInterval = '1D', Time = ''
-        // symbol x date --> should be the same across all symbols, report otherwise
-        public static void RetrieveDailyBars(int days = 30, int symbolcount = 19, string barlength = "1 day", List<string> symbols = null)
-        {
-            Action<string> log = Logger.GetLogger(MethodBase.GetCurrentMethod().Name);
-
-            log("BEGIN");
-
-            if (symbols == null || symbols.Count == 0)
-            {
-                if (symbolcount < 0)
-                    symbols = (List<string>)Helper.GetQQQSymbols(); //.Take(symbolcount).ToList();
-                else
-                    symbols = (List<string>)Helper.GetQQQSymbols(symbolcount).Take(symbolcount).ToList();
-
-                if (!symbols.Contains("QQQ"))
-                    symbols.Add("QQQ");
-            } else {
-                if (symbolcount < 0)
-                    symbolcount = symbols.Count;
-
-                symbols = symbols.Take(symbolcount).ToList();
-            }
-
-            log("symbols: " + string.Join(",", symbols));
-
-            for (int i = 0; i < symbols.Count; i++)
-            {
-                string symbol = symbols[i];
-                symbol = symbol.Trim().ToUpper();
-
-                // Request stockreq = Request.GetStockRequestDailyBar(clientSocket, i, symbol, days, barlength);
-            }
-
-            log("END");
-
-            return;
-        }
-
-        public static void RetrieveMarketData()
-        {/*
-            Console.WriteLine("RetrieveMarketData :: BEGIN");
-
-            IBApi.Contract contract = new IBApi.Contract();
-            contract.Symbol = "";
-            contract.SecType = "STK";
-            contract.Currency = "USD";
-            contract.Exchange = "SMART";
-
-                IBApi.Contract optcontract = new IBApi.Contract();
-                optcontract.Symbol = contract.Symbol; // "QQQ";
-                optcontract.SecType = "OPT";
-                optcontract.Exchange = "SMART";
-                optcontract.Currency = "USD";
-                optcontract.LastTradeDateOrContractMonth = "20250704"; // DateTime.Today.ToString("yyyyMMdd");
-                optcontract.Strike = 530;
-                optcontract.Right = "P";
-                optcontract.Multiplier = "100";
-
-            List<string> symbols = Helper.GetQQQSymbols(); //  dailybars.Keys.ToList(); // Helper.GetSymbols();
-
-            Dictionary<string, (decimal high, decimal low)> dailybars = Helper.GetQQQDailyBars();
-            Dictionary<(string, string), OptionsChain> optionschain = OptionsChainHelper.GetOptionsChain();
-
-            if (dailybars == null || dailybars.Keys.Count == 0)
-            {
-                throw new Exception("dailybars is not populated");
-            }
-
-            Console.WriteLine("dailybars: " + dailybars.Keys.Count);
-
-            List<string> _symbols = dailybars.Keys.ToList();
-
-            symbols = _symbols.Intersect(symbols).ToList();
-
-            Console.WriteLine("symbols: " + String.Join(", ", symbols.ToArray()));
-
-            int nlim = 20;
-            nlim = symbols.Count < nlim ? symbols.Count : nlim;
-
-            string outstr = "";
-
-            for (int i = 0; i < nlim; i++)
-            {
-                string symbol = symbols[i];
-
-                Console.WriteLine("RetrieveMarketData :: processing symbol " + symbol + " index: " + i);
-
-                OptionsChain putchain = optionschain[(symbol, "P")];
-                OptionsChain callchain = optionschain[(symbol, "C")];
-
-                contract.Symbol = symbol;
-
-                optcontract.Symbol = contract.Symbol;
-
-                decimal high = dailybars[symbol].high;
-                decimal low = dailybars[symbol].low;
-
-
-                int ihigh = (int)Math.Truncate(high) + 1;
-                int ilow = (int)Math.Truncate(low) - 1;
-
-                Console.WriteLine("symbol: " + symbol + " high: " + high.ToString() + " low: " + low.ToString() + " ilow: " + ilow + " ihigh: " + ihigh);
-
-                List<decimal> strikes = putchain.GetStrikes(ilow, ihigh);
-                string exprstr = putchain.GetExpiration("20250714").Item2;
-
-                optcontract.LastTradeDateOrContractMonth = exprstr;
-
-                Console.WriteLine("symbol: " + symbol + " expiry date: " + exprstr);
-
-                Request stockreq = new Request();
-                (int _requestid, outstr) = stockreq.GetStockRequest(i, symbol);
-
-                Console.WriteLine(outstr);
-
-                clientSocket.reqHistoricalData(_requestid, contract, "", "10 D", "1 day", "TRADES", 1, 1, false, null);
-                clientSocket.reqHistoricalData(_requestid, contract, "", "1 D", "5 secs", "TRADES", 1, 1, false, null);
-
-                // clientSocket.reqRealTimeBars((int) _requestid, contract, 5, "TRADES", false, null);
-
-                for (int j = 0; j < strikes.Count; j++)
-                {
-                    decimal strike = strikes[j];
-                    optcontract.Strike = decimal.ToDouble(strike); // .ToString("#.##");
-
-                    var req = stockreq.GetOptionRequest(i, symbol, j, strike, exprstr);
-
-                    (_requestid, outstr) = req.Item1;
-                    Console.WriteLine(outstr);
-
-                    optcontract.Right = "P";
-                    //clientSocket.reqRealTimeBars((int) _requestid, optcontract, 5, "TRADES", true, null);
-                    clientSocket.reqHistoricalData(_requestid, optcontract, "", "1 D", "5 secs", "TRADES", 1, 1, false, null);
-
-
-                    (_requestid, outstr) = req.Item2;
-                    Console.WriteLine(outstr);
-
-                    optcontract.Right = "C";
-                    //clientSocket.reqRealTimeBars(_requestid, optcontract, 5, "TRADES", true, null);
-                    clientSocket.reqHistoricalData(_requestid, optcontract, "", "1 D", "5 secs", "TRADES", 1, 1, false, null);
-
-                }
-
-            }
-            */
-        }
 
         public static void TestIBKR()
         {
