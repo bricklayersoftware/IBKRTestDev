@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\git_dump\\IBKRTestDev\\IBKRHistoricalMarketDataApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRHistoricalMarketDataApp.csproj|g:\\git_dump\\ibkrtestdev\\ibkrhistoricalmarketdataapp\\helpercode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRHistoricalMarketDataApp.csproj|solutionrelative:helpercode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRHistoricalMarketDataApp.csproj|g:\\git_dump\\ibkrtestdev\\ibkrhistoricalmarketdataapp\\request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRHistoricalMarketDataApp.csproj|solutionrelative:request.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRHistoricalMarketDataApp.csproj|g:\\git_dump\\ibkrtestdev\\ibkrhistoricalmarketdataapp\\ibkrtestdevdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRHistoricalMarketDataApp.csproj|solutionrelative:ibkrtestdevdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRHistoricalMarketDataApp.csproj|g:\\git_dump\\ibkrtestdev\\ibkrhistoricalmarketdataapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F54B4AD1-305E-4089-A1A0-FB9EE5A84040}|IBKRHistoricalMarketDataApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Request.cs",
+              "DocumentMoniker": "G:\\git_dump\\IBKRTestDev\\IBKRHistoricalMarketDataApp\\Request.cs",
+              "RelativeDocumentMoniker": "Request.cs",
+              "ToolTip": "G:\\git_dump\\IBKRTestDev\\IBKRHistoricalMarketDataApp\\Request.cs",
+              "RelativeToolTip": "Request.cs",
+              "ViewState": "AgIAAM8BAAAAAAAAAAAcwG8CAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T17:47:07.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IBKRTestDevDB.cs",
+              "DocumentMoniker": "G:\\git_dump\\IBKRTestDev\\IBKRHistoricalMarketDataApp\\IBKRTestDevDB.cs",
+              "RelativeDocumentMoniker": "IBKRTestDevDB.cs",
+              "ToolTip": "G:\\git_dump\\IBKRTestDev\\IBKRHistoricalMarketDataApp\\IBKRTestDevDB.cs",
+              "RelativeToolTip": "IBKRTestDevDB.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAOkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T17:46:04.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HelperCode.cs",
+              "DocumentMoniker": "G:\\git_dump\\IBKRTestDev\\IBKRHistoricalMarketDataApp\\HelperCode.cs",
+              "RelativeDocumentMoniker": "HelperCode.cs",
+              "ToolTip": "G:\\git_dump\\IBKRTestDev\\IBKRHistoricalMarketDataApp\\HelperCode.cs*",
+              "RelativeToolTip": "HelperCode.cs*",
+              "ViewState": "AgIAABYBAAAAAAAAAAAiwBICAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T17:18:51.72Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\git_dump\\IBKRTestDev\\IBKRHistoricalMarketDataApp\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "G:\\git_dump\\IBKRTestDev\\IBKRHistoricalMarketDataApp\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAgwHkAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T13:19:54.281Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
