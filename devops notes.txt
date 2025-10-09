@@ -12,7 +12,8 @@
     
 
     https://dash.cloudflare.com/3550f8ff60445ed113195aaf9705a20f/registrar/register/success
-    sebastianwolf2947@outlook.com
+    sebastianwolf2947@proton.me
+    Hqu!K5893R!zJSA
     broskiboy.com
 
     Microsoft Fabric 
@@ -43,6 +44,7 @@
         52.188.185.179
         ibkrtestdev
         gFSZz27gFSuxN@7
+        
 
         Enter-PSSession -ComputerName 52.188.185.179 -Credential (Get-Credential)
         -- use vm creds to login, might have to 
