@@ -6,7 +6,7 @@
 # https://developer.chrome.com/docs/chromedriver/get-started
 # https://googlechromelabs.github.io/chrome-for-testing/#stable
 
-
+from pathlib import Path  
 import json
 import requests
 import os
@@ -38,6 +38,15 @@ def log(msg):
 
 def is_blank_or_none(s):
     return s is None or (isinstance(s, str) and not s.strip())
+
+def fileexists(fullpath):
+    if os.path.exists(fullpath):
+        if os.path.isfile(fullpath):
+          print(f"The file '{fullpath}' exists.")
+        else:
+          print(f"The file '{fullpath}' exists but is not a file.")
+    else:
+        print(f"The path '{fullpath}' does not exist.")
 
 
 log("---BEGIN---")

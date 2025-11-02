@@ -1,0 +1,40 @@
+
+    Options Notes
+    #############
+    
+    When you buy an exchange-traded option, you are not writing a new contract. The contract is created when an initial seller, 
+    or "writer," creates and sells it to an initial buyer (a "buy-to-open" order).
+
+    The transaction is standardized and facilitated by a clearinghouse, which acts as a central counterparty for all contracts. 
+    
+    The clearinghouse's role
+    
+    Novation: After an options contract is first created, the Options Clearing Corporation (OCC) effectively replaces the original buyer and seller. It becomes the buyer for every seller and the seller for every buyer.
+    Anonymity: This process, known as "novation," removes counterparty risk for individual investors. Instead of being tied to the original seller, the buyer's contract is guaranteed by the OCC.
+    
+    Tradeability: Because the contracts are standardized and guaranteed by a third party, buyers can easily sell their option to a different investor at any point before expiration. You don't have to find the original seller to close your position. 
+    
+    Buy-to-open vs. buy-to-close
+    Your action as a buyer determines whether a new contract is created or an existing one is simply changing hands:
+    
+    Buy-to-open: If you are the first buyer of a new option that a writer has just created, it is considered a "buy-to-open" 
+    transaction. Your purchase increases the total number of outstanding contracts, known as the "open interest".
+    
+    Buy-to-close: If you are buying an option to exit a position you previously sold (as a writer), it is a "buy-to-close" 
+    transaction. This effectively cancels out your outstanding obligation and decreases the total open interest. 
+
+    Exchange-traded options are standardized contracts traded on a public exchange, while over-the-counter (OTC) options are 
+    private, customized contracts negotiated directly between two parties. The primary difference lies in their venue, 
+    standardization, counterparty risk, liquidity, and regulation. 
+        
+    Exchange-traded options
+    Trading venue: Traded on organized, regulated exchanges, like the Chicago Board Options Exchange (Cboe).
+    Standardization: The terms are standardized, including the contract size, expiration dates, and strike prices. This limits customization but ensures liquidity.
+    Counterparty risk: This is significantly reduced because a clearinghouse (like the Options Clearing Corporation) guarantees the contract's fulfillment. The clearinghouse acts as the buyer for every seller and the seller for every buyer.
+    Liquidity and transparency: They are highly liquid due to standardization and the presence of numerous market participants. Prices are publicly available and transparent.
+    Regulation: Subject to strict regulatory oversight, which ensures market integrity and protects investors.
+    Best for: Most retail and institutional investors who need a transparent, liquid, and secure way to trade options. 
+
+
+
+

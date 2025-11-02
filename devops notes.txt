@@ -1,8 +1,14 @@
 
     Test Dev
-    ibkrtestdev3@outlook.com
+    ibkrtestdev3@outlook.com -- ibkrtestdev3@broskiboy.com
+    As1df1gh!
     mar-9-1980
 
+    ssh ibkrtestdevlinuxvm@20.49.14.55
+    As1df1gh!!!!
+    
+    As1df1gh!!
+    
     185.27.134.115
     mycrm31415.infinityfreeapp.com --> https://github.com/bricklayersoftware
     ftpupload.net:21
@@ -10,8 +16,8 @@
     oGUw3VWZfZA
 
     https://us-east-2.console.aws.amazon.com/
-    863394984497
-    sebastianwolf2947@proton.me
+    Account ID: 863394984497
+    IAM username: sebastianwolf2947@proton.me
     'jME&mm2$LeTV@A
     437 860 6054
 

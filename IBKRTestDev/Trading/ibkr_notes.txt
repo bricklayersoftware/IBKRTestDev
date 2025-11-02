@@ -1,0 +1,116 @@
+
+    Git Repos
+    =========
+
+    [ deprecated not in use as of 20250808 ]
+    https://dev.azure.com/bricklayersoftware/ibkrtestdev
+    
+    avlcm@outlook.com
+    sbradf912
+    As1df1gh
+
+
+    https://github.com/bricklayersoftware/mycrm
+    avlcm@outlook.com
+    As1df1gh
+
+
+    [ active as of 20250808 ]
+    https://bricklayersoftware@dev.azure.com/bricklayersoftware/marketdataops/_git/marketdataops
+    aVlCM@outlook.com
+
+
+    IBKR Client Portal Web API
+    ==========================
+    https://www.interactivebrokers.com/campus/ibkr-api-page/cpapi-v1/#run-gw
+    
+    https://interactivebrokers.github.io/cpwebapi/
+    https://interactivebrokers.github.io/tws-api/historical_data.html
+    
+    
+    Client Portal Web API (1.0.0)
+    =============================
+    https://interactivebrokers.com/api/doc.html
+	
+	
+	TWS API
+	#######
+    https://qoppac.blogspot.com/2017/03/historic-data-from-native-ib-pyhon-api.html
+
+	WAP field is "The weighted average price during the time covered by the bar"
+	HistoricalData. 4002 - Time: 2025-05-01    15:59:45    America/New_York, Open: 2291, High: 2291, Low: 2291, Close: 2291, Volume: 1, Count: 1, WAP: 2291
+
+	Tick-by-Tick Data
+	BidAsk, Last, AllLast, MidPoint
+    * AllLast has additional trade types such as combos, derivatives, and average price 
+      trades which are not included in Last
+      
+
+	https://interactivebrokers.github.io/tws-api/tick_data.html
+	
+	EWrapperImpl testImpl
+	
+	Main method:
+	ibkrtestdev\Testbed\RequestContractDetails.cs
+	
+	ibkrtestdev\Testbed\EWrapperImpl.cs
+	    contains all the console.writeline methods for outputting
+	
+	program.cs
+	    Main
+	        new Thread
+	            processMsgs
+
+    ibkrtestdev\CSharpClient\client\EClient.cs	
+	        protected bool useV100Plus = true;
+
+    ibkrtestdev\CSharpClient\client\EDecoder.cs
+        contains all the code needed to read in the byte buffer
+        ReadChar, ReadString
+
+    serverVersion = 176
+
+	ibkrtestdev\CSharpClient\client\EReader.cs
+	    Start
+	        new Thead
+	            putMessageToQueue
+	                readSingleMessage
+	                    msgSize = eClientSocket.ReadInt();
+                        return new EMessage(eClientSocket.ReadByteArray(msgSize));
+
+	    processMsgs
+	       getMsg
+	          ibkrtestdev\CSharpClient\client\EDecoder.cs
+	             ParseAndProcessMsg
+	                ProcessIncomingMessage
+                        switch (incomingMessage)
+                        {
+                            case IncomingMessage.TickPrice:
+                                TickPriceEvent();
+                                break;
+            
+                            case IncomingMessage.TickSize:
+                                TickSizeEvent();
+                                break;
+            
+                            case IncomingMessage.Tickstring:
+                                TickStringEvent();
+                                break;
+            
+                            case IncomingMessage.TickGeneric:
+                                TickGenericEvent();
+                                break;
+            
+                            case IncomingMessage.TickEFP:
+                                TickEFPEvent();
+                                break;
+
+
+	             
+	ibkrtestdev\CSharpClient\client\EDecoder.cs             
+	    ProcessConnectAck
+
+    ibkrtestdev\CSharpClient\client\EDecoder.cs
+        TickPriceEvent
+            incomingMessage == 1 -->    TickPriceEvent()
+        

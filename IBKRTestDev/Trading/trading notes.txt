@@ -1,0 +1,78 @@
+
+Open Interest
+An opening option transaction increases that option’s open interest.
+    call options, "buy to open" establishes a long position, 
+            while "sell to open" (also known as writing a call) establishes a short position.
+
+    put options, "buy to open" establishes a long position, and 
+                 "sell to open" establishes a short position
+
+
+NBBO
+https://www.investopedia.com/terms/n/nbbo.asp
+
+
+https://ibkrcampus.com/campus/ibkr-quant-news/ibkr-market-data-from-real-time-bars-to-ticks/
+
+https://carpenterwellington.com/post/nyse-nasdaq-key-similarities-differences/#:~:text=NYSE%20as%20Auction%20Market%3B%20NASDAQ,and%20sell%20from%20each%20other.
+
+The NYSE is owned, as of July 2022, by Intercontinental Exchange (ICE), which bought it for about $11 billion in 2013.
+
+The NYSE is an auction market while NASDAQ is a dealer market.
+
+Acts as a Broker (or Agent):
+When a brokerage executes orders on behalf of its clients, buying or selling securities for them, it's acting as a broker. 
+
+Acts as a Dealer (or Principal):
+When a brokerage trades for its own account, buying and selling securities to make a profit, it's acting as a dealer. 
+
+Facilitates Trading:
+Broker-dealers help connect buyers and sellers of securities in the market. 
+
+Market Makers:
+On Nasdaq, many broker-dealers serve as market makers, continually updating their bid (what they're willing to buy for) and ask (what they're willing to sell for) prices. 
+
+Nasdaq and Broker-Dealers:
+
+    Dealer Market:
+    Nasdaq is a dealer market, meaning that trading happens electronically, with many dealers competing to provide prices for securities. 
+
+    Market Makers:
+    The broker-dealers who act as market makers on Nasdaq are essential to the market's liquidity and efficient operation. 
+
+    Regulation:
+    Broker-dealers operating on Nasdaq are subject to regulation by the Financial Industry Regulatory Authority (FINRA), a self-regulatory organization. 
+
+    In essence, broker-dealers are the firms and individuals that make the Nasdaq market function, by buying and selling securities, and by providing liquidity and prices for investors. 
+
+
+https://interactivebrokers.github.io/tws-api/tick_data.html
+
+Market Data Explained: A Practical Guide to Global Capital Markets Information. (The Elsevier and Mondo Visione World Capital Markets) - Marc Alvarez
+Managing Financial Information in the Trade Lifecycle - Groot
+
+
+Trading Files under Git
+https://dev.azure.com/bricklayersoftware/_git
+aVlCM@outlook.com 
+As1df1gh!
+
+
+ISIN is a 12-digit code most commonly used throughout the world to identify stocks 
+and bonds. ISIN is an acronym for International Securities Identification Number. 
+
+ISINs are most commonly used for public listings and IPOs and are a requirement 
+for most stock exchanges worldwide.
+
+In stocks, "ARCA" refers to the NYSE Arca, an electronic securities exchange where 
+stocks and options are traded. It was previously known as Archipelago Exchange 
+(ArcaEX) and merged with the New York Stock Exchange (NYSE) in 2006. NYSE Arca 
+now operates as a subsidiary of the NYSE Group. 
+
+https://pitchbook.com/profiles/company/570822-76#overview
+
+OHLC stands for Open-High-Low-Close, and it's a common way to visually represent 
+price movements of a financial instrument over time. Each vertical line on an OHLC 
+chart shows the price range (high and low) and the opening and closing prices for 
+a specific period (e.g., one day or one hour). 
+
