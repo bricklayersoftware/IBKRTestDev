@@ -1,0 +1,16 @@
+	
+	https://data.bls.gov/timeseries/CES5000000001?amp%253bdata_tool=XGtable&output_view=data&include_graphs=true		
+
+	https://www.reveliolabs.com/news/
+	
+	https://creastats.crea.ca/mls/treb-market-conditions
+	
+	In 2021, the top 10% of earners (making at least $170,000) paid $1.7 trillion in federal income tax, which was almost 
+	76% of all income tax collected.
+
+	https://fiscaldata.treasury.gov/americas-finance-guide/government-revenue/
+	
+	Federal income tax is heavily concentrated at the top of the income scale, with the top 1% of earners paying the 
+	largest share of total federal income tax. In 2021, the top 10% of earners paid about 76% of all federal income 
+	taxes, while the top 50% paid nearly 98%. The top 1% paid 45.8% of all individual income taxes in 2023, and a high-income 
+	group with an Adjusted Gross Income (AGI) between $100,000 and $1 million paid about 54% of the total in 2020.
