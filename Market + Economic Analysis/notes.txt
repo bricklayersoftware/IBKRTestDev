@@ -14,3 +14,15 @@
 	largest share of total federal income tax. In 2021, the top 10% of earners paid about 76% of all federal income 
 	taxes, while the top 50% paid nearly 98%. The top 1% paid 45.8% of all individual income taxes in 2023, and a high-income 
 	group with an Adjusted Gross Income (AGI) between $100,000 and $1 million paid about 54% of the total in 2020.
+	
+	The SS&C GlobeOp Forward Redemption Indicator is a monthly report from SS&C Technologies that measures the percentage of 
+	investor redemption notices received for hedge funds on its platform. It serves as a gauge of investor sentiment, with a 
+	higher percentage indicating more investors are preparing to pull their money out. The indicator is calculated as the sum 
+	of forward redemption notices divided by the assets under administration and is published on the 15th business day of the 
+	month. 
+
+	https://www.livemint.com/opinion/online-views/jerome-powell-us-k-shaped-economy-fed-policies-federal-reserve-monetary-policy-rate-11762572867036.html
+	
+	https://www.morganstanley.com/insights/articles/k-shaped-economy-investor-guide-2025#:~:text=Understanding%20the%20'K%2DShaped'%20Economy&text=Currently%20the%20top%2040%25%20of,nearly%2085%25%20of%20America's%20wealth.
+	
+	
